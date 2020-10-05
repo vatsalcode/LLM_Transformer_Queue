@@ -14,7 +14,7 @@
 
 -Try to add detailed description of what you did, add corresponding links, if you solve questions, you can add your codes in the same folder and provid a link in the README (not for active contests).
 
--We start the marathon on January 1, 2020. feel free to add your goals beforehand (they can also be added later).
+-We start the marathon on November 1, 2020. feel free to add your goals beforehand (they can also be added later).
 
 # Benefits
 -Coding will become a daily habit for you.
