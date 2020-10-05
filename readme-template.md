@@ -2,7 +2,7 @@
 
 Your Name
 
-Yeas(eg:- final,pre-final,2nd year) Branch, MNIT Jaipur
+Yeas(eg:- final,pre-final,2nd year) Branch, college name
 
 # Goals
 Eg. Copetitive Programming
