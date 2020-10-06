@@ -50,14 +50,14 @@ Basic git:
 
 
 # How to participate
--Fork the repository.
+-Fork the repository,and clone it to your local machine
 
--In your fork, make a folder by the name of your github account.
+-In your cloned repo, make a folder by the name of your github account.
 
 -In your folder, make a file with the name README.md
 
 -We have also provided a template which you can follow to set up README.md
 
--Update the progress in your README and submit a pull request.
+-Update the progress in your README according to date and submit a pull request.
 
 -If you need more clarification, feel free to reach us at Whatsapp.
