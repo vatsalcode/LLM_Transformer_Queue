@@ -35,20 +35,29 @@
 
 # Recognition
 -You will be provided with certificates on successful completiton of 100DaysOfCode.
+
 -A big surprise for the overall top performers in 100DaysOfCode.
 
 # Pre-requisites
 Markdown:
--You need to update your README in Markdown (a lightweight markup language with plain text formatting syntax). No need to learn it you can always refer to the guide or use an online markdown editor.
+-You need to update your README in Markdown (a lightweight markup language with plain text formatting syntax).
+
+No need to learn it you can always refer to the guide or use an online markdown editor.
 
 Basic git:
+
 -Basic knowledge of git and its workflow is a must. If you are not comfortable, feel free to ask for help.
 
 
 # How to participate
 -Fork the repository.
+
 -In your fork, make a folder by the name of your github account.
+
 -In your folder, make a file with the name README.md
+
 -We have also provided a template which you can follow to set up README.md
+
 -Update the progress in your README and submit a pull request.
+
 -If you need more clarification, feel free to reach us at Whatsapp.
