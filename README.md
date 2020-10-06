@@ -1,5 +1,5 @@
 
 # vinayak raj 
-# 100daysofcode
-*learn c++ data structures and practice various algorithms
-*competitive programming 
+# #100daysofcode
+*learn c++ data structures and competitive programming 
+*
