@@ -1,4 +1,4 @@
 GOALS:
-CP
-5 Star in CodeChef
-DSA 
+(1)CP
+(2)5 Star in CodeChef
+(3)DSA 
