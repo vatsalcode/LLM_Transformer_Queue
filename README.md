@@ -1,5 +1,4 @@
-
+readme.md
 # vinayak raj 
-# #100daysofcode
-*learn c++ data structures and competitive programming 
-*
+  1.*learn c++ data structures and competitive programming 
+
