@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+
+class Buckysclass{
+    public:
+    void coolSaying(){
+        cout<<"Preachin to the choir"<<endl;
+    }
+};
+int main()
+{
+    Buckysclass buckysObject;
+    buckysObject.coolSaying();
+    return 0;
+}
