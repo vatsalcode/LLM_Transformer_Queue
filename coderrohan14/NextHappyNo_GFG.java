@@ -1,4 +1,10 @@
- 
+/***
+	Author - coderrohan14
+	GFG problem link - https://practice.geeksforgeeks.org/problems/next-happy-number4538/1/?problemStatus=solved&page=1&query=problemStatussolvedpage1 
+***/
+
+
+
 import java.lang.*;
 import java.io.*;
 class GFG
