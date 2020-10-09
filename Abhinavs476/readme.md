@@ -25,3 +25,4 @@ int main() {
 	}
 	return 0;
 }
+Day 4: Studied linked list and stack, practiced theoretical questions online to clear the basics
