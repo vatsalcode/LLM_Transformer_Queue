@@ -8,3 +8,4 @@ Complete multiple projects based on Data and Machine learning
 Coding within a time frame
 
 Today's Progres: Learned about IPython and started studying data analytics using Python
+Day2: Completed Basics of Ipython, Data Structures(in python), Numpy(Arrays and vectorization computation)
