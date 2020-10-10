@@ -1,4 +1,5 @@
-# vaibhav123v
+# 100 days of code
+
 100DaysOfCode is a challenge/community, where you publicly commit to code for 1 hour for the next 100 days.
 
 # Rules
