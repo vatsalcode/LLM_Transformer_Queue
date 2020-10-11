@@ -1,0 +1,33 @@
+/* Problem code-HOWMANY
+CodeChef Practice Question 
+Submission by kashish_ag*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int digit,count,n;
+	cin>>n;
+	count=0;
+	while(n>0){
+	    digit=n%10;
+	    count++;
+	    n=n/10;
+	}
+	switch(count){
+	    case 1:
+	        cout<<1;
+	        break;
+	   case 2:
+	    cout<<2;
+	    break;
+	   case 3:
+	    cout<<3;
+	    break;
+	   default:
+	   cout<<"More than 3 digits";
+	   	}
+	
+	return 0;
+}
