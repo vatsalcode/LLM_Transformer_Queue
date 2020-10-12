@@ -57,3 +57,24 @@ int main() {
     }
 	return 0;
 }
+Day 6: 11/10/2020: Did practice questions on codechef
+  							Question: How much Scholarship, Problem Code: ZCOSCH
+#include <iostream>
+using namespace std;
+
+int main() {
+	long int r;
+	int s=0;
+	cin>>r;
+	if(r>=1 && r<=50)
+	{
+	    s =100;
+	}
+	else if(r>=51 && r<=100)
+	{
+	    s = 50;
+	}
+	cout<<s;
+	return 0;
+	
+}
