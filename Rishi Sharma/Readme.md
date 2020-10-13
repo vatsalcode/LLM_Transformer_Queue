@@ -8,3 +8,7 @@
 ## Day 3 (09-10-2020)
    1. STL in C++ [Vectors and Sets].
    2. Continue ML
+## Day 4 (13-10-2020)
+   1. Continue ML
+   2. Update exisiting repo
+   
