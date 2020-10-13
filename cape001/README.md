@@ -11,3 +11,5 @@ Today's Progres: Learned about IPython and started studying data analytics using
 Day2: Completed Basics of Ipython, Data Structures(in python), Numpy(Arrays and vectorization computation)
 
 Day3: Learned about how to read csv file, cleaning data according to our requirement using regular expressions(regexes), and modifying it to get the desired output.
+
+Day4: Mined 3 data sets using regular expressions in python getting desired output.
