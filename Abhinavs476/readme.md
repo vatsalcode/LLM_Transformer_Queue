@@ -78,3 +78,22 @@ int main() {
 	return 0;
 	
 }
+Day 7: 12/10/2020: Did practice questions on codechef
+  							Question: Finding Square Roots, Problem Code: FSQRT
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	for(int i=0;i<t;i++)
+	{
+	    int n,sq;
+	    cin>>n;
+	    sq = sqrt(n);
+	    cout<<sq<<endl;
+	}
+	return 0;
+}
