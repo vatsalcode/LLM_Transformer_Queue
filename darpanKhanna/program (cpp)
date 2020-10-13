@@ -1,0 +1,12 @@
+#include <iostream>
+
+using namespace std;
+int tuna=69;
+
+int main()
+{
+    cout<<tuna<<endl;
+}
+void bucky(){
+    cout<<tuna<<endl;
+}
