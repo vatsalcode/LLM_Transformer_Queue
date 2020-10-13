@@ -78,3 +78,4 @@ int main() {
 	return 0;
 	
 }
+Day 8: 13/10/2020: Did DS questions on E-lab
