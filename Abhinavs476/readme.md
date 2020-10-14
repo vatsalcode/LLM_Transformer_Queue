@@ -79,7 +79,7 @@ int main() {
 	
 }
 
-Day 8: 13/10/2020: Did DS questions on E-lab
+
 Day 7: 12/10/2020: Did practice questions on codechef
   							Question: Finding Square Roots, Problem Code: FSQRT
 #include <iostream>
@@ -99,4 +99,5 @@ int main() {
 	}
 	return 0;
 }
-
+Day 8: 13/10/2020: Did DS questions on E-lab
+Day 9: 14/10/2020: Did redstone changes in data pack
