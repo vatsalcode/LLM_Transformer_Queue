@@ -1,0 +1,44 @@
+/* Problem code-SNCKYEAR
+CodeChef */
+#include<iostream>
+using namespace std;
+int main() {
+	// your code goes here
+	int t,n;
+	int a[5]={2010,2015,2016,2017,2019};
+	cin>>t;
+	int flag=0;
+	if(t>=1 && t<=10){
+	    for(int i=1;i<=t;i++){
+	         cin>>n;
+	         if(n>=2010 and n<=2019){
+	             flag=0;
+	             for(int j=0;j<5;j++){
+	                 if(a[j]==n){
+	                     flag=1;
+	                     break;
+	                 }
+	                 
+	             }
+	             if(flag==1){
+	                 cout<<"HOSTED"<<endl;
+	             }
+	             else{
+	                 cout<<"NOT HOSTED"<<endl;
+	             }
+	             
+	             
+	        
+	       }
+	       else{
+	            return NULL;
+	       }
+	        
+	    }
+	   
+	}
+	else{
+	    return NULL;
+	}
+	return 0;
+}

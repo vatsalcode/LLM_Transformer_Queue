@@ -25,10 +25,10 @@ int main() {
 	}
 	return 0;
 }
-Day 4: 9/10/2020: Studied linked list and stack, practiced theoretical questions online to clear the basics
-Day 5: 10/10/2020: Did practice questions on codechef
+#Day 4: 9/10/2020: Studied linked list and stack, practiced theoretical questions online to clear the basics
+#Day 5: 10/10/2020: Did practice questions on codechef
 
-                                                   Question: Chef and Price Control, Problem Code: PRICECON
+                                                #Question: Chef and Price Control, Problem Code: PRICECON
 #include <iostream>
 using namespace std;
 
@@ -57,8 +57,8 @@ int main() {
     }
 	return 0;
 }
-Day 6: 11/10/2020: Did practice questions on codechef
-  							Question: How much Scholarship, Problem Code: ZCOSCH
+#Day 6: 11/10/2020: Did practice questions on codechef
+  							#Question: How much Scholarship, Problem Code: ZCOSCH
 #include <iostream>
 using namespace std;
 
@@ -78,4 +78,25 @@ int main() {
 	return 0;
 	
 }
+
 Day 8: 13/10/2020: Did DS questions on E-lab
+Day 7: 12/10/2020: Did practice questions on codechef
+  							Question: Finding Square Roots, Problem Code: FSQRT
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	for(int i=0;i<t;i++)
+	{
+	    int n,sq;
+	    cin>>n;
+	    sq = sqrt(n);
+	    cout<<sq<<endl;
+	}
+	return 0;
+}
+

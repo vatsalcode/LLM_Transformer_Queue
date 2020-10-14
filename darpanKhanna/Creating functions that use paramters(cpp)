@@ -1,0 +1,11 @@
+#include<iostream>
+using namespace std;
+ void printCrap(int x){
+     cout<<"Bucky's fav number is "<<x<<endl;
+     }
+ 
+ int main()
+ {
+  printCrap(30);
+   return 0;
+ }

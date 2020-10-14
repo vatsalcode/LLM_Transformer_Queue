@@ -1,0 +1,38 @@
+/* question code-CHOPRT 
+CODECHEF Question*/ 
+#include <iostream>
+using namespace std;
+
+int main() {
+// your code goes here
+int a,b,t,i;
+cin>>t;
+if(t<=10000 and t>=1){
+    
+    
+   
+   for(i=1;i<=t;i++){
+       cin>>a>>b;
+       if(a>=1 and a<=100000000 and b>=1 and b<=100000000 ){
+           if(a>b){
+               cout<<">"<<endl;
+           }
+           else if(a<b){
+               cout<<"<"<<endl;
+           }
+           else{
+               cout<<"="<<endl;
+           }
+       }
+       else{
+           return NULL;
+       }
+   }
+}
+else{
+   return NULL;
+}  
+
+
+return 0;
+}

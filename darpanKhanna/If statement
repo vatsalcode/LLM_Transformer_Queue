@@ -1,0 +1,12 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int x=10;
+    if(x!=90){
+        cout<<"Omg i am preggy"<<endl;
+    }
+
+    return 0;
+}
