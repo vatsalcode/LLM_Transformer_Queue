@@ -1,0 +1,10 @@
+#include <iostream>
+
+using namespace std;
+int tuna=69;
+
+int main()
+{
+   int tuna=20;
+   cout<<::tuna<<endl;
+}
