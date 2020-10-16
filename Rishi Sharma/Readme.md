@@ -13,3 +13,6 @@
    2. Update exisiting repo
 ## Day 5 (15-10-2020)
    1. Continue ML
+## Day 6 (16-10-2020)
+   1. Continue ML
+   2. Portfolio
