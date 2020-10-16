@@ -123,3 +123,29 @@ int main() {
 
 	return 0;
 }
+Day 11: 16/10/2020: Did practice questions on codechef
+  							Question:That is my Score!, Problem Code:WATSCORE
+#include <iostream>
+using namespace std;
+int main(){
+int t;
+cin>>t;
+	while(t--){
+		int n;
+		cin>>n;
+		int a[12]={0};
+		while(n>0){
+			int i,s;
+			cin>>i>>s;
+			if(s>a[i]){
+				a[i]=s;
+			}
+			--n;
+		}
+		int sum=0;
+		for(int i=1; i<9; ++i){
+			sum+=a[i];
+		}
+		cout<<sum<<endl;
+	}
+}
