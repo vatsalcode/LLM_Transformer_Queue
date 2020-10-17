@@ -149,3 +149,25 @@ cin>>t;
 		cout<<sum<<endl;
 	}
 }
+Day 12: 17/10/2020: Did practice questions on codechef
+  							Question:First and last digit, Problem Code:FLOW004
+#include <iostream>
+using namespace std;
+
+int main() {
+	int n;
+	cin>>n;
+	for(int i=0;i<n;i++)
+	{
+	    int t,last,sum=0;
+	    cin>>t;
+	    last = t%10;
+	    while(t>9)
+	    {
+	        t=t/10;
+	    }
+	    sum = t+last;
+	    cout<<sum<<endl;
+	}
+	return 0;
+}
