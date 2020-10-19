@@ -1,0 +1,9 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int bucky[5]={4,77,2,86,39};
+    cout<<bucky[2]<<endl;
+}
