@@ -179,3 +179,4 @@ Day 17: 22/10/2020: Did OOPS questions on E-lab
 Day 18: 23/10/2020: Did codecchef practice questions
 Day 19: 24/10/2020: Did oops Elab
 Day 20: 25/10/2020: Installed Flutter and android studio
+Day 21: 26/10/2020: Made first app on flutter
