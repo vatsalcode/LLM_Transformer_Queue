@@ -1,0 +1,9 @@
+def is_even_list(numbers):
+    for num in numbers:
+        if num%2==0:
+           return True
+        else:
+           pass
+        return False
+        
+is_even_list([1,2,3,5])
