@@ -1,0 +1,33 @@
+right=0
+wrong=0
+total_questions=2
+print("Trivia Game")
+
+#q1
+print("1) Where is Eiffel Tower located?\n")
+print("a.Delhi\nb.Paris\nc.USA")
+answer=input('')
+if answer=='b':
+    print("The answer is correct")
+    right+=1 
+else:
+    print("The answer is wrong")
+    wrong+=1 
+    print("\n")
+    
+#q2
+print("2)What is the capital of France?\n")
+print("a.Paris\nb.Delhi\nc.Ottawa")
+answer=input('')
+if answer=='a':
+    print("The answer is correct")
+    right+=1 
+else:
+    print("The answer is wrong")
+    wrong+=1 
+    print("\n")
+    
+print("The correct answers are:- ",right)
+print("The wrong answers are:- ",wrong)
+final_score=(right/total_questions)*100
+print("Your final score is",final_score)
