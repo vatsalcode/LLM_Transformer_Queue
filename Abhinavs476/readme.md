@@ -183,4 +183,4 @@ Day 21: 26/10/2020: Made first app on flutter
 Day 22: 27/10/2020: Continued flutter
 Day 23: 28/10/2020: Did 20 DS questions
 Day 24: 29/10/2020: Did Elab DS
-Day 30: 30/10/2020: Did Elab DS
+Day 25: 30/10/2020: Did Elab DS
