@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define FIO ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+
+int factorial(int num)
+{
+    int i,fact=1;
+    for(i=2;i<=num;i++)
+    {
+        fact*=i;
+    }
+    return fact;
+}
+    
+int main()
+{
+    int n,c,r;
+    cin>>n;
+     for(r=0;r<n;r++)
+     {
+         for(c=0;c<=r;c++)
+         {
+             cout<<" ";
+             cout<<factorial(r)/(factorial(r-c)*factorial(c));
+         }
+         cout<<"\n";
+     }
+
+      
+
+    return 0;
+}
