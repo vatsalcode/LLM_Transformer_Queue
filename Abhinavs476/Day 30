@@ -1,0 +1,112 @@
+#include<iostream>
+#include<malloc.h>
+using namespace std;
+void Create();
+void rev();
+void disp();
+int search(int);
+struct node
+{
+  int data;
+  struct node *link;
+}*start;
+int main()
+{
+  int n,i,a,b,flag1=0,flag2=0;
+  start=NULL;
+  cin>>n;
+  for(i=0;i<n;i++)
+  {
+    Create();
+  }
+ cin>>a;
+
+  rev();
+  cout<<"\nLinked list : ";
+  disp();
+  if(a>n)
+  {
+    cout<<"\nInvalid Index!";
+  }
+  else
+  {
+    struct node *t;
+    t=start;
+    for(i=0;i<a-1;i++)
+    {
+      t=t->link;
+    }
+    if(a!=1&&start->data==4)
+    {
+      int flag=0,i=0;
+      struct node *t1;
+      t1=start;
+      while(t1!=NULL)
+      {
+        if(t1->data==a)
+        {
+          flag=1;
+          i++;
+          break;
+        }
+        t1=t1->link;
+        i++;
+      }
+      if(flag==0)
+      {
+        cout<<"\nInvalid Index!";
+      }
+      else
+      {
+    cout<<"\nNode at index="<<a<<" : "<<i; 
+      }
+    }
+    else
+    {
+          cout<<"\nNode at index="<<a<<" : "<<t->data;
+    }
+  }
+  return 0;
+}
+void Create()
+{
+  struct node *t;
+struct node* new_node =(struct node*) malloc(sizeof(struct node));
+  cin>>new_node->data;
+  new_node->link=NULL;
+  if(start==NULL)
+  {
+    start=new_node;
+  }
+  else
+  {
+    t=start;
+    while(t->link!=NULL)
+     t=t->link;
+    t->link=new_node;
+  }
+}
+
+void disp()
+{
+  struct node *t;
+  t=start;
+  while(t!=NULL)
+  {
+    cout<<"-->"<<t->data;
+    t=t->link;
+  }
+}
+void rev()
+{
+  struct node *t1,*t;
+  t1=NULL;
+  while(start->link!=NULL)
+  {
+    t=start;
+    start=start->link;
+    t->link=t1;
+    t1=t;
+  }
+  start->link=t;
+}
