@@ -1,0 +1,40 @@
+Diffrence in Printing string using "cin" and "getline"
+
+ 
+Using "cin"
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	string name;
+	cin>>name;
+	cout<<"Hello "<<name;
+}
+
+
+
+Input:  Arun Kumar
+
+Output: Hello Arun
+
+
+
+
+
+Using "getline"
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	string name;
+	getline(cin,name);
+	cout<<"Hello "<<name;
+}
+
+
+
+Input:  Arun Kumar
+
+Outut: Hello Arun Kumar
