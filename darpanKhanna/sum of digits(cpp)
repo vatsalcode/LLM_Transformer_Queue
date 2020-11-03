@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int T;
+	cin>>T;
+	for(int i=0; i<T; i++){
+	    int num;
+	    cin>>num;
+	    
+	    int rem;
+	    int sum = 0;
+	    while(num>0){
+	        rem = num%10;
+	        sum += rem;
+	        num /= 10;
+	    }
+	    
+	    cout<<sum<<endl;
+	}
+	return 0;
+}
