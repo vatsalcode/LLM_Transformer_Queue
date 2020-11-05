@@ -1,0 +1,44 @@
+CodeChef  Problem Code:-  LUCKFOUR
+
+#include <stdio.h>
+
+int main(void) 
+{int T, n , digit;
+ scanf("%d", &T);
+ for(int i=0; i<T; i++) 
+ {int count = 0;
+  scanf("%d", &n);
+    while(n > 0) 
+	    {
+	        digit = n % 10;
+	        if(digit == 4) 
+	        {
+	            count++;
+	         }
+	        n /= 10;
+	     }
+	 printf("%d\n", count);
+  }
+ return 0;
+}
+
+
+
+
+
+CodeChef  Problem Code:-  FLOW002
+
+#include <bits/stdc++.h> 
+
+using namespace std;
+
+int main() 
+{int T,a,b,r;
+ cin>>T;
+ for(int i=0;i<T;i++)
+    {cin>>a>>b;
+        r=a%b;
+     cout<<r<<endl;
+    }
+    return 0;
+}
