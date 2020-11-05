@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    int i,j,k,l,n,m;
+    for(i=0;i<t;i++)
+    {
+        char a;
+        cin>>a;
+        if(a=='B'||a=='b')
+        {
+            cout<<"BattleShip"<<endl;
+        }
+        else if(a=='C'||a=='c')
+        {
+            cout<<"Cruiser"<<endl;
+        }
+        else if(a=='D'||a=='d')
+        {
+            cout<<"Destroyer"<<endl;
+        }
+        else if(a=='F'||a=='f')
+        {
+            cout<<"Frigate"<<endl;
+        }
+    }
+}
