@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	
+	int x;
+	cin>>x;
+	while(x-->0){
+	int l,f,N,sum=0;
+	cin>>N;
+	l=N%10;
+	while(N>=10){
+	  N=N/10;
+	}
+	cout<<l+N<<"\n";
+	}
+
+	return 0;
+}
