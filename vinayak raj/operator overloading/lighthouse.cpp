@@ -20,7 +20,7 @@ public:
 int main()
 {
     time t;
-    float a=3;
+    int a=3;
     t.operator >>(a);
     t.operator <<(a);
 
