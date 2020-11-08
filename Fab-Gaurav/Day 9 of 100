@@ -1,3 +1,66 @@
+
+
+
+  #include <iostream>
+  #include <string>
+  #include <sstream>
+  using namespace std;
+  int main() {
+  string a;
+  getline(cin,a,':');
+  float f;
+  cin >> f;
+  stringstream my_stream(ios::in|ios::out);
+  my_stream << a;
+  my_stream.seekg(-7,ios::end);
+  std::string dat(a);
+  cout << "I have a double : " << f*f;
+  return 0;
+  }
+  
+  
+  
+
+
+
+  
+  #include <iostream>
+  using namespace std;
+  class Sports  
+  {
+    public:
+    virtual void getdata();
+    virtual void display();
+  };
+  void Sports::getdata()
+    {}
+    void Sports::display()
+    {}
+  class Student:public Sports
+  {
+    private:
+    long roll;
+    string name;
+    public:
+    void getdata()
+    {
+    cin>>roll>>name;
+    }
+    void display()
+    {
+    cout<<"Student Name is: "<<name;
+    cout<<"\nStudent Roll no is: "<<roll;
+    }
+  };
+    int main() {
+    Student o;
+    o.Student::getdata();
+    o.Student::display(); 
+    return 0;
+  }
+
+
+
 Q1)
 
 #include <iostream>
@@ -29,7 +92,7 @@ int main() {
 
 
 
-Q2)
+
 
 #include <iostream>
 using namespace std;
@@ -108,3 +171,4 @@ int main() {
   }
  return 0;
 }
+
