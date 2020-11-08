@@ -1,0 +1,47 @@
+#include<stdio.h>
+
+void printArray(int arr[], int n)
+{
+  int i;
+  printf("Sorted Array:");
+  for(i=0; i<n; i++)
+  {
+   printf("%d ",arr[i]);
+  }
+  printf("\n");
+}
+
+void InSort(int arr[], int n)
+{
+  int step, i;
+  for(step=1; step<n; step++)
+  {
+   int key = arr[step];
+   int j=step-1;
+   while(key<arr[j] && j>=0)
+   {
+     arr[j+1] = arr[j];
+     --j;
+   }
+   arr[j+1]=key;
+   if(step==2)
+   {
+     for(i=0;i<n;i++)
+       printf("%d ",arr[i]);
+   }
+  }
+  printf("\n");
+}
+
+int main()
+{
+  int data[30], i, n;
+  scanf("%d",&n);
+  for(i=0;i<n;i++)
+  {
+    scanf("%d",&data[i]);
+  }
+  InSort(data, n);
+  printArray(data, n);
+  return 0;
+}
