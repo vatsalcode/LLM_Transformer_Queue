@@ -1,0 +1,23 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    double q1,quality,price,total;
+    cin>>n;
+    while(n--){
+        std::cin>>quality>>price;
+        if(quality>1000){
+           q1=quality-(quality*0.1);
+           total=q1*price;
+           cout<<fixed<<setprecision(6)<<total<<endl;
+        }
+        else{
+        total=quality*price;
+        cout<<fixed<<setprecision(6)<<total<<endl;
+    }
+}
+}
+
