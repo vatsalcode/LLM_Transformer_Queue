@@ -1,0 +1,19 @@
+#include <iostream>
+#include<algorithm>
+#include<cstring>
+using namespace std;
+
+int main()
+{
+    int t,rect[4],edge,len,a,b,c,d;
+    cin>>t;
+    while(t--){
+        for(edge=0;edge<4;edge++)
+            cin>>rect[edge];
+            sort(rect,rect+4);
+            if (rect[0]==rect[1]&&rect[2]==rect[3])cout<<"YES"<<endl;
+            else cout<<"NO"<<endl;
+            
+        
+    }
+}
