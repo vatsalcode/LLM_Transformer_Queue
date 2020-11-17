@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int L,B,area,peri;
+    cin>>L>>B;
+    area=L*B;
+    peri=2*(L+B);
+    if(area>peri){
+      cout<<"Area"<<endl;
+      cout<<"Peri"<<endl;
+    }
+    else if(area<peri){
+        cout<<"Peri"<<endl;
+        cout<<peri<<endl;
+    }
+    else if(area==peri){
+        cout<<"Eq"<<endl;
+        cout<<area<<endl;
+    }
+}
