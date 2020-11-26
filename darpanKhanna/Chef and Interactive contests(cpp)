@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+int main(){
+    int n,r;
+    cin>>n>>r;
+    while(n--){
+        int a;
+        cin>>a;
+        if(a>=r)
+        cout<<"Good boi"<<endl;
+        else
+        cout<<"Bad boi"<<endl;
+        
+    }
+    
+}
