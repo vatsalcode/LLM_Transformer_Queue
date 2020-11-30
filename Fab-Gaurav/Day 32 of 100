@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    
+	    
+	    int ar[n];
+	    int pre[n+1];
+	    
+	    
+	    for(int i=0;i<n;i++)
+	    {
+	        cin>>ar[i];
+	       
+	    }
+	  //  pre[-1]=0;
+	    pre[0]=ar[0];
+	    
+	     for(int i=1;i<n;i++)
+	    {
+	       
+	        pre[i]=pre[i-1]+ar[i];      
+	       
+	    }
+	   
+	  
+	    int q;
+	    cin>>q;
+	    
+	    while(q--)
+	    {
+	        int a,b;
+	        cin>>a>>b;
+	        if(a==1)
+	         cout<<pre[b-1]<<endl;
+	        else
+	        cout<<pre[b-1]-pre[a-2]<<endl;
+	    }
+	}
+	return 0;
+}
