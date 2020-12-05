@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int T;
+    cin>>T;
+    while(T--)
+    {
+        int N;
+        cin>>N;
+        string S;
+        cin>>S;
+        int i=0;
+        if(N%2==0)
+        {
+            while(i<N)
+            {
+                char temp=S[i+1];
+                S[i+1]=S[i];
+                S[i]=temp;
+                i+=2;
+            }
+        }else
+        {
+            i=0;
+            while(i<N-1)
+            {
+                char temp=S[i+1];
+                S[i+1]=S[i];
+                S[i]=temp;
+                i+=2;
+            }
+        }
+        for(int i=0;i<N;i++)
+        {
+            int a='z'-S[i];
+            S[i]='a'+a;
+        }
+        cout<<S<<endl;
+    
+        }
+
+    return 0;
+}
