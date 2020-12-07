@@ -1,0 +1,17 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    string mod[7]={"monday","tuesday","wednesday","thursday","friday","saturday","sunday"};
+    while(t--){
+       int y;
+       cin>>y;
+       y=y+(y-1)/4-(y-1)/100+(y-1)/400;
+       y=y%7;
+       cout<<mod[(y+6)%7]<<endl;
+    }
+}
