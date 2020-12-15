@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int T;
+    cin>>T;
+    while(T--){
+        int N;
+        cin>>N;
+        int ans = 1000000,x;
+        
+        for(int i=0;i<N;i++) {
+            cin>>x;
+            if(x<ans) ans=x;
+        }
+       
+        cout<<ans<<endl;
+    }
+    return 0;
+}
