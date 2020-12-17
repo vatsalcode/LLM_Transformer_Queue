@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    long n;
+	    cin>>n;
+	    long l[n],g[n];
+	    for(long i=0;i<n;i++)
+	    {
+	        cin>>l[i];
+	    }
+	    for(long i=0;i<n;i++)
+	    {
+	        cin>>g[i];
+	    }
+	    int front=0,back=0,both=0;
+	    for(long i=0;i<n;i++)
+	    {
+	       if(l[i]>g[i])
+	       {
+	           front=1;break;
+	       }
+	    }
+	    for(long i=0;i<n;i++)
+	    {
+	       if(l[i]>g[(n-1)-i])
+	       {
+	           back=1;break;
+	       }
+	    }
+	    if((front==0) && (back==0))
+	        cout<<"both\n";
+	  else if((front==0) &&(back!=0))
+	        cout<<"front\n";
+	  else if((front!=0 && back==0))
+	        cout<<"back\n";
+	       else
+	       cout<<"none\n";
+	}
+	return 0;
+}
