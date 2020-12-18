@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int d,e,f;
+        string s;
+        cin>>d>>s;
+        e=d%7;
+        if(s=="mon")
+          f=0;
+        else if(s=="tues")
+          f=1;
+        else if(s=="wed")
+          f=2;
+        else if(s=="thurs")
+          f=3;
+        else if(s=="fri")
+          f=4;
+        else if(s=="sat")
+          f=5;
+        else if(s=="sun")
+          f=6;
+          
+        for(int i=0; i<7; i++)
+        {
+            if((i>=f && i<f+e) || (i<(f+e)%7 && f+e>6))
+              cout<<d/7 +1<<" ";
+            else
+              cout<<d/7<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
