@@ -1,0 +1,32 @@
+#include <iostream>
+
+using namespace std;
+
+int main(void)
+{
+    int n;
+    cin>>n;
+    while(n)
+    {
+        int t,error=0;
+        cin>>t;
+        string a;
+        cin>>a;
+        int ar[26]={0};
+        for(int i=0;i<t;i++)
+        ar[a.at(i)-97]++;
+        for(int i=0;i<26;i++)
+        {
+            if(ar[i]%2!=0)
+            {
+                error=1;
+                break;
+            }
+        }
+        if(error==1)
+        cout<<"NO"<<endl;
+        else
+        cout<<"YES"<<endl;
+        n--;
+    }
+}
