@@ -1,0 +1,29 @@
+#include <iostream>
+#include<sstream>
+using namespace std;
+
+int main()
+{
+   int T;
+   cin>>T;
+   getchar();
+   while(T--)
+   {
+       int count=0;
+       string s;
+       getline(cin,s);
+       
+       stringstream str(s);
+       string word;
+       while(str>>word)
+       {
+           if(word=="NOT" || word=="not")
+           count++;
+       }
+       if(count>0)
+       cout<<"Real Fancy"<<endl;
+       else if (count==0)
+       cout<<"Regularly Fancy"<<endl;
+   }
+    return 0;
+}
