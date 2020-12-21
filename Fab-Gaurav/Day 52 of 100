@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n, m, k, count = 0;
+    vector <int> lect;
+    cin >> n >> m >> k;
+    for (int i = 0; i < n; ++i) {
+        int temp = 0, temp_count = 0;
+        for (int j = 0; j < k; ++j) {
+            cin >> temp;
+            temp_count += temp;
+        }
+        cin >> temp;
+        if (temp_count >= m && temp <= 10)
+            count++;
+    }
+    cout << count << "\n";
+    return 0;
+}
