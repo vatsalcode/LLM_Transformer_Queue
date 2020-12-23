@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+int main(){
+int t;
+cin>>t;
+while(t--){
+	int n;
+	cin>>n;
+	string a[n];
+	int n1 = 1;
+	int n2 = 0;
+	string x, y;
+	for(int i = 0; i < n; i++){
+		cin>>a[i];
+		x = a[0];
+		if(i>0 && a[i] == x){
+			n1++;
+		}
+		else if(i>0 && a[i] != x){
+			y=a[i];
+			n2++;
+		}
+	}
+   if(n==0){
+   	cout <<"Draw"<<endl;
+   }
+   else if(n1>n2)
+   	cout<<x<<endl;
+   else if(n1<n2)
+   	cout<<y<<endl;
+   else
+   	cout<<"Draw"<<endl;
+}
+return 0;
+}
