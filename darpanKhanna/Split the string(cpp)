@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	long long int T;
+	cin >>T;
+	while(T--)
+	{
+	    long long int N;
+	    cin >> N;
+	    char S[N];
+	    cin >> S;
+	    char last = S[N-1];
+	    int found = 0;
+	    for(int i=0;i<N-1;i++)
+	    {
+	        if(S[i]==last)
+	        {
+	            found = 1;
+	        }
+	    }
+	    if(found == 1)
+	    {
+	        cout << "YES"<<endl;
+	    }
+	    else
+	    {
+	        cout <<"NO"<<endl;
+	    }
+	}
+	return 0;
+}
