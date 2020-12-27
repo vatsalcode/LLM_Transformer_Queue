@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+struct petrolPump
+{
+  int petrol;
+  int distance;
+};
+typedef long long lli;
+int printTour(struct petrolPump arr[], int n)
+{
+    int start = 0;
+    int end =  1;
+    int curr_petrol = arr[start].petrol - arr[start].distance;
+    while (end != start || curr_petrol < 0)
+    {while (curr_petrol < 0 && start != end)
+        {
+         curr_petrol -= arr[start].petrol - arr[start].distance;
+         start = (start + 1)%n;
+            if (start == 0)
+               return -1;
+        }
+        curr_petrol += arr[end].petrol - arr[end].distance;
+       end = (end + 1)%n;
+    }
+    return start;
+}
+
+int main()
+{
+  struct petrolPump arr[10];
+  int n;
+  int i;
+  scanf("%d",&n);
+  for(i=0;i<n;i++)
+  {
+      scanf("%d %d",&arr[i].petrol,&arr[i].distance);
+  }
+    int start = printTour(arr, n);
+    (start == -1)? printf("No solution"): printf("%d", start+1);
+    return 0;
+}
