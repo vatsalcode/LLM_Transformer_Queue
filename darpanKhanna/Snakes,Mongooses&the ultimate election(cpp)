@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int snake=0,mongoose=0;
+        string str;
+        cin>>str;
+        int n=str.length();
+        for(int i=0;i!=n;i++)
+        {
+            if(i>0 && str[i]=='m' && str[i-1]=='s')
+            {
+                str[i-1]='.';
+            }
+            else if(i<n-1 && str[i]=='m' && str[i+1]=='s')
+            str[i+1]='.';
+        }
+        for(int i=0;i!=n;i++)
+        {
+            if(str[i]=='s')
+            snake++;
+            else if(str[i]=='m')
+            mongoose++;
+        }
+        if(snake>mongoose)
+        cout<<"snakes"<<"\n";
+        else if(snake<mongoose)
+        cout<<"mongoose"<<'\n';
+        else if(snake==mongoose)
+        cout<<"tie"<<"\n";
+    }
+
+   
+}
