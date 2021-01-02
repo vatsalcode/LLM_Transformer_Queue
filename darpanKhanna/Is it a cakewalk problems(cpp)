@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int t=0;
+    cin>>t;
+    while(t--){
+        int i=0, j=0,cnt=0;
+        int a[10][10];
+        for(i=0;i<10;i++)
+        {
+            for(j=0;j<10;j++)
+            {
+                cin>>a[i][j];
+            }
+        }
+        for(i=0;i<10;i++)
+        {
+            for(int j=0;j<10;j++)
+            {
+                if(a[i][j]<=30)
+                {
+                    cnt++;
+                }
+            }
+        }
+        if(cnt>=60)
+        {
+            cout<<"yes"<<endl;
+        }
+        else
+        {
+            cout<<"no"<<endl;
+        }
+        cnt=0;
+    }
+
+    return 0;
+}
