@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+int main() 
+{
+	int T;
+	cin>>T;
+	while(T--)
+	{
+	    int n,b,m;
+	    int x,y,count=0;
+	    cin>>n>>b>>m;
+	    while(n!=0)
+	    {
+	    if(n%2==1)
+	    {
+	        x=(n+1)/2;
+	        y=(x*m)+b;
+	        n=n-x;
+	        m=2*m;
+	    }
+	    else
+	    {
+	        x=n/2;
+	        y=x*m+b;
+	        n=n-x;
+	        m=2*m;
+	    }
+	    count=count+y;
+	 }
+	cout<<count-b<<endl;
+	}
+}
