@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        double lost=0;
+        double q;
+        for(int i=1;i<=n;i++){
+            double p,d;
+            cin>>p>>q>>d;
+            double a=(p*d)/100;
+            double c=(a+p)*d/100;
+            double loss=a+p-c;
+            loss=p-loss;
+            lost+=(loss*q);
+        }
+        cout<<fixed<<setprecision(9)<<lost<<"\n";
+    }
+}
