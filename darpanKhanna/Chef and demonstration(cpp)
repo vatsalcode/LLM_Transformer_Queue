@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        long long s,n;
+        cin>>s>>n;
+        int coins=0;
+        if(s%2==1){
+            coins+=1;
+            s--;
+        }
+        coins+=(s/n);
+        s=s%n;
+        if(s>0){
+            coins++;
+        }
+        cout<<coins<<endl;
+    } 
+    return 0;
+}

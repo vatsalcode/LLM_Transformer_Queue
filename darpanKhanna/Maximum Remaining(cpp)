@@ -1,0 +1,24 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main() {
+	int n;
+	cin>>n;
+	int a[n];
+	for(int i=0;i<n;i++)
+	cin>>a[i];
+	sort(a,a+n);
+	if(a[0]==a[n-1])
+	cout<<"0"<<endl;
+	else
+	{
+	for(int i=n-2;i>=0;i--)
+	{
+	    if(a[i]!=a[n-1])
+	    {
+	        cout<<a[i];
+	        break;
+	    }
+	}}
+	return 0;
+}
