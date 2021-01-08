@@ -1,0 +1,23 @@
+#include <stdio.h>
+int main(void) 
+{
+	long long int a,b,gcd,a2,a1;
+	int t;
+	scanf("%d",&t);
+	while(t--)
+	{
+	    scanf("%lld %lld",&a,&b);
+	    a1=a;
+	    a2=b;
+	    while(a1!=a2)
+	    {
+	        if(a1>a2)
+	            a1=a1-a2;
+	        else
+	            a2=a2-a1;
+	    }
+    	gcd=a1;
+	    printf("%lld %lld\n",gcd,a*b/gcd);
+	}
+	return 0;
+}
