@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+#define ll long long int
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+       ll p1,p2,k,n;
+       cin>>p1>>p2>>k;
+       n=(p1+p2)%(k*2);
+       if(n<k)
+       {
+           cout<<"Chef"<<endl;
+       }
+       else
+       {
+           cout<<"Paja"<<endl;
+       }
+    }
+}
