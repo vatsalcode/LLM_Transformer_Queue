@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int tr;
+	cin>>tr;
+	for(int r=0;r<tr;r++)
+	{
+	 int n=0,cr=0;
+	 cin>>n;
+	 cr=cr+n/100;
+	 n=n%100;
+	 cr=cr+n/50;
+	 n=n%50;
+	 cr=cr+n/10;
+	 n=n%10;
+	 cr=cr+n/5;
+	 n=n%5;
+	 cr=cr+n/2;
+	 n=n%2;
+	 cr=cr+n/1;
+	 cout<<cr<<endl;
+	}
+	return 0;
+}
