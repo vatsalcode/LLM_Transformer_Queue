@@ -1,0 +1,20 @@
+#include<cmath>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+int tip_percent;
+int tax_percent;
+double meal_cost;
+cin>>meal_cost>>tip_percent>>tax_percent;
+
+double tip=meal_cost*tip_percent/100;
+double tax=meal_cost*tax_percent/100;
+int total_cost=round(meal_cost+tax+tip);
+
+cout<<total_cost;
+
+    return 0;
+}
