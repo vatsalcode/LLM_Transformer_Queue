@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int n,k,t,l;
+    cin>>t;
+    while(t--){
+        cin>>n>>k>>l;
+        int a,b;
+        while(l--){
+            cin>>a>>b;
+            if(k==a)
+            k=b;
+            else if(k==b)
+            k=a;
+        }
+        cout<<k<<'\n';
+    }
+
+    return 0;
+}
