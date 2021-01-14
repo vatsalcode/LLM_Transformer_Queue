@@ -1,0 +1,32 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n,a,b;
+        double div1,div2,ans,ca=0,cb=0;
+        cin>>n>>a>>b;
+        int x[n],i;
+        for(i=0;i<n;i++){
+            cin>>x[i];
+        }
+        for(i=0;i<n;i++){
+            if(x[i]==a){
+                ca++;
+            }
+            if(x[i]==b){
+                cb++;
+            }
+        }
+        div1=ca/n;
+        div2=cb/n;
+        ans=div1*div2;
+        cout<<ans<<endl;
+    }
+
+    return 0;
+}
