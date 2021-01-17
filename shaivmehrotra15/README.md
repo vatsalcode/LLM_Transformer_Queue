@@ -1,0 +1,2 @@
+I intend to learn the basics of data structures and algorithms in java and start coding on codechef to reach the level of medium level problems by the end of my second semester.I also intend to keep up with my python development learning and finish the course on development and start the one on AI, ML and DL. 
+My goal in the long term is to know and learn everything i can about coding and development.
