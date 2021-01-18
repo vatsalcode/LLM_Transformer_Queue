@@ -2,6 +2,9 @@
 #+STARTUP: showeverything
 
 * TODO Goals [0/3]
-  + [ ] Learn [[https://nim-lang.org][Nim Lang]]
+  + [-] Learn [[https://nim-lang.org][Nim Lang]]
+    - [X] Hello World
+    - [X] Comments
+    - [ ] Variables
   + [ ] Update [[https://tanish2002.gitlab.io/][My Website]] with some cool CSS or Javascript
   + [ ] Complete [[https://github.com/Tanish2002/GoogleClassroom_BOT][My Google Classroom Discord Bot]]
