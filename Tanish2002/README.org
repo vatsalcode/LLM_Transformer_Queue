@@ -5,6 +5,7 @@
   + [-] Learn [[https://nim-lang.org][Nim Lang]]
     - [X] Hello World
     - [X] Comments
-    - [ ] Variables
+    - [X] Variables
+    - [ ] Results and Type Casting
   + [ ] Update [[https://tanish2002.gitlab.io/][My Website]] with some cool CSS or Javascript
   + [ ] Complete [[https://github.com/Tanish2002/GoogleClassroom_BOT][My Google Classroom Discord Bot]]
