@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+	int t;
+	cin >> t;
+	while(t--)
+  {
+	    int n, k, max = 0;
+	    cin >> n >> k;
+	    int h,w,p;
+	    int flag = 0;
+	    for(int i = 0; i<n; i++)
+      {
+	        cin >> h >> w >> p;
+	        if(p<=k)
+          {
+	            flag = 1;
+	            if(max<= h*w)
+              {
+	                max = h*w;
+	            }
+	        }
+	    }
+	    if(flag)
+      {
+	        cout << max << endl;
+	    }
+      else
+      {
+	        cout << "no tablet" << endl;
+	    }
+	}
+	return 0;
+}
