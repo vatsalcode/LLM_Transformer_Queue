@@ -1,0 +1,44 @@
+// valid parenthesis
+
+class Solution {
+    public boolean isValid(String s) {
+        if(s.length()%2 !=0) return false;
+        
+        Stack <Character> stack = new Stack<Character>();
+        for(char c : s.toCharArray()) {
+            if(c =='(' || c =='{' || c =='['){
+                stack.push(c);
+            }
+            else if(c==')' && !stack.isEmpty() && stack.peek()=='('){
+                stack.pop();
+            }
+            else if(c=='}' && !stack.isEmpty() && stack.peek()=='{'){
+                stack.pop();
+            }
+            else if(c==']' && !stack.isEmpty() && stack.peek()=='['){
+                stack.pop();
+            }
+            else{
+                return false;
+            }
+            
+        }
+        return stack.isEmpty();
+    }
+}
+
+//GCD algotithm
+
+class EuclidianALgo {
+  static int gcd(int a, int b) {
+    if(b==0)
+      return a;
+    return (b, a%b);
+    }
+    public static void main(String args[]) {
+    System.out.println(gcd(48,36));
+    }
+}
+
+output : 12
+number of steps : 3
