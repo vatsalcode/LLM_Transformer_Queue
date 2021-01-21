@@ -1,0 +1,18 @@
+Started with loops(do-while, while & for)
+
+//whether the character entered is lowercase or not.
+int main()
+{
+    char check_character;
+    printf("Enter the character : ");
+    scanf("%c", &check_character);
+    if(check_character >= 65 && check_character <= 90)
+    {
+        printf("%c is not a lowercase character.", check_character);
+    }
+    else
+    {
+        printf("%c is a lower case character.", check_character);
+    }
+    return 0;
+}
