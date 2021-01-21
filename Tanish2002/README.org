@@ -6,6 +6,7 @@
     - [X] Hello World
     - [X] Comments
     - [X] Variables
-    - [ ] Results and Type Casting
+    - [X] Results and Type Casting
+    - [ ] Case Statements
   + [ ] Update [[https://tanish2002.gitlab.io/][My Website]] with some cool CSS or Javascript
   + [ ] Complete [[https://github.com/Tanish2002/GoogleClassroom_BOT][My Google Classroom Discord Bot]]
