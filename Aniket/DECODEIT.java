@@ -16,11 +16,12 @@ public class DECODEIT {
         }
         if(t<1||t>10)
             t=0;
-        String[] res=new String[t];
-        for(int i=0;i<t;i++)
-            res[i]="";
+
+
+
         for(int i=0;i<t;i++){
           int  N=Integer.parseInt(br.readLine());
+          String s="";
 
           EString=br.readLine();
           int size=N/4;
@@ -35,12 +36,11 @@ public class DECODEIT {
                     else if (nextBit == 1)
                         alphabet = alphabet.substring(alphabet.length() / 2, alphabet.length());
                 }
-                res[i]+=alphabet;
+              s+=alphabet;
                 alphabet="abcdefghijklmnop";
           }
+            System.out.println(s);
         }
-        for(int i=0;i<t;i++){
-            System.out.println(res[i]);
-        }
+
     }
 }
