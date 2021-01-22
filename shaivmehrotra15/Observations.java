@@ -62,7 +62,7 @@ class test2
 		        if(c=='Y'){a=1; break;};
 		        if(c=='I'){a=2;break;}
 		    }
-		    if(a==1)System.out.println("NON INDIAN");
+		    if(a==1)System.out.println("NOT INDIAN");
 		    else if (a==2)System.out.println("INDIAN");
 		    else System.out.println("NOT SURE");
 		    a=0;
