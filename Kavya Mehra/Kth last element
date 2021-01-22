@@ -1,0 +1,57 @@
+//import java.util.HashMap;
+public class ques1 
+{
+	static class node 
+	{
+		int val;
+        node next;
+        public node(int val) 
+		{
+			this.val = val;
+		}
+	}
+	static void nthfromlast(node head, int n) 
+	{
+		node ref = head;
+		node curr = head;
+		while(curr!=null && n!=0) {
+			ref=ref.next;
+			n--;
+		}
+		if(n==0) {
+			while(ref!=null) {
+				ref=ref.next;
+				curr=curr.next;
+			}
+		}
+		System.out.println(curr.val);
+    }
+	static void printList(node head) 
+	{
+		while (head != null) 
+		{
+			System.out.print(head.val + " ");
+			head = head.next;
+		}
+	}
+	public static void main(String[] args) 
+	{
+		int n =3;
+		node start = new node(10);
+		start.next = new node(12);
+		start.next.next = new node(11);
+		start.next.next.next = new node(11);
+		start.next.next.next.next = new node(12);
+		start.next.next.next.next.next = new node(11);
+		start.next.next.next.next.next.next = new node(10);
+
+		System.out.println("The "+n+"th element from the last is : ");
+		//printList(start);
+
+		nthfromlast(start, n);
+
+		//System.out.println("\nLinked list after removing duplicates :");
+		//printList(start);
+	}
+}
+
