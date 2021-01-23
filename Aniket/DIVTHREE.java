@@ -1,4 +1,4 @@
-LINK-https://www.codechef.com/problems/DIVTHREE
+//LINK-https://www.codechef.com/problems/DIVTHREE
 package com.company;
 import java.io.*;
 import java.util.StringTokenizer;
