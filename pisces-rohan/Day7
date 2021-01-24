@@ -1,0 +1,46 @@
+//pattern printing(Pascal's Triangle)
+
+#include <stdio.h>
+
+int main()
+{
+    int n, i = 1, space = 1, j = 1, cons = 1, k = 1, x, y;
+    scanf("%d", &n);
+    while (i <= n)
+    {
+        space = i;
+        x = i - 1;
+        y = 1;
+        while (space <= n)
+        {
+            printf(" ");
+            space++;
+        }
+
+        while (j <= i)
+        {
+            if (j == 1)
+            {
+                printf("%d ", cons);
+            }
+            else if (j != 1)
+            {
+                while (k == 1)
+                {
+
+                    cons = (cons * x) / y;
+                    printf("%d ", cons);
+                    y++;
+                    x--;
+                    k++;
+                }
+            }
+            j++;
+            k = 1;
+        }
+        printf("\n");
+        i++;
+        j = 1;
+        cons = 1;
+    }
+}
