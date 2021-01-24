@@ -1,0 +1,22 @@
+//pattern printing(1)
+
+#include <stdio.h>
+
+int main()
+{
+    int n, i = 1, j = 1, k = 1;
+    scanf("%d", &n);
+    while (i <= n)
+    {
+        while (j <= i)
+        {
+            printf("%d ", k);
+            k++;
+            j++;
+        }
+        j = 1;
+        printf("\n");
+        i++;
+    }
+    return 0;
+}
