@@ -22,3 +22,11 @@ proc map(str: string, fun: (char) -> char): string =
 echo "foo".map((c) => char(ord(c) + 1))
 # the following code is exactly equvilent:
 echo "foo".map(proc (c: char): char = char(ord(c) + 1))
+
+
+
+#-------------------------------------------------------------
+# Output for reference -:
+# @[64, 128, 256]
+# @[64, 128, 256]
+# @[64, 128, 256]
