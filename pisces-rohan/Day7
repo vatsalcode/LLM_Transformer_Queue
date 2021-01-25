@@ -1,9 +1,26 @@
-//pattern printing(Pascal's Triangle)
+
 
 #include <stdio.h>
 
 int main()
 {
+
+    int n, i = 1, j = 1, k = 1;
+    scanf("%d", &n);
+    while (i <= n)
+    {
+        while (j <= i)
+        {
+            printf("%d ", k);
+            k++;
+            j++;
+        }
+        j = 1;
+        printf("\n");
+        i++;
+    }
+    return 0;
+
     int n, i = 1, space = 1, j = 1, cons = 1, k = 1, x, y;
     scanf("%d", &n);
     while (i <= n)
