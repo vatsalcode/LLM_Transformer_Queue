@@ -1,0 +1,28 @@
+//pattern printing(2)
+
+#include <stdio.h>
+
+int main()
+{
+    int n, i = 1, j = 1, k = 1, space;
+    scanf("%d", &n);
+    while (i <= n)
+    {
+        space = i;
+        while (space <= n)
+        {
+            printf(" ");
+            space++;
+        }
+        while (j <= i)
+        {
+            printf("%d ", k);
+            k++;
+            j++;
+        }
+        j = 1;
+        i++;
+        printf("\n");
+    }
+    return 0;
+}
