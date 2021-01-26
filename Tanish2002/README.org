@@ -12,6 +12,7 @@
     - [X] Iterators
     - [X] First Class Functions
     - [X] Blocks
-    - [ ] Primitive Types
+    - [X] Primitive Types
+    - [ ] Type Aliases
   + [ ] Update [[https://tanish2002.gitlab.io/][My Website]] with some cool CSS or Javascript
   + [ ] Complete [[https://github.com/Tanish2002/GoogleClassroom_BOT][My Google Classroom Discord Bot]]
