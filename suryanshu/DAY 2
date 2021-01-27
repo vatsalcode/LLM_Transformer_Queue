@@ -1,0 +1,47 @@
+//CALCULATOR
+#include<iostream.h>
+#include<conio.h>
+
+void main()
+{
+	clrscr();
+	int a,b,sum,sub,mult,div,ch;
+	cout<<"ENTER FIRST DIGIT:";
+	cin>>a;
+	cout<<"ENTER SECOND DIGIT:";
+	cin>>b;
+	cout<<"WHICH OPERATION DO U WANT 2 CHOOSE:"<<endl<<"1)+"<<endl<<"2)-"<<endl<<"3)*"<<endl<<"4)/"<<endl;
+	cin>>ch;
+
+	switch(ch)
+	{
+		case 1:
+		 sum = a+b;
+		 cout<<"THE SUM OF THE DIGITS ARE:"<<endl<<sum<<endl;
+		 break;
+
+		case 2:
+		  sub=a-b;
+		  cout<<"THE SUB OF THE DIGITS ARE:"<<endl<<sub<<endl;
+		  break;
+
+		case 3:
+		   mult=a*b;
+		   cout<<"THE mult OF THE DIGITS ARE:"<<endl<<mult<<endl;
+		   break;
+
+		case 4:
+		   div=a/b;
+		   cout<<"THE Div OF THE DIGITS ARE:"<<endl<<div<<endl;
+		   break;
+
+		  default:cout<<"invalid choice";
+			break;
+
+	}
+
+
+
+	getch();
+}
+
