@@ -1,0 +1,30 @@
+import java.util.*;
+class armstrong
+{
+    public static void main()
+    {
+        int n,l,num,g;
+        double c,s=0.0;
+        String a;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("ENTER YOUR NO");
+        n=sc.nextInt();
+        num=n;
+        a=Integer.toString(n);
+        l=a.length();
+        while(n>0)
+        {
+            g=n%10;
+            c=Math.pow(g,l);
+            s=s+c;
+            n=n/10;
+        }
+        if(s==num)
+        {
+            System.out.println("ARMSTRONG");
+        }
+        else
+        {
+            System.out.println("NOT ARMSTRONG");
+        }}}
+            
