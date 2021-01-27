@@ -1,0 +1,17 @@
+// BIT  MAGIC
+
+ques - find if the two given numbers have opposite signs or not.
+
+import java.io.*;
+class bitmagic{
+  boolean signs(int x, int y){
+    return((x^y)<0);
+    }
+    public static void main(String args[]){
+      int x=100, y=-100;
+      if(bigmagic(x,y)==true)
+        System.out.println("yes they are opposite");
+      else
+        System.out.println("they are the same");
+    }
+}
