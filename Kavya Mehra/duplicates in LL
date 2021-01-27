@@ -1,0 +1,59 @@
+// Remove duplicates in linkedlist using hashmap
+import java.util.HashMap;
+public class dupli
+{
+	static class node 
+	{
+		int val;
+        node next;
+        public node(int val) 
+		{
+			this.val = val;
+		}
+	}
+	static void removeDuplicate(node head) 
+	{
+		node curr = head;
+		node prev = null;
+		HashMap <Integer, Integer> hm = new HashMap <>();
+		while(curr!=null) {
+			int current = curr.val;
+		if(!hm.containsKey(current)) {
+			hm.put(current,1);
+			prev=curr;
+			curr=curr.next;
+		}
+		else {
+			prev.next=curr.next;
+			curr=curr.next;
+		}
+		}
+    }
+	static void printList(node head) 
+	{
+		while (head != null) 
+		{
+			System.out.print(head.val + " ");
+			head = head.next;
+		}
+	}
+	public static void main(String[] args) 
+	{
+		node start = new node(10);
+		start.next = new node(12);
+		start.next.next = new node(11);
+		start.next.next.next = new node(11);
+		start.next.next.next.next = new node(12);
+		start.next.next.next.next.next = new node(11);
+		start.next.next.next.next.next.next = new node(10);
+
+		System.out.println("Linked list before removing duplicates :");
+		printList(start);
+
+		removeDuplicate(start);
+
+		System.out.println("\nLinked list after removing duplicates :");
+		printList(start);
+	}
+}
+

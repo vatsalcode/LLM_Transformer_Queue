@@ -1,0 +1,17 @@
+Basic boilerplate(c language), i/o function, format specifier, comments.
+
+//program to calculate area of the rectangle
+
+#include <stdio.h>
+
+int main(){
+    
+    int length, breadth;
+    printf("Enter the length : ");
+    scanf("%d", &length);
+    printf("Enter the breadth : ");
+    scanf("%d", &breadth);
+    printf("Area of the rectangle = %d", length*breadth);
+
+    return 0;
+}

@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+int fact(int n){
+    if(n==0)
+    return 1;
+    int prevfact=fact(n-1);
+    return n*prevfact;
+}
+int main() 
+{
+	int x,n,b=0; cin>>x>>n;
+	while(n--){
+	    string s; cin>>s;
+	    int i=0,j=53;
+	    while(i<j){
+	        int a=0;
+	        if(s[i]=='0')
+	        a++;
+	        if(s[i+1]=='0')
+	        a++;
+	        if(s[i+2]=='0')
+	        a++;
+	        if(s[i+3]=='0')
+	        a++;
+	        if(s[j]=='0')
+	        a++;
+	        if(s[j-1]=='0')
+	        a++;
+	        i=i+4;
+	        j=j-2;
+	        if(a>=x){
+	        int y=fact(a)/(fact(x)*fact(a-x));
+	        b=b+y;  }
+	    }
+	}
+	cout<<b<<endl;
+	return 0;
+}

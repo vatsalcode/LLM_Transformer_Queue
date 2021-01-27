@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int i,t,num1,num2,num3,j,k,ans2,count=0;
+	cin>>t;
+	for(i=1;i<=t;i++){
+	    cin>>num1>>num2>>num3;
+	    int arr2[num2],arr3[num3];
+	    count=0;
+	    
+	    for(j=0;j<num2;j++)
+        {cin>>arr2[j];
+         }
+	    for(j=0;j<num3;j++)
+        {cin>>arr3[j];
+         }
+	    for(j=0;j<num2;j++)
+        {
+          for(k=0;k<num3;k++)
+            { if(arr2[j]==arr3[k]) count++;
+             }
+	    }
+	    ans2=num1-num2-num3+count;	      
+	    cout<<count<<" "<<ans2<<endl;
+	}	
+	return 0;
+}

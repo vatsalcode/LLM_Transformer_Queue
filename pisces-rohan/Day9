@@ -1,0 +1,48 @@
+//patttern printing
+//Constraint: n is odd
+
+#include <stdio.h>
+
+int main()
+{
+    int n, space, row = 1, star = 1, i = -1;
+    scanf("%d", &n);
+    int l_sp = n + 1;
+    while (row <= n)
+    {
+         if (row <= n / 2 + 1)
+        {
+            l_sp = l_sp - 2;
+            space = 1;
+        }
+        else if (row > n / 2 + 1)
+        {
+            l_sp = l_sp + 2;
+            space = 1;
+        }
+
+        while (space <= l_sp)
+        {
+                printf(" ");
+                space++;
+        }
+        if (row <= n / 2 + 1)
+        {
+            i = i + 2;
+            star = 1;
+        }
+        else if (row > n / 2 + 1)
+        {
+            i = i - 2;
+            star = 1;
+        }
+        while (star <= i)
+        {
+                printf("* ");
+                star++;
+        }
+        printf("\n");
+        row++;
+    }
+    return 0;
+}
