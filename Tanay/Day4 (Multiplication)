@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int firstNumber, secondNumber, mulOfTwoNumbers;
+    
+    cout << "Enter two integers: ";
+    cin >> firstNumber >> secondNumber;
+
+    // Multiplication of two numbers in stored in variable mulOfTwoNumbers
+    mulOfTwoNumbers = firstNumber * secondNumber;
+
+    // Prints Multiplication
+    cout << firstNumber << " x " <<  secondNumber << " = " << mulOfTwoNumbers;     
+
+    return 0;
+}

@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int firstNumber, secondNumber, divOfTwoNumbers;
+    
+    cout << "Enter two integers: ";
+    cin >> firstNumber >> secondNumber;
+
+    // Division of two numbers in stored in variable divOfTwoNumbers
+    divOfTwoNumbers = firstNumber / secondNumber;
+
+    // Prints Multiplication
+    cout << firstNumber << " / " <<  secondNumber << " = " << divOfTwoNumbers;     
+
+    return 0;
+}
