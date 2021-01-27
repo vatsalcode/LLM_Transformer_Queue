@@ -1,0 +1,57 @@
+
+public class lengthofdetectedloop
+{
+	static node start;
+	static class node 
+	{
+		int val;
+        node next;
+        public node(int val) 
+		{
+			this.val = val;
+		}
+	}
+	
+	static int detectLoop(node head){
+        
+        
+		node slow_p = head, fast_p = head;
+        int count = 0;
+        while (fast_p != null && fast_p.next != null) {
+            slow_p = slow_p.next;
+            fast_p = fast_p.next.next;
+            if (slow_p == fast_p) {
+                break;
+            }
+        }
+                if(slow_p==fast_p){
+                while(slow_p.next!=fast_p) {
+                	slow_p=slow_p.next;
+                	count++;
+                }
+                count++;
+                }
+        return count;
+        
+    }
+	
+	static void printList(node head) 
+	{
+		while (head != null) 
+		{
+			System.out.print(head.val + " ");
+			head = head.next;
+		}
+	}
+	public static void main(String[] args) 
+	{
+		node start = new node(1);
+		start.next = new node(2);
+		start.next.next = new node(3);
+		start.next.next.next = new node(4);
+		start.next.next.next.next = new node(5);
+		start.next.next.next.next.next = start.next;
+		System.out.println(detectLoop(start));
+	}
+}
+
