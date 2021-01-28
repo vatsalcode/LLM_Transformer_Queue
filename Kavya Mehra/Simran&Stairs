@@ -1,0 +1,14 @@
+class simran_and_stairs {
+  public static void main(String args[]){
+  int n =4;
+   finsdtep(n);
+  }
+  int findstep(int N){
+  if(N==1 || N==0)
+    return 1;
+  else if(N==2)
+    return 2;
+  else
+    return findstep(N-3) + findstep(N-2) + findstep(N-1);
+}
+}
