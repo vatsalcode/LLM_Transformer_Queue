@@ -1,0 +1,21 @@
+import java.util.*;
+class pattern5
+{
+    public static void main()
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter no. of rows");
+        int n=sc.nextInt();;
+        for(int i=n;i>=1;i--)
+        {
+            for(int j=1;j<=n;j++)
+            {
+                if(i-j<n-j)
+                System.out.print(" ");
+                else
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }}
+        
