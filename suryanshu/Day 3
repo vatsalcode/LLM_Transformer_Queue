@@ -1,0 +1,17 @@
+
+#include<iostream.h>
+#include<conio.h>
+
+void main( )
+{
+	clrscr();
+	int num=1;
+	cout<<"ENTER A NUMBER:";
+	cin>>num;2
+	while(num<6)
+	{
+  		cout<<"Number: "<<num<<endl;
+  		num=num+1;
+	}
+	getch();
+}
