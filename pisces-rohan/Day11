@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <math.h>
+
+int check_armstrong(int a);
+int check_perfect(int b);
+
+int main()
+{
+    int num, armstrong_num, perfect_num;
+    printf("Enter any number : ");
+    scanf("%d", &num);
+    armstrong_num = check_armstrong(num);
+    perfect_num = check_perfect(num);
+    if (armstrong_num == 1)
+    {
+        printf("%d is an armstrong.\n", num);
+    }
+    else
+    {
+        printf("%d is not an armstrong number.\n", num);
+    }
+    if (perfect_num == 1)
+    {
+        printf("%d is a perfect number.\n", num);
+    }
+    else
+    {
+        printf("%d is not a perfect number.\n", num);
+    }
+    return 0;
+}
+
+int check_armstrong(int a)
+{
+    int sum = 0, c = a;
+    while (a > 0)
+    {
+        int check = 0;
+        check = a % 10;
+        a = a / 10;
+        sum += pow(check, 3);
+    }
+
+    if (sum == c)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+int check_perfect(int b)
+{
+    int i = 1, sum = 0;
+    while (i < b)
+    {
+        if (b % i == 0)
+        {
+            sum += i;
+        }
+        i++;
+    }
+    if (sum == b)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
