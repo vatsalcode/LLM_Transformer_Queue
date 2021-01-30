@@ -17,6 +17,7 @@
     - [X] Primitive Types
     - [X] Type Aliases
     - [X] Object Types
-    - [ ] Enum Types
+    - [X] Enum Types
+    - [ ] Distinct Types
   + [ ] Update [[https://tanish2002.gitlab.io/][My Website]] with some cool CSS or Javascript
   + [ ] Complete [[https://github.com/Tanish2002/GoogleClassroom_BOT][My Google Classroom Discord Bot]]
