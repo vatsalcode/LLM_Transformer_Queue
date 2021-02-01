@@ -1,0 +1,15 @@
+Print Average of 3 numbers
+
+#<include<fstream.h>
+#include<conio.h>
+void main()
+{
+clrscr();
+float a,b,c,avg;
+avg=0;
+cout<<"Enter the three numbers\n";
+cin>>a>>b>>c;
+avg=(a+b+c)/3;
+cout<<"Average of the 3 numbers="<<avg;
+getch();
+}
