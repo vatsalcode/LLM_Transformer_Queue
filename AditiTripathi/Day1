@@ -1,0 +1,22 @@
+//1:program to read an array of n numbers and then find the smallest number by passing arrays as a function
+
+
+#include <iostream>
+using namespace std;
+void read_arr( int a[], int n)
+{
+    int i;
+    for(i=0;i<n;i++)
+    cin>>a[i];
+}
+
+int find_smallest( int a[], int n)
+{
+    int i,small=a[0];
+    for(i=0;i<n;i++)
+    {
+        if(a[i]<small)
+        small=a[i];
+    }
+    return small;
+}
