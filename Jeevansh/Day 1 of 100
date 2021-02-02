@@ -1,6 +1,6 @@
 Print Average of 3 numbers
 
-#<include<fstream.h>
+#include<fstream.h>
 #include<conio.h>
 void main()
 {
