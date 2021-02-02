@@ -1,0 +1,21 @@
+package mathematics;
+
+import java.util.HashMap;
+
+public class sumpair {
+
+	public static void main(String[] args) {
+		int a[]= {1,7,5,-1,1};
+		int need, count=0, target=6;
+		HashMap <Integer, Integer> map = new HashMap<>();
+		for(int i=0; i<a.length; i++) {
+			need=target-a[i];
+			int freq = map.getOrDefault(need,0);
+			count+=freq;
+			map.put(a[i], map.getOrDefault(a[i],0)+1);
+		}
+		System.out.println(count);
+
+	}
+
+}
