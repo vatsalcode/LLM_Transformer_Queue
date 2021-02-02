@@ -1,0 +1,23 @@
+import java.util.*;
+class perfect
+{
+    public static void main()
+    {
+        int n,num,i,c=1;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("ENTER YOUR NUMBER");
+        n=sc.nextInt();
+        num=n;
+        for(i=1;i<n;i++)
+        {
+            if(n%i==0)
+            {
+                c=c*i;
+            }
+        }
+        if(c==num)
+        System.out.println("perfect");
+        else
+        System.out.println("not perfect");
+    }}
+        
