@@ -18,6 +18,8 @@
     - [X] Type Aliases
     - [X] Object Types
     - [X] Enum Types
-    - [ ] Distinct Types
+    - [X] Distinct Types
+    - [X] Strings
+    - [ ] Arrays
   + [ ] Update [[https://tanish2002.gitlab.io/][My Website]] with some cool CSS or Javascript
   + [ ] Complete [[https://github.com/Tanish2002/GoogleClassroom_BOT][My Google Classroom Discord Bot]]
