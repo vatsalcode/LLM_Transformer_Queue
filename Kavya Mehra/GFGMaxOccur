@@ -1,0 +1,24 @@
+class maxfreq {
+public static char getMaxOccuringChar(String line){
+        int count[] = new int[256];
+        Arrays.fill(count,0);
+        for(int i=0; i<line.length(); i++){
+            count[line.charAt(i)]++;
+        }
+        int max = -1;
+        char res = ' ';
+         for (int i = 0; i < line.length(); i++) { 
+            if (max < count[line.charAt(i)]) { 
+                max = count[line.charAt(i)]; 
+                res = line.charAt(i); 
+            } 
+        } 
+       return res; 
+    }
+  public static void main(String[] args) 
+    { 
+        String str = "kavya"; 
+        System.out.println("Max occurring character is " + getMaxOccuringChar(str)); 
+    } 
+} 
+  
