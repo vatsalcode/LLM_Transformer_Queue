@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int series(int a);
+
+int main()
+{
+    printf("The series is of the form 1!/1 + 2!/2 +... n!/n\n");
+    int num, result;
+    printf("Enter a number : ");
+    scanf("%d", &num);
+    result = series(num);
+    printf("The sum of the series is : %d", result);
+
+    return 0;
+}
+int series(int a)
+{
+
+    int i = 1, j = 1, x = 1, y = 1, sum = 0;
+    while (i <= a)
+    {
+        int calc = 0;
+        while (j <= i)
+        {
+            x *= j;
+            j++;
+        }
+        calc = x / y;
+        sum += calc;
+        i++, y++;
+        j = 1;
+        x = 1;
+    }
+    return sum;
+}

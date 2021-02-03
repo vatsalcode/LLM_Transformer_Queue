@@ -6,6 +6,20 @@
     - [X] Hello World
     - [X] Comments
     - [X] Variables
-
+    - [X] Result
+    - [X] Type Casting and Inference
+    - [X] If, Else, While
+    - [X] Case Statements
+    - [X] For Loops & Iterators
+    - [X] Procs
+    - [X] First Class Functions
+    - [X] Blocks
+    - [X] Primitive Types
+    - [X] Type Aliases
+    - [X] Object Types
+    - [X] Enum Types
+    - [X] Distinct Types
+    - [X] Strings
+    - [ ] Arrays
   + [ ] Update [[https://tanish2002.gitlab.io/][My Website]] with some cool CSS or Javascript
   + [ ] Complete [[https://github.com/Tanish2002/GoogleClassroom_BOT][My Google Classroom Discord Bot]]
