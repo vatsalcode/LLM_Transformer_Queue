@@ -1,0 +1,20 @@
+class selection sort{
+  public static void main(String args[]){
+    int a[]={5,1,8,3,9,6};
+    for(int i=0; i<a.length-1; i++){
+      int min = a[i];
+      for(int j=i+1; j<a.length; j++){
+        if(min<a[j]){
+        min = a[j];
+        }
+       }
+       if(min<a[i]){
+        int t = a[min];
+        a[min]=a[j];
+        a[j]=t;
+       }
+     }
+ }
+}
+        
+        
