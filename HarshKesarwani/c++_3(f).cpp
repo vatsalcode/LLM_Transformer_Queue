@@ -18,5 +18,6 @@ else
 {
     cout<<"you are eligible";
 }
+return 0;
 
 }
