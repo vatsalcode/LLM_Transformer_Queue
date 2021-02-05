@@ -38,6 +38,6 @@ cout<<"enter num2";
 cin>>num2; //take num2 from user
 cout<<"sum is"<<num1+num2;
 
-
+return 0;
 
 }
