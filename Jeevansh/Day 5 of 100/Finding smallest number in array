@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+int a[100],n,i;
+cout<<"Enter size of an array\n";
+cin>>n;
+for(i=0;i<n;i++)
+   {
+    cout<<"\nEnter element\n";
+    cin>>a[i];
+   }
+int small=a[0];
+for(i=0;i<n;i++)
+{
+    if(a[i]<small)
+    {
+        small=a[i];
+    }
+}
+cout<<"\nSmallest element in array:"<<small;
+return 0;
+}

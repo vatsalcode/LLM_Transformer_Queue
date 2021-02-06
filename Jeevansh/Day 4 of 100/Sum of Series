@@ -1,0 +1,20 @@
+Sum of 2^2 + (2^2 + 4^2) + (2^2 + 4^2 + 6^2) + .......n
+
+#include <iostream>  
+using namespace std;  
+int main()  
+{  
+int n;
+long int sum=4;
+cout<<"Enter value of n\n";
+cin>>n;
+for(int i=2;i<=n;i+=2)
+{
+    for(int j=2;j<=2*i;j+=2)
+    {
+        sum+=j*j;
+    }
+}
+cout<<"\nSum="<<sum;
+return 0;
+}
