@@ -1,0 +1,53 @@
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int a1,a2,a3,a4,a5,a6,a7,f1,f2,f3,f4,f5,f6,f7,sum=0;
+	cin>>a1>>a2>>a3>>a4>>a5>>a6>>a7;
+	cin>>f1>>f2>>f3>>f4>>f5>>f6>>f7;
+	if(a1>f1)
+	{
+	    sum+=a1-f1;
+	}
+	else
+	sum+=f1-a1;
+  	if(a2>f2)
+	{
+	    sum+=a2-f2;
+	}
+	else
+	sum=f2-a2;
+	 if(a3>f3)
+	{
+	    sum+=a3-f3;
+	}
+	else
+	sum+=f3-a3;
+	 if(a4>f4)
+	{
+	    sum+=a4-f4;
+	}
+	else
+	sum+=f4-a4;
+	 if(a5>f5)
+	{
+	    sum+=a5-f5;
+	}
+	else
+	sum+=f5-a5;
+	 if(a6>f6)
+	{
+	    sum+=a6-f6;
+	}
+	else
+	sum+=f6-a6;
+	 if(a7>f7)
+	{
+	    sum+=a7-f7;
+	}
+	else
+	sum+=f7-a7;
+	cout<<sum<<endl;
+	return 0;
+}
