@@ -1,0 +1,19 @@
+1) Chef and Sweets
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	
+	int t;
+	cin>>t;
+	while(t--){
+	    long int m,n,area;
+	    cin>>m>>n;
+	    area = m*n;
+	    area/=2;
+	    cout<<area<<endl;
+	}
+	return 0;
+}
+
