@@ -1,0 +1,24 @@
+public class Solution {
+    public int solve(ListNode A, int B) {
+        ListNode head = A; int count=1; int ans=0;
+        ListNode curr= A; int currcnt=1;
+        while(curr!= null){
+            count++;
+            curr=curr.next;
+        }
+        int reqpos = ((count+1)/2)-B;
+        if(reqpos<0)
+        return -1;
+        else
+        while(head!=null){
+            
+            if(currcnt==reqpos){
+                ans = head.val;
+                break;
+            }
+            currcnt++;
+            head=head.next;
+        }
+        return ans;
+    }
+}
