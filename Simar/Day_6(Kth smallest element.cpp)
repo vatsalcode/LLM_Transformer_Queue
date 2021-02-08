@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int kth_Smallest(int a[], int n, int k)
+{
+
+    sort(a, a + n);
+    return a[k - 1];
+}
+int main()
+{
+    int a[] = { 12, 3, 5, 7, 19 };
+    int n = sizeof(a) / sizeof(a[0]), k = 2;
+    cout << "K'th smallest element is " << kth_Smallest(a, n, k);
+    return 0;
+}
