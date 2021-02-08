@@ -1,0 +1,34 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int a[25][25],m,n,d1,d2;
+    cout<<"Enter number of rows\n";
+    cin>>m;
+    cout<<"\nEnter number of columns\n";
+    cin>>n;
+    if(m!=n)
+    {return 0;}
+    for(int i=0;i<m;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            cout<<"\nEnter elements\n";
+            cin>>a[i][j];
+        }
+    }
+    d1=d2=0;
+    for(int i=0;i<m;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            if(i==j)
+            {d1+=a[i][j];}
+            if(i+j==m-1)
+            {d2+=a[i][j];}
+        }
+    }
+    cout<<"\nSum of main diagonal elements="<<d1;
+    cout<<"\nSum of other diagonal elements="<<d2;
+return 0;    
+}
