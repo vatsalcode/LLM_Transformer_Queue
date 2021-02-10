@@ -1,0 +1,8 @@
+cost = int(input("Enter the cost price : "))
+sell = int(input("Enter the selling price : "))
+if cost>sell:
+print("Loss of : ",cost-sell)
+elif cost<sell:
+print("Profit of : ", sell - cost)
+else:
+print("No profit and no loss.")
