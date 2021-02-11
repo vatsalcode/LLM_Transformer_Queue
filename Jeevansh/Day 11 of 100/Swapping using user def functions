@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+int swap(int &m,int &n)
+{
+    m=m+n;
+    n=m-n;
+    m=m-n;
+    cout<<"\nSwapped Numbers:\nFirst Number:"<<m<<" Second Number:"<<n;
+}
+
+int main()
+{
+    int x,y;
+    cout<<"Enter first number\n";
+    cin>>x;
+    cout<<"\nEnter second number\n";
+    cin>>y;
+    cout<<"\nFirst number:"<<x<<" Second number:"<<y;
+    swap(x,y);
+    return 0;
+}
