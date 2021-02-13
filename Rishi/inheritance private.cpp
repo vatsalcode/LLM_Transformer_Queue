@@ -1,4 +1,4 @@
-//Deriving data publicly
+//Deriving data privately
 #include <iostream>
 using namespace std;
 class base
