@@ -1,0 +1,41 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class student
+{
+    int roll;
+    char name[20];
+    float per;
+
+public: void input()
+        {
+        cout<<"Enter roll no.\n";
+        cin>>roll;
+        cout<<"\nEnter name\n";
+        cin>>name;
+        cout<<"\nEnter percentage\n";
+        cin>>per;
+        }
+        void output()
+        {
+            cout<<"\nRoll no:"<<roll;
+            cout<<"\nName:"<<name;
+            cout<<"\nPercentage:"<<per<<"\n";
+        }
+}s[100];
+
+int main()
+{
+    int i, n;
+    cout<<"Enter number of students\n";
+    cin>>n;
+    for(i=0;i<n;i++)
+    {
+        s[i].input();
+    }
+    for(i=0;i<n;i++)
+    {
+        s[i].output();
+    }
+return 0;    
+}
