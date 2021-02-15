@@ -1,0 +1,36 @@
+// This includes the recurrsive way- handles both base & recurrsive case
+int gcd(int a, int b){
+      return b == 0 ? a:gcd(b, a%b);
+}
+
+int main(){
+
+       int a,b;
+       cin>>a>>b;
+       
+       int ans = gcd(a,b);
+       cout<<ans;
+       
+       return 0;
+}
+
+//2nd way
+int main(){
+
+       int a,b;
+       cin>>a>>b;
+       
+      int t,h;
+      x = a;
+      y = b;
+      while(y!=0){
+      t = y;
+      y = x%y;
+      x = t;
+      }
+      h = x;
+      cout<<"HCF : "<<h<<endl;
+      int l = (a*b) / h;
+      cout<<"LCM : "<<l<<endl; 
+       return 0;
+}
