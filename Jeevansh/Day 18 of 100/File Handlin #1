@@ -12,13 +12,14 @@ int main()
       f1.close(); 
    }
    f1.open("abc.txt",ios::in); 
-   if (newfile.is_open())
+   if (f1.is_open())
    {   
       string temp;
       while(getline(f1, temp))
       {  
-         cout << tempp << "\n";   
+         cout << temp << "\n";   
       }
       f1.close();  
    }
+   return 0;
 }
