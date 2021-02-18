@@ -43,7 +43,7 @@ void binary ::ones_complement(void)
         }
         else
         {
-            s.at(i) == '0';
+            s.at(i) = '0';
         }
     }
 }
@@ -53,7 +53,7 @@ void binary ::display(void)
     cout << "displaying your binary number" << endl;
     for (int i = 0; i < s.length(); i++)
     {
-        cout << s.length(i);
+        cout << s.at(i);
     }
     cout << endl;
 }
