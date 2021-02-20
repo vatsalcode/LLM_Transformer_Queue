@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+	int t,n,i,j;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    int a[n][n],s,r,trace,max;
+	    for(i=0;i<n;i++)
+	    {
+	        for(j=0;j<n;j++)
+	        {
+	            cin>>a[i][j];
+	        }
+	    }
+	    max=0;
+	    for(i=0;i<n;i++)
+	    {
+	        for(j=0;j<n;j++)
+	        {
+	         r=i;s=j;trace=0;
+	         while(r<n && s<n){
+	             trace+=a[r++][s++];
+	             if(max<trace)
+	             max=trace;
+	             }
+	        }	        
+	    }
+	    cout<<max<<endl;	    
+	}	
+	return 0;
+}
