@@ -1,0 +1,40 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class student
+{
+    int admn;
+    char name[20];
+    float eng,mat,sci,total;
+    float ctotal()
+    {
+        return eng+mat+sci;
+    }
+    
+    public: void in()
+    {
+        cout<<"Enter admission number\n";
+        cin>>admn;
+        cout<<"\nEnter name\n";
+        cin>>name;
+        cout<<"\nEnter scores in english, maths and science resp\n";
+        cin>>eng>>mat>>sci;
+        total=ctotal();
+    }
+    
+    void out()
+    {
+        cout<<"\nAdmission no.:"<<admn;
+        cout<<"\nName:"<<name;
+        cout<<"Score in english:"<<eng<<"\nScore in maths:"<<mat<<"\nScore in science:"<<sci;
+        cout<<"\nTotal:"<<total;
+    }
+    
+};
+int main()
+{
+student s;
+s.in();
+s.out();
+return 0;
+}
