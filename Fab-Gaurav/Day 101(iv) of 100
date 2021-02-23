@@ -1,0 +1,4 @@
+#Program to print ASCII Value of a character.
+
+ch = input("Enter thr character: ")
+print("The ASCII value of",ch,"is = ",ord(ch))
