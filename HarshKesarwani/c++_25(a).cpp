@@ -1,3 +1,9 @@
+1) learned about dynamic initialization of objects using constructors
+2) learned about copy constructor
+3) learned about destructor
+
+
+
 #include <iostream>
 using namespace std;
 class bankdeposit
