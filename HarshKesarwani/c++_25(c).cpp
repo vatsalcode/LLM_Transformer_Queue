@@ -1,20 +1,21 @@
 #include <iostream>
 using namespace std;
 
+int countt=0;
 class num
 {
-    int count =0;
+
 public:
     num()
     {
-        count++;
-        cout << "this is the time when constructor is called for object number " << count << endl;
+        countt++;
+        cout << "this is the time when constructor is called for object number " << countt << endl;
     }
 
     ~num()
     {
-        cout << "this is the time when destructor is called for object number " << count << endl;
-        count--;
+        cout << "this is the time when destructor is called for object number " << countt << endl;
+        countt--;
     }
 };
 
