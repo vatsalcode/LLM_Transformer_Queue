@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std ;
+int main()
+{
+	int t,k,n,value,ar[100];
+	cin>>t;
+	while(t--)
+	{
+		cin>>n;
+		for(int i=0;i<n;i++)
+		{
+			cin>>ar[i];
+		}
+		cin>>k;
+		value=ar[k-1];
+		sort(ar,ar+n);
+		for(int j=0;j<n;j++)
+{
+if(ar[j]==value)
+{
+cout<<j+1<<endl;
+}
+}
+	}
+	return 0;
+}
