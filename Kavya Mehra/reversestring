@@ -1,0 +1,19 @@
+class Solution {
+    
+    public String reverse(String s){
+        //code here
+        StringBuilder str = new StringBuilder(s); 
+        int n = str.length(); 
+        Stack <Character> obj = new Stack<>();
+        int i; 
+        for (i = 0; i < n; i++) 
+        obj.push(str.charAt(i));  
+        for (i = 0; i < n; i++) 
+        {  
+            char ch = obj.pop(); 
+            str.setCharAt(i,ch); 
+        } 
+        return str.toString();
+    }
+
+}
