@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+int t;
+cin>>t;
+while(t--)
+{double q,p;
+    cin>>q>>p;
+ double e=q*p;
+  if(q>1000)
+        {        
+        e=e-(e)/10;    }             
+cout<<fixed<<setprecision(6)<<e<<"\n";
+}
+return 0;
+}

@@ -1,0 +1,42 @@
+package mathematics;
+
+		class animal{
+
+		private String animal;
+        private String colour;
+        
+        public String getName()  
+        { 
+            return animal; 
+        }
+        public String getColour()  
+        { 
+            return colour; 
+        } 
+        public void setName(String newname) 
+        { 
+            animal = newname; 
+        } 
+        public void setColour(String newcolour) 
+        { 
+            colour = newcolour; 
+        } 
+        
+   }
+        
+   public class encapsulation {
+            
+        public static void main(String []args) {
+        
+        animal obj = new animal();
+        obj.setName("Pig");
+        obj.setColour("Pink");
+        System.out.println("Name of the animal   : "+obj.getName());
+        System.out.println("Colour of the animal : "+obj.getColour());
+        obj.setName("Rabbit");
+        obj.setColour("White");
+        System.out.println("Name of the animal   : "+obj.getName());
+        System.out.println("Colour of the animal : "+obj.getColour());
+        
+     }
+}

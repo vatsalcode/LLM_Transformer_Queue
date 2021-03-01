@@ -1,0 +1,14 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+const int mod = 1e9+7;
+int main(){
+ll n,ans=1;
+cout<<"Enter the value of N : ";
+cin>>n;
+for(ll i=0;i<n;i++){
+ans = (ans%mod*(int)pow((n-i),i+1)%mod)%mod;
+}
+cout<<"The answer is = "<<ans;
+return 0;
+}

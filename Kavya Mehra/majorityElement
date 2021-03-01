@@ -1,0 +1,22 @@
+learned about the Boyer-Moore algorithm to find the majority element in an array.
+
+int ans = 0;
+int count = 1;
+int freq = 0;
+for(int i=1; i<a.lenght; i++)
+{
+if(a[i]==a[ans])
+count++;
+else
+count++
+if(count==0){
+ans=i;
+count=1;
+}
+for(int i=0; i<n ;i++){
+if(a[i]==ans)
+freq++;
+}
+if(freq>(a.length/2)
+System.out.println(ans);
+}

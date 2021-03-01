@@ -1,0 +1,21 @@
+#include<stdio.h>
+using namespace std;
+int main(){
+int t;
+cin>>t;
+while(t-->0){
+int n,k,p;
+cin>>n;
+cin>>k;
+int a[n];
+for(int i=0; i<n; i++){
+cin>>a[i];
+}
+k%=n;
+for(int i=0; i<n; i++){
+p = a[i+(n-k)%n];
+cout<<p<<"";
+}
+cout<<endl;
+}
+}

@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+
+ int a;
+ unsigned int b;
+ signed int c;
+ short int d;
+ long int e;
+ long long int f;
+ char g;
+ bool h;
+
+ cout<<"Size of int "<<sizeof(a)<<endl;
+ cout<<"Size of unsigned int "<<sizeof(b)<<endl;
+ cout<<"Size of signed int "<<sizeof(c)<<endl;
+ cout<<"Size of short int "<<sizeof(d)<<endl;
+ cout<<"Size of long int "<<sizeof(e)<<endl;
+ cout<<"Size of long long int "<<sizeof(f)<<endl;
+ cout<<"Size of char  "<<sizeof(g)<<endl;
+ cout<<"Size of bool "<<sizeof(h)<<endl;
+ 
+    return 0;
+}
+
+
+
