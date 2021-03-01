@@ -1,3 +1,13 @@
+
+        }
+        if(a[i]>l)
+        {
+            l=a[i];
+        }
+    }
+    cout<<"Large : "<<l<<endl<<"Small : "<<s;
+    return 0;
+=======
 #include <iostream>
 using namespace std;
 
@@ -34,4 +44,5 @@ int main() {
     
   }
 	return 0;
+
 }
