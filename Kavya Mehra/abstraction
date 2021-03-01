@@ -1,0 +1,16 @@
+ 	abstract class Animal {  
+	  public abstract void colour();  
+	}
+ 	
+	class pig extends Animal {  
+	public void colour(){
+		System.out.println("Pink");
+		}  
+	}
+
+    public class abstraction {
+    		public static void main(String[] args) {
+			 pig obj = new pig();  
+			 obj.colour(); 
+	}
+}
