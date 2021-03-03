@@ -1,3 +1,5 @@
+1) learned about reading and writing in files
+
 #include<iostream>
 #include<fstream>
 using namespace std;
