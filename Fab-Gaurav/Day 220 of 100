@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int T; cin>>T;
+    while(T--)
+    {
+        int n; cin>>n;
+        string s,team1,team2;
+        int t1score=0,t2score=0;
+        for(int i=0;i<n;i++)
+        {
+            cin>>s;
+            if(i==0){ team1=s;}
+            if(team1 == s){ t1score++;}
+            else{ team2 = s; t2score++;}
+        }
+    if(t1score==t2score){cout<<"Draw"<<endl;}
+   // else if(t1score==0 && t2score==0){cout<<"Draw"<<endl;}
+    else if(t1score>t2score){cout<<team1<<endl;}
+    else if(t2score>t1score){ cout<<team2<<endl;}
+    }    
+}
