@@ -1,0 +1,17 @@
+class Solution {
+    public int[] anagramMappings(int[] A, int[] B) {
+        // Make a map<value, index of B> and iterate through B to build the map
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int i = 0; i < B.length; i++) {
+            map.put(B[i], i);
+        }
+        
+        // Iterate through A and look up index by value in map
+        int[] ans = new int[A.length];
+        for(int i = 0; i < A.length; i++) {
+            ans[i] = map.get(A[i]);
+        }
+        
+        return ans;
+    }
+}
