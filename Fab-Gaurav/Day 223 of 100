@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--){
+	    int n;
+	    cin>>n;
+	    float x=(int)((n*(log(n+0.5) + 0.5772 + 0.04021/(n*n + 0.8848)))*10+0.5);
+	    cout<<(float)x/10<<endl;
+	}	
+	return 0;
+}
