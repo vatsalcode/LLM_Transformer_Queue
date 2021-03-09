@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i,a[5],n,t,j;
+    cin>>n;
+    for(i=0;i<n;i++)
+    cin>>a[i];
+    for(i=0;i<n;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+        if(a[i]%2==0 && a[j]%2!=0)
+        {
+            t=a[i];
+            a[i]=a[j];
+            a[j]=t;
+        }
+        else if(a[i]%2!=0 && a[j]%2==0)
+        {
+            t=a[i];
+            a[i]=a[j];
+            a[j]=t;
+        }
+        
+    }
+    }
+    for(i=0;i<n;i++)
+    cout<<a[i]<<"\t";
+    return 0;
+}
