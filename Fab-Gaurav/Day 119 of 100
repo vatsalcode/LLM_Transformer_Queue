@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+typedef long long ll;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        bool arr[n][n];
+        char tmp;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                cin>>tmp;
+                if(tmp=='.')
+                    arr[i][j]=0;
+                else
+                    arr[i][j]=1;
+            }
+        }
+        bool flagarr[n]={0};
+        ll cnt=0;
+        for(int i=n-1;i>=0;i--)
+        {
+            int flg=1;
+            for(int j=n-1;j>=0;j--)
+            {
+                if(arr[i][j]==0&&flg&&flagarr[j]==0)
+                    cnt++;
+                if(arr[i][j]==1)
+                {
+                    flagarr[j]=1;
+                    flg=0;
+                }              
+            }
+        }
+        cout<<cnt<<endl;        
+    }
+	return 0;
+}
