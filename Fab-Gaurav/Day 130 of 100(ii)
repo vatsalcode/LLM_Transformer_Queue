@@ -1,0 +1,15 @@
+#Program to access a class member using an object.
+
+class Mango:
+    
+    attr1 = "fruit"
+    attr2 = "mango"
+    
+    def fun(self):
+        print("It's a", self.attr1)
+        print("It's a", self.attr2)
+
+Rodger = Mango()
+
+print(Rodger.attr1)
+Rodger.fun()
