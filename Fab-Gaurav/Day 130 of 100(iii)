@@ -1,0 +1,31 @@
+#Program to implement constructor and destructor using python
+
+
+# Program to illustrate constructor
+
+class Person:
+    def __init__(self):
+        self.golf = "Person is having lunch."
+    def print_it(self):
+        print(self.golf)
+
+# creating object of the class
+obj = Person()
+
+# calling the instance method using the object obj
+obj.print_it()
+
+
+
+# Program to illustrate destructor
+
+class Employee:
+    def __init__(self):
+        print("Employee created.")
+
+# Deleting (Calling destructor)
+    def __del__(self):
+        print("Destructor called, Employee deleted.")
+
+obj = Employee()
+del obj
