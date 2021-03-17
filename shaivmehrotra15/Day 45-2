@@ -1,0 +1,56 @@
+
+/*//Dom manipulation
+let elem=document.getElementById('click');
+console.log(elem)
+
+let elemClass=document.getElementsByClassName("container")
+console.log(elemClass)
+elemClass[0].style.background = "blue";
+elemClass[1].style.background = "pink";
+elemClass[0].classList.add("bg-primary");
+elemClass[0].classList.add("text-success");
+console.log(elemClass[0].innerHTML)
+console.log(elemClass[0].innerText)*/
+
+
+
+/*let tn=document.getElementsByTagName("button")
+console.log(tn);
+
+let tn2=document.getElementsByTagName("div")
+console.log(tn2)
+
+createdElement = document.createElement('p')
+createdElement.innerText = "this is a created para"
+tn2[0].appendChild(createdElement);
+
+
+createdElement2 = document.createElement('b')
+createdElement2.innerText = "this is a created bold"
+tn2[0].replaceChild(createdElement2, createdElement);*/
+
+
+/*//Events in JavaScript
+function clicked()
+{
+    console.log("the button was clicked")
+}
+
+
+window.onload= function(){console.log("document was loaded")}
+
+
+firstContainer.addEventListener('click',function()
+{console.log("clicked on container")
+})
+
+firstContainer.addEventListener('mouseover',function()
+{console.log("mouse in container container")
+})
+
+firstContainer.addEventListener('mouseout',function()
+{console.log("mouse out of container container")
+})*/
+
+
+

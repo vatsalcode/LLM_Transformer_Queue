@@ -1,0 +1,50 @@
+
+/*Arrow functions
+ function summ(a,b)
+ {
+     return a+b
+ }
+
+ summ = (a,b)=>
+ {
+     return a+b
+ }*/
+
+
+
+
+/*//setTimeopt and setInterval
+logkaro= ()=>{
+    console.log("log has been done")
+}
+setTimeout(logkaro, 2000);
+//setInterval(logkaro,2000);
+
+clr= setInterval(logkaro,2000)
+clearInterval(clr)
+
+use clearInterval(clr)/clearTimeout to clear setInterval/setTimeout*/
+
+
+
+/*Local Storage
+localStorage.setItem("name","shaiv")
+localStorage
+Storage 
+localStorage.getItem('name')
+"shaiv"*/
+
+
+/*//Json
+obj = {name: "shaiv", length: 1}
+jso = JSON.stringify(obj);
+console.log(jso)
+
+parsed= JSON.parse('{"name":"shaiv","length":1}')
+console.log(parsed)*/
+
+
+
+/*//Template literals-Backticks
+a=34
+console.log(`this is my ${a}`)-uses backtick at top left of keyboard*/
