@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+int main() 
+{
+float curr;
+int with;
+cin>>with>>curr;
+if(with%5==0)
+{
+    if((curr-0.5)>=with)
+    {
+        curr=curr-0.5-with;
+        cout<<curr;;
+    }
+    else
+    cout<<curr;;
+}
+else
+cout<<curr;
+return 0;
+}
