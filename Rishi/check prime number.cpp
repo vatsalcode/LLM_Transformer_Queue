@@ -4,7 +4,7 @@ int main()
 {
     int number;
     cout << "This programme is to check Whether a number is prime or not" << endl;
-    cout << "Enter the number you want to check: ";
+    cout << "Enter the number you want to check except 0 and 1:  ";
     cin >> number;
 
     int flag = 0;
