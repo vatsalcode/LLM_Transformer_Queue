@@ -1,0 +1,57 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define reg register
+typedef long long ll;
+#define rep(i,a,b) for(int i=a,i##end=b;i<=i##end;++i)
+#define drep(i,a,b) for(int i=a,i##end=b;i>=i##end;--i)
+char IO;
+int rd(){
+	int s=0; int f=0;
+	while(!isdigit(IO=getchar())) if(IO=='-') f=1;
+	do s=(s<<1)+(s<<3)+(IO^'0');
+	while(isdigit(IO=getchar()));
+	return f?-s:s;
+}
+const int N=3010;
+int n,c,k,V[N];
+ll F[N],H[N];
+vector <int> G[N];
+int A[N],C;
+ll X[N],Y[N];
+int main(){
+	rep(kase,1,rd()) {
+		n=rd(),c=rd(),k=rd();
+		rep(i,1,c) G[i].clear();
+		rep(i,1,n) {
+			int x=rd(); rd();
+			G[rd()].push_back(x);
+		}
+		rep(i,1,c) V[i]=rd();
+		memset(F,63,sizeof F),F[0]=0;
+		rep(i,1,c) {
+			sort(G[i].begin(),G[i].end()),C=0;
+			rep(j,0,G[i].size()-1) if(j && G[i][j]==G[i][j-1]) A[C]++;
+			else A[++C]=1;
+			sort(A+1,A+C+1),X[C+1]=Y[C+1]=0;
+			int L=min((int)G[i].size(),k/V[i]),c=0;
+			drep(j,C,1) {
+				X[j]=X[j+1]+c*A[j];
+				Y[j]=Y[j+1]+X[j+1]*A[j];
+				c+=A[j];
+			}
+			H[0]=Y[1];
+			int p=1;
+			rep(i,1,L) {
+				if(!A[p]) p++;
+				A[p]--;
+				H[i]=Y[p+1]+A[p]*X[p+1];
+			}
+			drep(j,k,0) {
+				ll t=1e18;
+				rep(k,0,j/V[i]) t=min(t,F[j-k*V[i]]+H[k]);
+				F[j]=t;
+			}
+		}
+		printf("%lld\n",*min_element(F,F+k+1));
+	}
+}
