@@ -1,0 +1,12 @@
+#Program to print the pattern upto "n" rows
+
+def alp_pat(n):
+    ascii_number = 65
+    for i in range(0,n):        
+        for j in range(65,65+i):
+            print(chr(ascii_number),end=" ")
+            ascii_number += 1
+        print()
+
+n =int(input("Enter the rows : "))
+alp_pat(n)
