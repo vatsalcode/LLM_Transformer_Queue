@@ -1,0 +1,70 @@
+#include <bits/stdc++.h>
+using namespace std;
+long long n , x , a , b , l1 , r1 , l2 , r2 , mid , isi , l , r;
+long long f(long long x , long long y){
+	cout << 1 << " " << x << " " << y << endl << flush;
+	cin >> a;
+	return a;
+}
+void reset(){
+	l = 1;
+	r = n;
+}
+int main(){
+	cin >> n;
+	reset();
+	while(l <= r){
+		mid = (l + r)/2;
+		isi = f(1 , mid);
+		if(isi == 1){
+			r = mid - 1;
+			l1 = mid;
+		}
+		else if(isi == 0){
+			l = mid + 1;
+		}
+		else{
+			r = mid - 1;
+		}
+	}
+	reset();
+	while(l <= r){
+		mid = (l + r)/2;
+		isi = f(mid , n);
+		if(isi == 2){
+			l = mid + 1;
+			r1 = mid;
+		}
+		else if(isi <= 1){
+			r = mid - 1;
+		}
+	}
+	reset();
+	while(l <= r){
+		mid = (l + r)/2;
+		isi = f(1 , mid);
+		if(isi == 2){
+			r = mid - 1;
+			l2 = mid;
+		}
+		else if(isi <= 1){
+			l = mid + 1;
+		}
+	}
+	reset();
+	while(l <= r){
+		mid = (l + r)/2;
+		isi = f(mid , n);
+		if(isi == 1){
+			l = mid + 1;
+			r2 = mid;
+		}
+		else if(isi == 0){
+			r = mid - 1;
+		}
+		else{
+			l = mid + 1;
+		}
+	}
+	cout << 2 << " " << l1 << " " << r1 << " " << l2 << " " << r2 << endl << flush;	
+}
