@@ -1,0 +1,123 @@
+#include <bits/stdc++.h>
+using namespace std;
+  
+// Circular list node
+struct Node {
+    int data;
+    struct Node* next;
+};
+  
+// Function to calculate sum and product
+void sumProduct(struct Node* head, int key)
+{
+    struct Node* current = head;
+  
+    int sum = 0, product = 1;
+  
+    // if list is empty simply show message
+    if (head == NULL) {
+        printf("\nDisplay List is empty\n");
+        return;
+    }
+    // traverse first to last node
+    else {
+        do {
+            // check if current node's data is
+            // divisible by key
+            if ((current->data) % key == 0) {
+  
+                // Calculate sum
+                sum += current->data;
+  
+                // Calculate product
+                product *= current->data;
+            }
+  
+            current = current->next;
+        } while (current != head);
+    }
+  
+    cout << "Sum = " << sum << ", Product = " << product;
+}
+  
+// Function print the list
+void displayList(struct Node* head)
+{
+    struct Node* current = head;
+  
+    // if list is empty simply show message
+    if (head == NULL) {
+        printf("\nDisplay List is empty\n");
+        return;
+    }
+    // traverse first to last node
+    else {
+        do {
+            printf("%d ", current->data);
+            current = current->next;
+        } while (current != head);
+    }
+}
+  
+// Function to insert a node at the end of
+// a Circular linked list
+void InsertNode(struct Node** head, int data)
+{
+    struct Node* current = *head;
+    // Create a new node
+    struct Node* newNode = new Node;
+  
+    // check node is created or not
+    if (!newNode) {
+        printf("\nMemory Error\n");
+        return;
+    }
+  
+    // insert data into newly created node
+    newNode->data = data;
+  
+    // check list is empty
+    // if not have any node then
+    // make first node it
+    if (*head == NULL) {
+        newNode->next = newNode;
+        *head = newNode;
+        return;
+    }
+    // if list have already some node
+    else {
+  
+        // move firt node to last node
+        while (current->next != *head) {
+            current = current->next;
+        }
+  
+        // put first or head node address in new node link
+        newNode->next = *head;
+  
+        // put new node address into last node link(next)
+        current->next = newNode;
+    }
+}
+  
+// Driver Code
+int main()
+{
+    struct Node* head = NULL;
+    InsertNode(&head, 5);
+    InsertNode(&head, 6);
+    InsertNode(&head, 7);
+    InsertNode(&head, 8);
+    InsertNode(&head, 9);
+    InsertNode(&head, 10);
+    InsertNode(&head, 11);
+    InsertNode(&head, 11);
+  
+    cout << "Initial List: ";
+    displayList(head);
+  
+    cout << endl;
+    sumProduct(head, 11);
+  
+    return 0;
+}
