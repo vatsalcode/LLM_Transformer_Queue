@@ -16,19 +16,19 @@ int main()
 
     int sum = 0;
 
-    for (int x = 0; x < 9; x++)
+    for (int x = 0; x <size; x++)
     {
         int count = 0;
         for (int y = 0; y < size; y++)
         {
-            if (nums[y]==x)
+            if (nums[y]==nums[x])
             {
                 count++;
             }
         }
         if (count==1)
         {
-            sum = sum + x;
+            sum = sum + nums[x];
         }
     }
 
