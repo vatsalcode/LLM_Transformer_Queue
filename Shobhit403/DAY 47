@@ -1,0 +1,58 @@
+#include<iostream>
+#include<bits/stdc++.h>
+#define mod 1000000007
+#define int long long int
+#define ps(x,noOfDecimal) fixed<<setprecision(noOfDecimal)<<x
+using namespace std;
+signed main()
+{
+    if (fopen("input.txt", "r")) {
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+    }
+    std::ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    int t = 1;
+    cin>>t;
+    while (t--) {
+        int n,k;
+        cin>>n>>k;
+        vector<int>arr(n+1,0),idx(k);
+        for(int i=0;i<k;i++){
+            cin>>idx[i];
+            idx[i]--;
+        }
+        sort(idx.begin(),idx.end());
+        if(k==1){
+            if(n==1)cout<<"YES"<<endl<<"1"<<endl;
+            else cout<<"NO"<<endl;
+            continue;
+        }
+        if(k==2 && n>2){
+            bool flag=false;
+            if(idx[1]-idx[0]!=1)flag=true;
+            if(flag){
+                cout<<"NO"<<endl;
+                continue;
+            }
+        }
+        int maxi=n,val=1;
+        for(int i=0;i<idx[1];i++){
+            if(i==idx[0])continue;
+            arr[i]=maxi--;
+        }
+        for(int i=k-1;i>=0;i--){
+            arr[idx[i]]=maxi--;
+        }
+        for(int i=0;i<n;i++){
+            if(arr[i]!=0)continue;
+            arr[i]=maxi--;
+        }
+        cout<<"YES"<<endl;
+        for(int i=0;i<n;i++){
+            cout<<arr[i]<<" ";
+        }cout<<endl;      
+    }          
+    return 0;
+}
