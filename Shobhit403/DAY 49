@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+#define inp_out_work ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+#define testCase    int T; cin>>T; while(T--)
+#define fr(i,n) for(int i=0;i<n;i++)
+#define fro(i,s,e) for(int i=s;i<=e;i++)
+#define endl '\n'
+#define debug(P) cout<<#P<<" = "<<P<<endl;
+#define pb push_back
+#define FILE freopen("in.txt","r",stdin); freopen("out.txt","w",stdout);
+using namespace std;
+typedef long long ll;
+const int MAXN = 1000001;
+const int mod = 1000000007;
+void getVal(vector<int> &v, vector<int> &a, vector<int> &b, char op){
+    switch(op){
+    case '&': for(int x : a)for(int y : b)v.pb(x&y); return;
+    case '^': for(int x : a)for(int y : b)v.pb(x^y); return;
+    case '|':  for(int x : a)for(int y : b)v.pb(x|y); return;
+    }
+}
+int main(){
+inp_out_work
+    testCase{
+        string s;
+        cin>>s;
+        vector<int> v;
+        vector<char> c;
+        stringstream ss(s);
+        int x; char d;
+        ss >> x;
+        while(ss>>d){
+            v.pb(x); c.pb(d);
+            ss>>x;
+        }
+        v.pb(x);
+        int n = v.size();
+        vector<int> dp[n][n];
+        fr(i,n)fr(j,n)dp[i][j].clear();
+        for(int l = 1; l <= n; l++){
+            for(int i = 0; i <= n-l; i++){
+                int j = i + l - 1;
+                if(l == 1){
+                    dp[i][j].pb(v[i]);
+                }
+                else{
+                    for(int k = i; k < j; k++){
+                        getVal(dp[i][j], dp[i][k], dp[k+1][j], c[k]);
+                    }
+                }
+            }
+        }
+        cout<< *max_element(dp[0][n-1].begin(), dp[0][n-1].end()) << endl;
+    }
+}
