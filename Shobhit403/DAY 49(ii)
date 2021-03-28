@@ -1,0 +1,86 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define fast {ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);}
+typedef long long int ll;
+typedef string S;
+#define M 1e18
+#define AS 250005
+#define sp cout<<' '
+#define nw cout<<endl
+#define rt return
+#define __ template<typename T, typename... Types>
+void in() {rt;} __ void in(T &a, Types&... b){cin>>(a); in(b...);}
+void o() {rt;}  __ void o(T a, Types... b){cout<<(a);sp; o(b...);}
+#define fr(Hi,a,n) for(ll Hi=a;Hi<=n;Hi++)
+#define frm(Hi,a,n) for(ll Hi=n;Hi>=a;Hi--)
+#define P pair<ll,ll>
+#define vc vector<ll>
+#define pb push_back
+#define MP map<ll,ll>
+#define F first
+#define S second
+bool sortin(const pair<ll,ll> &e,const pair<ll,ll> &f){return (e.first<f.first);}
+bool POT(ll x){return x && (!(x&(x-1)));}
+ll i,j,k,l,m,n,p,q,r,a,b,c,x,y,z,ts,mn=1e18,mod=1e9+7;
+//ll ar[AS],br[AS],xr[AS],tem[AS];
+int main()
+{
+    fast;
+    in(ts);
+    tt:
+    while(ts--)
+    {
+    in(n,k,m);
+    pair<ll,P>pr[m+2];
+    ll cnt[k+5],last[k+5],ar[n+5];
+    fr(i,1,k)cnt[i]=last[i]=0;
+    set<ll>st;
+    fr(i,1,n)st.insert(i),ar[i]=0;
+    fr(i,0,m-1)
+    {
+        in(x,y,z);
+        pr[i]={z,{x,y}};
+        st.erase(z);
+        ar[z]=x;
+    }
+    sort(pr,pr+m);
+    set<ll>::iterator it;
+   ll pre=-1;
+   fr(i,0,m-1)
+   {
+        z=pr[i].F;
+        x=pr[i].S.F;
+        y=pr[i].S.S;
+       if(z==pre){o("No"); nw;goto tt;}
+       pre=z;
+       while(cnt[x]+1<y)
+       {
+           if(st.empty()){o("No"); nw;goto tt;}
+           it=st.lower_bound(last[x]);
+           if(*it>z){o("No"); nw;goto tt;}
+           ar[*it]=x;
+           st.erase(it);
+           cnt[x]++;
+       }
+       last[x]=z;
+       cnt[x]++;
+       if(cnt[x]!=y){o("No"); nw;goto tt;}
+   }
+   ll val=0;
+   fr(i,1,k)
+   {
+       if(last[i]==0){val=i;break;}
+   }
+   fr(i,1,n)
+   {
+       if(ar[i]==0)
+       {
+           if(val)ar[i]=val;
+           else {o("No"); nw;goto tt;}
+       }
+       else if(last[ar[i]]<=i)val=ar[i];
+   }
+   o("Yes");nw;
+   fr(i,1,n)o(ar[i]);nw;
+    }
+}
