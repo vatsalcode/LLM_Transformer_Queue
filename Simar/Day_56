@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    long long int t,n,m;
+    cin>>t;
+    while(t--)
+    {
+        long long int sum=0;
+        cin>>n>>m;
+
+        long long int a[n];
+        set<long long int>s;
+        for(int i=0; i<n; ++i)
+        {
+            cin>>a[i];
+            s.insert(a[i]);
+
+        }
+
+       if(s.size()<m) cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
+    }
+    return 0;
+}
