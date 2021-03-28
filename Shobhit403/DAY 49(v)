@@ -1,0 +1,175 @@
+#include <bits/stdc++.h> 
+using namespace std;
+typedef long long int ll;
+int lps[200000];
+int p1[200000];
+int lps2[200000];
+int p2[200000];
+int N1;
+void LPS(string pat, int M) 
+{ 
+	int len = 0; 
+	lps[0] = 0; 
+	int i = 1; 
+	while (i < M) { 
+		if (pat[i] == pat[len]) { 
+			len++; 
+			lps[i] = len; 
+			i++; 
+		} 
+		else  
+		{ 
+			if (len != 0) { 
+				len = lps[len - 1];
+			} 
+			else
+			{	lps[i] = 0; 
+				i++; 
+			} 
+		} 
+	} 
+}
+void KMP(string pat, string txt) 
+{ 
+	int M = pat.size(); 
+	int N = txt.size(); 
+	LPS(pat, M); 
+	int i = 0;int j = 0; 
+	while (i < N){ 
+		if (pat[j] == txt[i]) 
+		{ 
+			j++; 
+			i++; 
+		} 
+		if (j == M) 
+		{ 
+			int x1=i-j;
+			int x2 = x1 + M - 1;
+		//	cout<<x1<<" "<<x2;
+		//	cout<<"\n";
+			j = lps[j - 1]; 
+			p1[x2]=1;
+		} 
+			else if (i < N && pat[j] != txt[i]) { 
+			if (j != 0) 
+				j = lps[j - 1]; 
+			else
+				i = i + 1; 
+		} 
+	} 
+} 
+void LPS2(string pat, int M) 
+{ 
+	int len = 0; 
+	lps2[0] = 0; 
+	int i = 1; 
+	while (i < M) { 
+		if (pat[i] == pat[len]) { 
+			len++; 
+			lps2[i] = len; 
+			i++; 
+		} 
+		else  
+		{ 
+			if (len != 0) { 
+				len = lps2[len - 1];
+			} 
+			else
+			{	lps2[i] = 0; 
+				i++; 
+			} 
+		} 
+	} 
+}
+void KMP2(string pat, string txt) 
+{ 
+	int M = pat.size(); 
+	int N = txt.size(); 
+	LPS2(pat, M); 
+	int i = 0; // index for txt[] 
+	int j = 0; // index for pat[] 
+	while (i < N) { 
+		if (pat[j] == txt[i]) 
+		{ 
+			j++; 
+			i++; 
+		} 
+		if (j == M) 
+		{ 
+			int x1=i-j;
+			int x2 = x1 + M - 1;
+			if(x2>=N1 && x1<=N1-1)
+			{
+			  //  cout<<x1<<" "<<x2;
+		//	cout<<"\n";
+			    p2[x2-N1]=1;
+			}
+			j = lps2[j - 1]; 
+		} 
+		else if (i < N && pat[j] != txt[i]) { 
+			if (j != 0) 
+				j = lps2[j - 1]; 
+			else
+				i = i + 1; 
+		} 
+	} 
+} 
+int main() 
+{ 
+	string s,t;
+	cin>>s;
+	cin>>t;
+	KMP(t,s);
+	int N = s.size();
+	N1=N;
+	int M = t.size();
+	int i;
+	i=1;
+	while(i<N)
+	{
+	    p1[i] = p1[i] + p1[i-1];
+	    i++;
+	}
+	int answer = p1[N-1];
+	string s1 = s + s ; 
+	KMP2(t,s1);
+	i=1;
+	while(i<N)
+	{   p2[i] = p2[i] + p2[i-1];
+	    i++;}
+	int answer2 = p2[N-1];
+	ll q;
+	cin>>q;
+	while(q--)
+	{
+	    ll a1=0;
+	    ll n;
+	    cin>>n;
+	    ll x1 = n/N1;
+	    ll x2 = n%N1;
+	    if(x1>=1)
+	    {
+	        ll x3 = x1-1;
+	        a1 = x1*answer + x3*answer2 ;
+	        if(x2==0)
+	        {
+	        }
+	        else
+	        {
+	            a1=a1 +p1[x2-1]+p2[x2-1]; 
+	        }
+	    }
+	    else
+	    {  if(x2==0)
+	        {
+	        }
+	        else
+	        {
+	            a1=a1 +p1[x2-1]; 
+	        }
+	    }
+	    cout<<a1;
+	    cout<<"\n";
+	}
+	return 0; 
+}
