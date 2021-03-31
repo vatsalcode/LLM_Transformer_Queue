@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef pair<int,int> pii;
+int n,m,i,j,x,d[100100],v[100100];
+bool u[100100];
+priority_queue<pii,vector<pii>,greater<pii>> q;
+void run(int i) {
+  printf("1 %d\n",i);
+  fflush(stdout);
+  u[i]=true;
+  scanf("%d",&m);
+  for (int j=0; j<m; j++) {
+    scanf("%d",&x);
+    u[x]=true;
+  }
+}
+int main() {
+  scanf("%d%d",&n,&m);
+  for (i=1; i<=n; i++) {
+    scanf("%d",&d[i]);
+    q.push({d[i],i});
+  }
+  for (i=1; i<=n; i++) if (d[i]>=m) {
+    printf("2 %d\n",i);
+    fflush(stdout);
+    u[i]=true;
+    scanf("%d",&m);
+    for (j=0; j<m; j++) scanf("%d",&v[j]);
+    int om = m;
+    for (j=0; j<om; j++) run(v[j]);
+    break;
+  }
+  while (!q.empty()) {
+    i=q.top().second;
+    q.pop();
+    if (!u[i]) run(i);
+  }
+  puts("3");
+  fflush(stdout);
+  return 0;
+}
