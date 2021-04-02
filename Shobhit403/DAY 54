@@ -1,0 +1,87 @@
+#include <iostream>
+#include <queue>
+#include <algorithm>
+#include <cstring>
+#include <map>
+#include <set>
+#include <unordered_map>
+#include <unordered_set>
+#include <vector>
+#include <string>
+using namespace std;
+int gcd(int p, int q) { return !q ? p : gcd(q, p%q); }
+int main() {
+	set<int> s;
+	int T, N, A[100000] = {}, i, j, can, asc, g, f, idx, maxi;
+	scanf("%d", &T);
+	while (T--) {
+		scanf("%d", &N);
+		can = 1, asc = 1;
+		maxi = -1;
+		s.clear();
+		for (i = 0; i < N; i++) {
+			scanf("%d", &A[i]);
+			if (A[i] != -1) {
+				asc &= s.find(A[i]) == s.end() && lower_bound(s.begin(), s.end(), A[i]) == s.end();
+				s.insert(A[i]);
+			}
+			maxi = max(maxi, A[i]);
+		}
+		if (asc) {
+			for (i = 0; i < N; i++) if(A[i] != -1) {
+				j = i - 1;
+				while (j >= 0) {
+					if (A[j] != -1) {
+						can &= A[j] + i - j == A[i];
+						break;
+					}
+					j--;
+				}
+			}
+			if(can) puts("inf");
+			else puts("impossible");
+		}
+		else {
+			for (i = 0; i < N; i++) if(A[i] != -1) {
+				for (j = max(0, i - A[i] + 1); j < i; j++) {
+					can &= A[j] == -1 || A[j] + i - j == A[i];
+					A[j] = A[i] - (i - j);
+				}
+			}
+			g = -1;
+			f = 1;
+			idx = -1;
+			for (i = 0; i < N; i++) {
+				if (A[i] != -1) {
+					if (f) {
+						f = 0;
+						continue;
+					}
+					if (A[i] == 1) {
+						if (idx == -1) {
+							idx = i;
+							continue;
+						}
+						if (g == -1)
+							g = i - idx;
+						else
+							g = gcd(g, i - idx);
+						idx = i;
+					}
+				}
+			}
+			if (g == -1) {
+				for (i = 1; i < N; i++) if (A[i] == -1 && A[i - 1] != -1) {
+					A[i] = A[i - 1] + 1;
+					maxi = max(maxi, A[i]);
+				}
+				g = maxi;
+			}
+			can &= g >= maxi;
+			
+			if (can) printf("%d\n", g);
+			else puts("impossible");
+		}
+	}
+	return 0;
+};
