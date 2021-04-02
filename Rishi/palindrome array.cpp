@@ -1,55 +1,64 @@
-/*
-Pattern problems
-there is an array which containd no of toffes by an individual i th child
-extra candies are to be distributed amonf these students , check if they can have maximum candies
-more than one student can have maximum candies
-explanation:     array{1,2,3,4,5}  extra candies=3;
-ouput:           {flase,true,true,true,true}
-*/
-
+//To check palindeome of an array
 #include <iostream>
 using namespace std;
 
-int max_candies(int *ptr, int size)
+void array_reversal(int arr[], int size)
 {
-    int sum = ptr[0];
-    for (int i = 1; i < size; i++)
+    for (int i = 0; i < size / 2; i++)
     {
-        if (*(ptr + i) > sum)
-        {
-            sum = *(ptr + i);
-        }
+        int temp = arr[i];
+        arr[i] = arr[size - 1 - i];
+        arr[size - 1 - i] = temp;
     }
-    return sum;
 }
 
 int main()
 {
-    int number, extra_candies;
-    cout << "Enter no of children: ";
-    cin >> number;
-    int arr[number];
-    for (int i = 0; i < number; i++)
+    int size;
+    cout << "Enter size of array: ";
+    cin >> size;
+    int arr[size];
+    for (int i = 0; i < size; i++)
     {
-        cout << "Enter no of tofees with student no: " << i + 1 << ": ";
+        cout << "Enter element no " << i + 1 << ": ";
         cin >> arr[i];
     }
-    cout << "Enter nof extra candies: ";
-    cin >> extra_candies;
-    int a = max_candies(arr, number);
-    cout << "[";
-    for (int j = 0; j < number; j++)
+    int arr1[size];
+    for (int i = 0; i < size; i++)
     {
-        if (arr[j] + extra_candies >= a)
+        arr1[i] = arr[i];
+    }
+    cout << "The entered array is: ";
+    for (int i = 0; i < size; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout<<endl;
+    array_reversal(arr, size);
+    cout << "The Reverse array is: ";
+    for (int i = 0; i < size; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout<<endl;
+    bool flag = true;
+
+    for (int i = 0; i < size; i++)
+    {
+        if (arr1[i] != arr[i])
         {
-            cout << "True"
-                 << " ";
-        }
-        else
-        {
-            cout << "False"
-                 << " ";
+            flag = false;
+            break;
         }
     }
-    cout << "]";
+    if (flag)
+    {
+        cout << "It is a palindrome";
+    }
+    else
+    {
+        cout << "Not a palindrome";
+    }
+
+    return 0;
 }
