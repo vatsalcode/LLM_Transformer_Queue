@@ -9,3 +9,4 @@ def flickingif(n):
 
 no = int(input("Enter a number: "))
 flickingif(no)
+
