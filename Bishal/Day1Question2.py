@@ -10,3 +10,4 @@ a = input("Input name1: ")
 b = input("Input name2: ")
 c = input("Input name3: ")
 sortnames(a, b, c)
+
