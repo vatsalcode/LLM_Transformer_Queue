@@ -29,3 +29,5 @@ elif boo:
     print("Only Palindrome.")
 else:
     print("Neither Prime nor Palindrome.")
+
+    
