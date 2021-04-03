@@ -1,0 +1,54 @@
+#include<bits/stdc++.h>
+#define ll long long
+#define mod 987654319LL
+#define eps 1e-8
+using namespace std;
+int main()
+{
+    cin.tie(0),ios::sync_with_stdio(0);
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++)
+    	cin>>arr[i];
+    int m;
+    {
+    	vector<int> tmp=arr;
+    	sort(tmp.begin(),tmp.end());
+    	tmp.resize(unique(tmp.begin(),tmp.end())-tmp.begin());
+    	m=tmp.size();
+    	for(int i=0;i<n;i++)
+    		arr[i]=lower_bound(tmp.begin(),tmp.end(),arr[i])-tmp.begin();
+	}
+	vector<ll> l(n,0),r(n,0);
+	vector<int> s(m,0);
+	for(int i=n-1;i>=0;i--){
+		ll cur=0;
+		for(int j=i-1;j>=0;j--){
+			if(arr[j]<arr[i])
+				cur+=(arr[j]?s[arr[j]-1]:0);
+			else if(arr[j]>arr[i])
+				l[j]+=cur;
+		}
+		for(int j=arr[i];j<m;j++)
+			s[j]++;
+	}
+	s.assign(m,0);
+	for(int i=0;i<n;i++){
+		ll cur=0;
+		for(int j=i+1;j<n;j++){
+			if(arr[j]>arr[i])
+				cur+=(arr[j]+1==m?0:s[arr[j]+1]);
+			else if(arr[j]<arr[i])
+				r[j]+=cur;
+		}
+		for(int j=arr[i];j>=0;j--)
+			s[j]++;
+	}
+	ll ans=0;
+	for(int i=0;i<n;i++)
+		ans+=l[i]%mod*r[i]%mod;
+	ans%=mod;
+	cout<<ans<<"\n";
+    return 0;
+}
