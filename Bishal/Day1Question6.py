@@ -12,3 +12,4 @@ for i in range(n):
     numbers.append(int(input()))
 sum1 = summation(numbers)
 print(sum1)
+
