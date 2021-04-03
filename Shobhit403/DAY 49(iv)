@@ -1,0 +1,82 @@
+#include "bits/stdc++.h"
+using namespace std;
+int n;
+map<int, int> done;
+int query(int pos) {
+	if (done.find(pos) != done.end())              //as for 15, there will be two checks for 15
+	return done[pos];
+	cout << "? " << pos << endl;                   //if i is one of the valid block size,query of ith index will result in n-i
+	int ans;
+	cin >> ans;
+	return done[pos] = ans;
+}
+int pw(int n, int k) {                                    //power function
+	if(k==0) 
+	return 1;
+	return n*pw(n, k-1);
+}
+bool works(int x) {
+	if (x == n) return true;
+	return query(x) + x == n;                  //checks if it a valid block size or not
+}
+void answer(int ans) {
+	cout << "! " << ans << endl;
+	int res;
+	cin >> res;
+	if (res != 0) exit(0);
+}
+void blocks(int N) {
+	// return the maximum number of blocks in S!
+	// to query a position i, do query(i)
+	done.clear();                       
+	map<int, int> prime_factorise;
+	int num = N;
+	n = N;
+	for (int i=2; i*i <= num+4; i++) {
+		while (num % i == 0) {
+			prime_factorise[i]++;
+			num = num / i;
+		}
+	}
+	if (num > 1) {
+		prime_factorise[num]++;
+	}
+	int prod = 1;
+	for (map<int, int>::iterator x=prime_factorise.begin(); x!=prime_factorise.end(); x++) {
+		int fa = x->first;
+		int in_num = x->second;
+		int low = 0;
+		int high = in_num + 1;
+		int full = N / pw(fa, in_num);
+		//cout << full << ' ' << fa << ' ' << low << ' ' << high << endl;
+		while (low + 1 < high) {            
+			int mid = (low + high) / 2;
+			int x = full * pw(fa, mid);
+			if (works(x)) {       //if x was a valid block size, can maximize k if there exists a smaller block size                                        
+				high = mid;
+			}
+			else {
+				low = mid;       //x was not a valid block size and therefore, no chance of smaller block size
+			}
+		}
+		//After this, we will get the smallest possible block size for each prime factor
+		if (works(full * pw(fa, low))) {
+			prod *= pw(fa, low);         //product the generated value of each factor
+			//cout << " > " << low << endl;
+		}
+		else {
+			prod *= pw(fa, high);
+			//cout << " > " << high << endl;
+		}
+	}
+	answer(N / prod);
+}
+int main() {	
+	int t;
+	cin >> t;
+	while (t--) {
+		int n, q;
+		cin >> n >> q;
+		blocks(n);
+	}
+}
