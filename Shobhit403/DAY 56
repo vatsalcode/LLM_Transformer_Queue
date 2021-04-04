@@ -1,0 +1,111 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+using namespace std;
+using ld = long double;
+typedef long long int64;
+const int kMaxN=5e5 +1, kMod=1e9+7;
+int Pow(int a, int p) {
+    int res = 1;
+    while (p) {
+        if (p & 1) {
+            res = (1LL * res * a) % kMod;
+        }
+        a = (1LL * a * a) % kMod;
+        p /= 2;
+    }
+    return res;
+}
+int inv_number[kMaxN+1];
+int fact[kMaxN+1];
+void Initialise() {
+    fact[0] = fact[1] = 1;
+    for (int i = 2; i <= kMaxN; i += 1) {
+        fact[i] = (1LL * i * fact[i - 1]) % kMod;
+    }
+    int inv_fact = Pow(fact[kMaxN], kMod - 2);
+    for (int i = kMaxN; i; i -= 1) {
+        inv_number[i] = 1LL * inv_fact * fact[i - 1] % kMod;
+        inv_fact = 1LL * inv_fact * (i) % kMod;
+    }
+    inv_number[0] = 1;
+}
+vector<int> neighbour[kMaxN];
+bool visited[kMaxN];
+int subtree_size[kMaxN];
+int64 ans[kMaxN];
+void ComputeSubtree(int node) {
+    visited[node] = true;
+    for (auto itr : neighbour[node]) {
+        if (visited[itr]) {
+            continue;
+        }
+        ComputeSubtree(itr);
+        subtree_size[node] += subtree_size[itr];
+    }
+    subtree_size[node] += 1;
+    visited[node] = false;
+}
+int64 answer = 0;
+int n;
+ld perf[kMaxN];
+void Solve(int node, int sum) {
+    ans[node] = sum;
+    visited[node] = true;
+    for (auto itr : neighbour[node]) {
+        if (visited[itr]) {
+            continue;
+        }
+        ld g = (ld) subtree_size[itr]/(n - subtree_size[itr]);
+        perf[itr] = perf[node] * g;
+        Solve(itr, 1LL * sum * subtree_size[itr] % kMod 
+                * inv_number[(n - subtree_size[itr])] % kMod);
+    }
+    visited[node] = false;
+}
+void solve() {
+    int k;
+    cin >> n >> k;
+    for (int i = 0; i < n; ++i) {
+        subtree_size[i] = 0;
+        neighbour[i].clear();
+        perf[i] = 1;
+    }
+    for (int i = 1; i < n; i += 1) {
+        int a, b; cin >> a >> b;
+        a -= 1;
+        b -= 1;
+        neighbour[a].push_back(b);
+        neighbour[b].push_back(a);
+    }
+    const int root = 0;
+    ComputeSubtree(root);
+    int root_answer = fact[n];
+    for (int i = 0; i < n; i += 1) {
+        root_answer = 1LL * root_answer * inv_number[subtree_size[i]] % kMod;
+    }
+    Solve(root, root_answer);
+    vector<pair<int, int>> v;
+    for (int i = 0; i < n; ++i) {
+        v.push_back({ans[i], i});
+    }
+    vector<int> idx(n);
+    iota(idx.begin(), idx.end(), 0);
+    sort(idx.begin(), idx.end(), [&](auto &lhs, auto& rhs) {
+        if (perf[lhs] == perf[rhs]) {
+            return lhs > rhs;
+        }
+        return perf[lhs] > perf[rhs];
+    });
+    cout <<  v[idx[k-1]].second + 1 << " " << v[idx[k-1]].first << "\n";
+}
+int main() {
+    Initialise();
+    int t;
+    cin >> t;
+    while (t--) {
+        solve();
+    }
+    return 0;
+}
