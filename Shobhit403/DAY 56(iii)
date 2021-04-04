@@ -1,0 +1,81 @@
+#include <iostream>
+using namespace std;
+int main() 
+{
+	int t, n, m, k, temp, temp2;
+	cin>>t;
+	while(t--){
+	    cin>>n>>m;
+	    int* cRank = new int[n];
+	    bool* vacant = new bool[n];
+	    for(int i = 0; i < n; ++i){
+	        cin>>cRank[i];
+	        vacant[i] = true;
+	    }
+	    int* sRank = new int[m];
+	    for(int i = 0; i < m; ++i){
+	        cin>>sRank[i];
+	    }
+	    int** prefList = new int*[m];
+	    for(int i = 0; i < m; ++i){
+	        cin>>k;
+	        prefList[i] = new int[k+1];
+	        prefList[i][0] = k;
+	        for(int j = 1; j <= k; ++j){
+	            cin>>prefList[i][j];
+	        }
+	    }
+	    if(sRank[0] == 1){
+	        temp = n+1;
+	        for(int i = 1; i <= prefList[0][0]; ++i){
+	            if(cRank[prefList[0][i]-1] < temp){
+	                temp = cRank[prefList[0][i]-1];
+	                temp2 = i;
+	            }
+	        }
+	        cout<<prefList[0][temp2]<<"\n";
+	        vacant[prefList[0][temp2]-1] = false;
+	    }
+	    else{
+	        int* higherRankS = new int[sRank[0]-1];
+	        for(int i = 1; i < m; ++i){
+	           if(sRank[i] < sRank[0]){
+	           higherRankS[sRank[i]-1] = i;
+	           }
+	        }
+	        for(int i = 0; i < sRank[0]-1; ++i){
+	            temp = n+1;
+	            for(int j = 1; j <= prefList[higherRankS[i]][0]; ++j){
+	                if(vacant[prefList[higherRankS[i]][j]-1] && cRank[prefList[higherRankS[i]][j]-1] < temp){
+	                    temp = cRank[prefList[higherRankS[i]][j]-1];
+	                    temp2 = j;
+	                }
+	            }
+	            if(temp != n+1){
+	                vacant[prefList[higherRankS[i]][temp2]-1] = false;
+	            }
+	        }
+	        temp = n+1;
+	        for(int i = 1; i <= prefList[0][0]; ++i){
+	            if(vacant[prefList[0][i]-1] && cRank[prefList[0][i]-1] < temp){
+	                    temp = cRank[prefList[0][i]-1];
+	                    temp2 = i;
+	                }
+	            }
+	            if(temp != n+1){
+	                cout<<prefList[0][temp2]<<"\n";
+	            }
+	            else
+	                cout<<0<<"\n";
+	           delete[] higherRankS;
+	        }
+	    delete[] cRank;
+	    delete[] vacant;
+	    delete[] sRank;
+	    for(int i = 0; i < m; ++i){
+	        delete[] prefList[i];
+	    }
+	    delete[] prefList;
+	    }
+	return 0;
+}
