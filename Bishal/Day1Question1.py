@@ -17,4 +17,3 @@ def altnames(name):
 n = input("What's your name?\n")
 names(n)
 altnames(n)
-
