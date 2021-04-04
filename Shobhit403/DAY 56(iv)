@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool compare(string a,string b)
+{
+    int ans=stoi(a.substr(0,2))*60*(a.substr(0,2)!="12")+stoi(a.substr(3,2))+720*(a.substr(5,1)=="P");
+    int ans1=stoi(b.substr(0,2))*60*(b.substr(0,2)!="12")+stoi(b.substr(3,2))+720*(b.substr(5,1)=="P");
+    return(ans<=ans1);
+}
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{   
+	    string s1,s2;
+	    cin>>s1>>s2;
+	    s1+=s2;
+	    int n;cin>>n;
+	    while(n--)
+	    {
+	        string k11,k12,k21,k22;
+	        cin>>k11>>k12>>k21>>k22;
+	        k11+=k12;
+	        k21+=k22;
+	        if(compare(k11,s1)&&compare(s1,k21))
+	        {
+	            cout<<"1";
+	        }
+	        else
+	        {
+	            cout<<"0";
+	        }
+	    }
+	    cout<<endl;    
+	}
+	return 0;
+}
