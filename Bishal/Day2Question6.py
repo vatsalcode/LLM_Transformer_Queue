@@ -1,0 +1,6 @@
+file = open("./Text.csv", "r+")
+file.write("Hello World! It's me.\nI'm here to learn something new.")
+file.close()
+file = open("./Text.csv", "r")
+print(file.readlines())
+file.close()
