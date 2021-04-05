@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long long int t;
+	cin>>t;
+	while(t--)
+	{   
+	    long long int sum=0;
+	    long long int n;
+	    cin>>n;
+	    sum= (n/4)*44;
+	    long long int d=n%4;
+	    if(n>=4)
+	    {
+	        if(d==0)
+	        sum+=16;
+	        if(d==1)
+	        sum+=32;
+	        if(d==2)
+	        sum+=44;
+	        if(d==3)
+	        sum+=55;
+	        cout<<sum<<endl;
+	    }
+	    else
+	   {
+	       long long int res;
+	       if(d==1)
+	       res=20;
+	       if(d==2)
+	       res=36;
+	       if(d==3)
+	       res=51;
+	       cout<<res<<endl;
+	   }
+	}
+	return 0;
+}
