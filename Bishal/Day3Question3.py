@@ -27,14 +27,14 @@ def listings3(li3):
     pos = int(input("Enter the position where you want to insert the element: "))
     if isinstance(pos, int):
         if pos > len(li3):
-            print("Sorry, the limit has exceeded.")
+            print("Sorry, the limit has exceed.\nProcess has ended")
         elif pos < 1:
-            print("Sorry, the limit is less.")
+            print("Sorry, the limit is less.\nProcess has ended")
         else:
             li3.insert(pos - 1, int(input("Enter the number you wanna enter: ")))
+            print(f"After insertion:\nThe final list stands as follows: {li3}")
     else:
         print("Error: 'The position must be an integer value.'")
-    print(f"After insertion:\nThe final list stands as follows: {li3}")
 
 
 # Inserting elements in a list
