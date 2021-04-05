@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+int main() 
+{
+	long long int t, n;  int f=0;string m; string q="200";
+	std::cin >> t;
+	while(t--)
+	{
+	    std::cin >> n; f=0; q="200";
+	    while(n--)
+	    {
+	        std::cin >> m;
+	        if (m=="start" || m=="restart")
+	        {
+	            f=1;
+	        }
+	        if(m=="stop" && f==0)
+	        {
+	            q="404";
+	        }
+	        else
+	        {
+	            if(m=="stop")
+	            f=0;
+	        }    
+	    }
+	    std::cout << q << std::endl;
+	}
+	return 0;
+}
