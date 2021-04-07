@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+# define ll long long int
+# define l long int
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        ll n,k;
+        cin>>n>>k;
+        float p=n;
+        if(n%k==0)
+        {
+            cout<<ceil(p/k)<<" "<<k<<endl;
+        }
+        else if(n%k!=0)
+        {
+            cout<<ceil(p/k)<<" "<<n%k<<endl;
+        }
+    }
+return 0;
+}
