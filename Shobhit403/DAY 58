@@ -1,0 +1,64 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+string decimalToBinary(int n)
+{
+    //finding the binary form of the number and 
+    //coneverting it to string. 
+    string s = bitset<64> (n).to_string();
+    //Finding the first occurance of "1"
+    //to strip off the leading zeroes.
+    const auto loc1 = s.find('1');
+    if(loc1 != string::npos)
+        return s.substr(loc1);      
+    return "0";
+}
+int cal(int d)
+{
+	int co = 0;
+	while(d)
+	{
+		d = d/2;
+		co++;
+	}
+	cout<<co<<"--";
+	return (1<<co);
+}
+void solve(string &aStr, string &bStr, string cStr)
+{
+	aStr += "1";bStr += "0";
+	for(int i = 1;i < cStr.size();i++)
+	{
+		if(cStr[i] == '0')
+		{
+			aStr += "1";
+			bStr += "1";
+		}
+		else
+		{
+			aStr += "0";
+			bStr += "1";
+		}
+	}
+}
+int main() {
+	ll int t,c,a,b,x,maxi,d;
+	string aStr, bStr, cStr;	
+	cin>>t;
+	while(t--)
+	{
+		maxi = 0;
+		cin>>c;
+		//d = cal(c);	
+		cStr = decimalToBinary(c);
+//		cout<<cStr<<" ";
+		aStr="";bStr="";
+		solve(aStr,bStr,cStr);
+//		cout<<aStr<<" ";
+//		cout<<bStr<<" ";
+		a = stoi(aStr.c_str(), 0, 2);
+		b = stoi(bStr.c_str(), 0, 2);		
+		cout<<(ll)(a*b)<<"\n";
+	}
+	return 0;
+}
