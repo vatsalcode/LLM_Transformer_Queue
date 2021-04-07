@@ -1,0 +1,17 @@
+//Pointers to structures
+
+#include<stdio.h>
+struct student {
+		char name[20];
+		int rollno;
+		int marks;
+};
+
+int main( )
+{
+	struct student stu = {"Gaurav", 15, 99};
+	struct student *ptr = &stu;
+	printf("Name  - %s", ptr->name);
+	printf("Rollno  - %d", ptr->rollno);
+	printf("Marks  - %d", ptr->marks);
+}
