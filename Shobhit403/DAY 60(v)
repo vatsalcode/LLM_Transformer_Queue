@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+int main() 
+{
+    ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+    int t;
+    cin >> t;
+    while(t--){
+        int u, v, a, s;
+        cin >> u >> v >> a >> s;
+        if(v*v < (u*u)-(2*a*s)) cout << "NO\n";
+        else cout << "YES\n";
+    }
+	return 0;
+}
