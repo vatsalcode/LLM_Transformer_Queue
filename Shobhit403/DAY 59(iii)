@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() 
+{
+	int t;
+	cin>>t;
+	while(t--)
+  {
+	    long long int n,k;
+	    cin>>n>>k;
+	    long long int arr[k];
+	    for(long long int i=0;i<k;i++)
+      {
+	        cin>>arr[i];
+	    }	   
+	    for(long long int i=0;i<n;i++)
+      {
+	        long long int res=0;
+	        string str;
+	         cin>>str;
+	        for(long long int j=0;j<k;j++)
+          {
+	            if(str[j]=='1') res+=arr[j];
+	        }
+	        cout<<res<<"\n";
+	    }	    
+	}
+	return 0;
+}
