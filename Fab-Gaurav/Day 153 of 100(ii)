@@ -1,0 +1,27 @@
+//Factorial of a number by iterative method
+
+#include<stdio.h>
+long int fact(int n);
+long int Ifact(int n);
+
+main( )
+{
+	int num;
+	printf("Enter a number : ");
+	scanf("%d", &num);
+	if(num<0)
+		printf("No factorial for negative number\n");
+	else
+		printf("Factorial of %d is %ld\n", num, fact(num) );
+}
+
+long int fact(int n)
+{
+	long fact=1;
+	while(n>0)
+	{
+		fact = fact*n;
+		n--;
+	}
+	return fact;
+}
