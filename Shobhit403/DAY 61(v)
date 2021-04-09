@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+#define ll long long int
+using namespace std;
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+  {
+	ll n,k,d;
+	cin>>n>>k>>d;
+	ll ques=0;
+	for(ll i = 0;i<n;i++)
+		{
+			ll a;
+			cin>>a;
+			ques+=a;
+			}
+			ques = ques/k;
+			if(ques>=d)
+			cout<<d<<endl;
+			else
+				cout<<ques<<endl;	
+}
+return 0;
+}
