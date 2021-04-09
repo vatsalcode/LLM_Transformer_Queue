@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,n;
+    string s,s1;
+    cin>>t;
+    for(int i=0;i<t;i++)
+    {
+        cin>>n;
+        cin>>s;
+        for(int j=0;j<n;j+=4)
+        {
+            s1=s.substr(j,4);
+            if(s1=="0000")
+                cout<<"a";
+            else if(s1=="0001")
+                cout<<"b";
+            else if(s1=="0010")
+                cout<<"c";
+            else if(s1=="0011")
+                cout<<"d";
+            else if(s1=="0100")
+                cout<<"e";
+            else if(s1=="0101")
+                cout<<"f";
+            else if(s1=="0110")
+                cout<<"g";
+            else if(s1=="0111")
+                cout<<"h";
+            else if(s1=="1000")
+                cout<<"i";
+            else if(s1=="1001")
+                cout<<"j";
+            else if(s1=="1010")
+                cout<<"k";
+            else if(s1=="1011")
+                cout<<"l";
+            else if(s1=="1100")
+                cout<<"m";
+            else if(s1=="1101")
+                cout<<"n";
+            else if(s1=="1110")
+                cout<<"o";
+            else
+                cout<<"p";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
