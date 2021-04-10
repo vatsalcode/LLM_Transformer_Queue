@@ -1,0 +1,13 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() 
+{
+	long long int r,o,c;
+    cin >> r >> o >> c;
+    o=20-o;
+    if((c+(36*o))>r)
+    cout << "YES\n";
+    else
+	cout << "NO\n";
+	return 0;
+}
