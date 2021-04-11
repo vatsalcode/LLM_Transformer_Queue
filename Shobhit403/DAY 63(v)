@@ -1,0 +1,22 @@
+#include <iostream>
+#define ll long long int
+using namespace std;
+int main() 
+{
+	ll t;
+	cin>>t;
+	while(t--)
+	{
+	    ll n,k;
+	    cin>>n>>k;
+	    if(k==0)
+	    {
+	        cout<<n<<endl;
+	        continue;
+	    }
+	    ll x=n/k;
+	    ll ans=n-x*k;
+	    cout<<ans<<endl;
+	}
+	return 0;
+}
