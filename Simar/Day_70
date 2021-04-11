@@ -1,0 +1,73 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+long long int  getArea(long long int** arr, int i, int j, int m, int n)
+{
+    return arr[i][j]-(m-1<0?0:arr[m-1][j])-(n-1<0?0:arr[i][n-1])+((m-1<0 || n-1<0)?0:arr[m-1][n-1]);
+}
+
+long long int getAns(long long int** arr, int i, int j, long long int k)
+{
+    int l=1;
+    int h=min(i+1, j+1);
+    long long int ans=0;
+
+    while(l<=h)
+    {
+        int mid=l+(h-l)/2;
+
+        if(getArea(arr,i,j,i-mid+1,j-mid+1) >= mid*mid*k)
+        {
+            ans=mid;
+            l=mid+1;
+        }
+        else
+        {
+            h=mid-1;
+        }
+    }
+    return ans;
+}
+
+
+
+int main()
+{
+    int t;
+    long long int n,m, k, l, cnt=0;
+    scanf("%d",&t);
+
+    while(t--)
+    {
+        scanf("%lld %lld %lld",&n,&m,&k);
+
+        long long int** arr = new long long int*[n];
+        for(int i=0; i<n; ++i) arr[i] = new long long int[m];
+        for(long long int i = 0; i <n; i++)for(long long int j = 0; j <m; j++) scanf("%lld",&arr[i][j]);
+
+        for (int i = 0; i < n; i++)for (int j = 1; j < m; j++) arr[i][j] += arr[i][j-1];
+
+        for (int i = 0; i < m; i++) for (int j = 1; j <n; j++) arr[j][i] += arr[j-1][i];
+
+        // for (int i = 0; i < n; i++) for (int j = 0; j < m; j++) cout<<arr[i][j]<<" ";
+        long long int  res=0;
+
+
+        for(int i=0; i<n; i++)
+        {
+            for(int j=0; j<m; j++)
+            {
+                long long int ans=getAns(arr,i,j,k);
+                res+=ans;
+//
+            }
+        }
+
+        printf("%lld\n",res);
+        for (int i = 0; i < n; i++) delete[] arr[i];
+        delete[] arr;
+    }
+
+    return 0;
+}
