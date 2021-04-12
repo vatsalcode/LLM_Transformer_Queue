@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int main() 
+{
+	int test,L,R;
+	cin>>test;
+	while(test)
+	{
+	    cin>>L>>R;
+	    cout<<(2*R-2*L)+1<<"\n";
+	    test--;
+	}
+	return 0;
+}
