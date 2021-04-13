@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,k;
+        cin>>n>>k;
+        int q[n];
+        long long cry=0,f=0;
+        for(int i=0;i<n;i++)
+        {
+            cin>>q[i];
+        }
+        for(int i=0;i<n;i++)
+        {
+             if(q[i]+cry<k)
+            {
+                cout<<i+1<<"\n";
+                f=-1;
+                break;
+            }
+            else if(q[i]>=k)
+            {
+                cry+=q[i]-k;
+            }
+            else if(q[i]+cry>=k && q[i]<k)
+            {
+                cry-=k-q[i];
+            }
+        }
+        if(f==0)
+        {
+            cout<<cry/k + n+1<<"\n";
+        }
+    }
+}
