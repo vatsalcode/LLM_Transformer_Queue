@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() 
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int a,b,c,d;
+	    cin>>a>>b>>c>>d;
+	    if(a==b)
+	    {
+	        if(c==d)
+	        cout<<"YES"<<endl;
+	        else
+	        cout<<"NO"<<endl;
+	    }
+	    else if(b==c)
+	    {
+	        if(a==d)
+	        cout<<"YES"<<endl;
+	        else
+	        cout<<"NO"<<endl;
+	    }
+	    else if (a==c)
+	    {
+	        if(b==d)
+	        cout<<"YES"<<endl;
+	        else
+	        cout<<"NO"<<endl;
+	    }
+	   else if(a==b && b==c && c==d && d==a)
+	   cout<<"NO"<<endl;
+	   else
+	   cout<<"NO"<<endl;
+	}
+	return 0;
+}
