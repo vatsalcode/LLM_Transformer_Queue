@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+#include<string>
+#include<cmath>
+#include<iterator>
+#include<map>
+using namespace std;
+#define _HEART_  ios_base::sync_with_stdio(0) ; cin.tie(0) ; cout.tie(0);
+#define ll long long
+#define mod 1000000007
+int  main()
+{
+    _HEART_
+    ll t,n,k,i,j;
+    ll arr[51][51];
+    for(i=0;i<=50;i++)
+    {
+        arr[i][0]=1;
+        arr[i][i]=1;
+        for(j=1;j<i;j++)
+            arr[i][j]=arr[i-1][j-1]+arr[i-1][j];
+    }
+    cin>>t;
+    while(t--)
+    {
+        map<int,int> mp;
+        cin>>n>>k;
+        ll a[n];
+        for(i=0;i<n;i++)
+            {cin>>a[i];}
+        sort(a,a+n);
+        int z=a[k-1];
+        int y=count(a,a+k,z);
+        int x=count(a,a+n,z);
+        cout<<arr[x][y]<<endl;
+    }      
+    return 0;
+}
