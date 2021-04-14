@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+#include<string>
+#include<cmath>
+#include<iterator>
+#include<map>
+using namespace std;
+#define _HEART_  ios_base::sync_with_stdio(0) ; cin.tie(0) ; cout.tie(0);
+#define ll long long
+#define mod 1000000007
+int  main()
+{
+    _HEART_
+    ll t,n,i,ans;
+    cin>>t;
+    while(t--)
+    {
+        cin >> n;
+		n++;
+        ll a[n],suffix[n];
+		for(int i = 1; i<=n; ++i)
+			cin >> a[i];
+		int power_of_2 = 1;
+		for(int i = n; i >= 1; --i)
+		{
+			suffix[i] = (1ll * a[i] * power_of_2) % mod;
+			if(i < n)
+				suffix[i] = (suffix[i+1] + suffix[i]) % mod;
+			power_of_2 = (power_of_2 * 2) % mod;
+		}
+		int ans = 0;
+		power_of_2 = 1;
+		for(int i = 1; i<n; ++i)
+		{
+			int count_ways = (1ll * power_of_2 * a[i]) % mod;
+			count_ways = (1ll * count_ways * suffix[i+1]) %mod;
+			ans = (ans + count_ways) % mod;
+			if(i >= 2)
+				power_of_2 = (power_of_2 * 2) % mod;
+		}
+		cout << (2*ans) % mod << '\n';   
+    }
+    return 0;
+}
