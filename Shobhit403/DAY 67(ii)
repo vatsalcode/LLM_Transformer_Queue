@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+		int yy=0,mm=0,dd=0,flag;
+		scanf("%d:%d:%d",&yy,&mm,&dd);
+		int ans;
+		if(yy%400==0) flag=1;
+		else if(yy%100!=0 && yy%4==0) flag=1;
+		else flag=0;
+		if(mm==1 || mm==3 ||mm==5 ||mm==7|| mm==8 ||mm==10 ||mm==12)
+            ans=(33-dd)/2;
+		else if(mm==2)
+		{
+		    if(flag)
+		        ans=(31-dd)/2;
+		    else
+		        ans=(61-dd)/2;        
+		}
+		else
+			ans=(63-dd)/2;
+		cout<<ans<<"\n";
+    }
+	return 0;
+}
