@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define _HEART_  ios_base::sync_with_stdio(0) ; cin.tie(0) ; cout.tie(0);
+#define ll long long
+#define mod 1000000007
+int  main()
+{
+    _HEART_
+    ll t,n,i=0,k,flag,mm,dd;
+    string s,s1;
+    cin>>t;
+    while(t--)
+    {
+        cout<<"Case "<<++i<<": ";
+        cin>>n>>k;
+        mm=n-k+1;
+        if(k>n) cout<<"0"<<endl;
+        else cout<<(mm*(mm+1))/2<<endl;     
+    }
+    return 0;
+}
