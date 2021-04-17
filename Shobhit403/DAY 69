@@ -1,0 +1,62 @@
+#include <bits/stdc++.h>
+using namespace std;
+map<string,int> d;
+map<string,bool> vis;
+bool isprime(int n){
+    if(n==2 || (n==3) || (n==5) || (n==7) || (n==11) || (n==13) || (n==17) || (n==19)){
+        return true;
+    }
+    return false;
+}
+pair<int,int> arr[] = {{2,1},{3,2},{4,1},{5,4},{5,2},{6,3},{6,5},{7,4},{8,5},{8,7},{9,6},{9,8}};
+void bfs()
+{
+    string initial = "123456789";
+    queue<string> q;
+    q.push(initial);
+    d[initial] = 0;
+    vis[initial] = 1;
+    while(!q.empty()){
+        string cur = q.front();
+        q.pop();
+        int dis = d[cur];
+        for(pair<int,int> i:arr){
+            int x = cur[i.first-1]-'0';
+            int y = cur[i.second-1]-'0';
+            if(isprime(x+y)){
+                swap(cur[i.first-1],cur[i.second-1]);
+                if(!vis[cur]){
+                    q.push(cur);
+                    d[cur] = dis + 1;
+                    vis[cur] = 1;
+                }
+                swap(cur[i.first-1],cur[i.second-1]);
+            }
+        }
+    }
+}
+void solve(){
+    string s="";
+    char c;
+    for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+            cin>>c;
+            s += c;
+        }
+    }
+    if(s!="123456789" && d[s]==0){
+        cout<<-1<<endl;
+        return;
+    }
+    cout<<d[s]<<endl;
+}
+int main()
+{
+    int t;
+    cin>>t;
+    bfs();
+    while(t--){
+        solve();
+    }
+    return 0;
+}
