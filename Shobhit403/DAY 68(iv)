@@ -1,0 +1,81 @@
+#include <iostream>
+using namespace std;
+void insert(int a[],int N){   
+}
+int main() 
+{
+	long long int i,j,k,t,N,M,K,L,R,C[105],P[105],curr_min,curr_top,temp,temp1,num; 
+	cin>>t;
+	for(i=0;i<t;i++)
+  {
+	    cin>>N;
+	    cin>>M;
+	    cin>>K;
+	    cin>>L;
+	    cin>>R;
+	    for(j=0;j<N;j++)
+      {
+	        cin>>C[j];
+	        cin>>P[j];
+	    }
+	    for(j=2;j<=N;j++)
+      {
+        temp=P[j-1];
+        temp1=C[j-1];
+        for(k=j-2;k>=-1;k--)
+        {
+            if(P[k]>temp && k!=-1)
+            {
+                P[k+1]=P[k];
+                C[k+1]=C[k];
+            }
+            else
+            {
+                if(P[k+1]>temp)
+                {
+                P[k+1]=temp;
+                C[k+1]=temp1;
+                }
+            }
+        }
+    }
+	    for(j=0;j<N;j++)
+      {
+	        if(K-1>C[j])
+          {
+	            num=K-1-C[j];
+	            if(num>=M){
+	                C[j]=C[j]+M;
+	            }
+	            else{
+	                C[j]=K;
+	            }
+	        }
+	        else if(C[j]>K+1)
+          {
+	            num=-K-1+C[j];
+	            if(num>=M){
+	                C[j]=C[j]-M;
+	            }
+	            else
+              {
+	                C[j]=K;
+	            }
+	        }
+	        else if(K-1<=C[j] || C[j]<=K+1)
+          {
+	            C[j]=K;
+	        }
+	        if(C[j]>=L && C[j]<=R)
+          {
+	            cout<<P[j]<<endl;
+	            break;
+	        }
+	    }
+	    if(j==N)
+      {
+	        cout<<"-1"<<endl;
+	    }
+	}
+	return 0;
+}
