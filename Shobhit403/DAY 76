@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define mod 1000000007
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+  {
+	    int N,S,K;
+	    cin >> N >> K >> S;
+	    int a = S * K;
+	    int b = N * (S-S/7);
+	    if(a > b) cout << "-1" <<endl;
+	    else if(a%N==0) cout << a/N << endl;
+	    else cout << a/N +1 << endl;
+	} 
+	return 0;
+}
