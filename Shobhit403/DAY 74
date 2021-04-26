@@ -1,0 +1,40 @@
+#include<iostream>
+#include<cmath>
+#define int long long
+using namespace std;
+signed main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int t;
+    cin>>t;
+    for(int i=0;i<t;i++)
+    {
+        int n,q;
+        cin>>n>>q;
+        int d,a=1;
+        for (int j=0;j<n;j++)
+        {
+            cin>>d;
+            if(a<= 1000000000)
+            {
+	            a*=d;
+	        }           
+        }        
+        for (int k=0;k<q;k++)
+        {
+            int x;
+            cin>>x;
+            if (a>1000000000)
+            {
+                cout<<"0"<<" ";
+            }else
+            {
+                x=x/a;
+                cout<<x<<" ";
+            }     
+        }
+        cout<<"\n";
+    }
+    return 0;
+}
