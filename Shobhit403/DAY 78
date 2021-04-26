@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+int main() 
+{
+	int t,k;
+	cin>>t;
+	for(k=1;k<=t;k++)
+	{
+		int m,n,rx,ry,l,i,x=0,y=0;
+		cin>>m>>n;
+		cin>>rx>>ry;
+		cin>>l;
+		char s[l];
+		cin>>s;
+		for(i=0;i<l;i++)
+		{
+			if(s[i]=='U')
+			y++;
+			else if(s[i]=='D')
+			y--;
+			else if(s[i]=='R')
+			x++;
+			else if(s[i]=='L')
+			x--;
+		}
+		if(x==rx && y==ry)
+		cout<<"Case "<<k<<": REACHED\n";
+		else if(x<0 || x>m || y<0 || y>n)
+		cout<<"Case "<<k<<": DANGER\n";
+		else
+		cout<<"Case "<<k<<": SOMEWHERE\n";
+	}
+	return 0;
+}
