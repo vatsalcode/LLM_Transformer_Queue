@@ -1,0 +1,7 @@
+C++ String Length
+String Length
+To get the length of a string, use the length() function:
+
+Example
+string txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+cout << "The length of the txt string is: " << txt.length();
