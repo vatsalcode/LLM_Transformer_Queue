@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+int main() 
+{
+    long int t;
+    cin>>t;
+    while(t--)
+    {
+        long int a,b;
+        cin>>a>>b;
+        long int arr[a];
+        for(int i=0;i<a;i++)
+        {
+            cin>>arr[i];
+        }
+        long int c=0;
+        if(arr[0]>b && arr[0]%b!=0)
+        c=c+arr[0]/b;
+        else if(arr[0]>b && arr[0]%b==0)
+        c=c+arr[0]/b-1;
+        for(int i=1;i<a;i++)
+        {
+            long int diff=arr[i]-arr[i-1];
+            if(diff>b && diff%b!=0)
+            c+=diff/b;
+            else if(diff>b && diff%b==0)
+            c+=diff/b-1;
+        }
+        cout<<c<<endl;
+    }
+	return 0;
+}
