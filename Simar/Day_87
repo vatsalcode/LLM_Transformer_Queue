@@ -1,0 +1,52 @@
+#include <iostream>
+#include <algorithm>
+#define SIZE(arr) (sizeof(arr) / sizeof(arr[0]))
+using namespace std;
+void heapify(int *arr, int n, int idx){
+   if (idx >= n) {
+      return;
+   }
+   int l = 2 * idx + 1;
+   int r = 2 * idx + 2;
+   int max;
+   if (l < n && arr[l] > arr[idx]) {
+      max = l;
+   } else {
+      max = idx;
+   }
+   if (r < n && arr[r] > arr[max]) {
+      max = r;
+   }
+   if (max != idx) {
+      swap(arr[max], arr[idx]);
+      heapify(arr, n, max);
+   }
+}
+void createMaxHeap(int *arr, int n){
+   for (int i = n / 2 - 1; i >= 0; --i) {
+      heapify(arr, n, i);
+   }
+}
+void mergeMaxHeaps(int *arr1, int n1, int *arr2, int n2, int *result){
+   merge(arr1, arr1 + n1, arr2, arr2 + n2, result);
+   createMaxHeap(result, n1 + n2);
+}
+void displayHeap(int *arr, int n){
+   for (int i = 0; i < n; ++i) {
+     cout << arr[i] << " ";
+   }
+   cout << endl;
+}
+int main(){
+   int heap1[] = {20, 17, 15, 10};
+   int heap2[] = {19, 13, 7};
+   int result[SIZE(heap1) + SIZE(heap2)];
+   cout << "First max heap: " << endl;
+   displayHeap(heap1, SIZE(heap1));
+   cout << "Second max heap: " << endl;
+   displayHeap(heap2, SIZE(heap2));
+   mergeMaxHeaps(heap1, SIZE(heap1), heap2, SIZE(heap2), result);
+   cout << "Merged max heap: " << endl;
+   displayHeap(result, SIZE(result));
+   return 0;
+}
