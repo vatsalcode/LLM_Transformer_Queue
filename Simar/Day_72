@@ -1,0 +1,148 @@
+#include <iostream>
+using namespace std;
+
+struct Node
+{
+    int data;
+    struct Node*next;
+}*first=NULL;
+
+
+//displaying a LL
+void Display(struct Node *p)
+{
+while(p!=NULL)
+{
+ cout<<p->data;
+ p=p->next;
+}
+}
+
+//creating a LL
+void create(int A[],int n)
+{
+int i;
+struct Node *t,*last;
+first= new Node;
+first->data=A[0];
+first->next=NULL;
+last=first;
+for(i=1;i<n;i++)
+{
+t=new Node;
+t->data=A[i];
+t->next=NULL;
+last->next=t;
+last=t; //t becomes new node
+}
+}
+
+//counting nodes
+int count(struct Node *p)
+{
+int c=0;
+while(p)
+{
+c++;
+p=p->next;
+}
+return c;
+}
+
+
+//sum of elements in a LL
+int sum(struct Node *p)
+{
+int s=0;
+while(p!=NULL)
+{
+s+=p->data;
+p=p->next;
+}
+return s;
+}
+
+
+//max element
+int MAX(struct Node*p)
+{
+    int max= INT32_MIN; //built in constant
+    while (p)
+    {
+        if(p->data > max)
+        max= p->data;
+        p = p -> next;
+    }
+    return max;
+    
+}
+
+//searching in a LL
+struct Node *Search(struct Node *p,int key)
+{
+struct Node *q=NULL;
+while(p!=NULL)
+{
+if(key==p->data)
+{
+q->next=p->next;
+p->next=first;
+first=p;
+return p;
+}
+q=p;
+p=p->next;
+}
+return NULL;
+}
+
+
+//inserting an element
+void Insert(struct Node *p,int pos,int x)
+{
+struct Node *t;
+int i;
+if(pos==0)
+{
+ t= new Node;
+ t->data=x;
+ t->next=first;
+ first=t;
+ return ;
+}
+else if(pos>0)
+{
+p=first;
+for(i=0;i<pos-1&&p;i++)
+p=p->next;
+if(p)
+{
+ t-new Node;
+ t ->data=x;
+ t->next=p->next;
+ p->next=t;
+ return ;
+}
+}
+}
+
+
+int main()
+{
+struct Node *temp;
+int A[]={3,5,7,10,25,8,32,2};
+create(A,8);
+Display(first);
+cout<<endl;
+cout<<count(first);
+cout<<endl;
+cout<<sum(first);
+cout<<endl<<MAX(first);
+temp=Search(first,8);
+if(temp)
+cout<<"\n Key is found "<<temp -> data;
+else
+cout<<"Not Found";
+Insert(first,0,5);
+return 0;
+}

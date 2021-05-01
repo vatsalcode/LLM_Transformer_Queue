@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int countOccurrences(int num, int K)
+{
+   
+    if (K == 0 && num == 0)
+        return 1;
+
+    int count = 0;
+ 
+    while (num > 0) {
+        if (num % 10 == K)
+            count++;
+             num /= 10;
+    }
+ 
+ 
+    return count;
+}
+
+void sortOccurrences(int arr[],
+                     int N, int K)
+{
+
+    multimap<int, int> mp;
+    for (int i = 0; i < N; i++) {
+        int count = countOccurrences(
+            arr[i], K);
+ 
+        mp.insert(pair<int, int>(
+            count, arr[i]));
+    }
+ 
+    for (auto& itr : mp) {
+        cout << itr.second << " ";
+    }
+}
+ 
+// Driver Code
+int main()
+{
+    int arr[] = { 15, 66, 26, 91 };
+    int K = 6;
+    int N = sizeof(arr) / sizeof(arr[0]);
+    sortOccurrences(arr, N, K);
+ 
+    return 0;
+}
