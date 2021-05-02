@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        long long int a,b;
+        long long int s;
+        cin>>a>>b;
+        if((a%2!=0) && (b%2!=0))
+        {
+            s=(((a*b)+1)/2);
+            cout<<s<<endl;
+        }
+        else{
+            s=((a*b)/2);
+            cout<<s<<endl;
+        }
+    }
+    return 0;
+}
