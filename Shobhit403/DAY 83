@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+int main() 
+{
+	long long int t;
+	cin>>t;
+	while(t--) 
+  {
+	    long long int n;
+	    cin>>n;
+	    long long int c = n;
+	    long long int ans = 0;
+	    while(c != 0) 
+      {
+	        ans += c%10;
+	        c /= 10;
+	    }
+	    long long int p = ans;
+	    while(p % 10 != 0)
+	        p++;
+	    p = p -ans;
+	    cout<<n<<p<<endl;
+	}
+	return 0;
+}
