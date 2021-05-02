@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void test(int t)
+{
+    while(t--)
+    {
+        int n, a, s=0;
+        cin>>n;
+        for(int i=0; i<n; i++)
+        {
+            cin>>a;
+            s+=a;
+        }
+        if(s%2==0)cout<<1<<endl;
+        else cout<<2<<endl;
+    }
+}
+
+int main()
+{
+    int t,n;
+    cin>>t;
+    test(t);   
+    return 0;
+}
