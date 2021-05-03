@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+int t = 2;
+int count(int n,int dimension, int size) 
+{
+	int result = 0, river[10000];
+	river[0] = 0;
+	for (int i = 1; i <= n; i++) 
+  {
+		cin >> river[i];
+		result += (river[i] - river[i - 1] - 1) / dimension;
+	}
+	return result + ((size - river[n]) / dimension);
+}
+int maxHouses() 
+{	
+	int horizontal, vertical, s, numberOfX, numberOfY;
+	cin >> horizontal >> vertical; 
+	cin >> numberOfX >> numberOfY >> s;
+	return count(numberOfX,s,horizontal) * count(numberOfY,s,vertical);
+}
+int main()
+{
+	cin >> t;
+	while (t > 0) 
+  {
+		cout << maxHouses() << endl;
+		t--;
+	}
+	return 0;
+}
