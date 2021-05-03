@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+int main() 
+{
+    int t;
+    cin>>t;
+    //int a[31]={0};
+    while(t--)
+    {
+        int a[31]={0};
+        int m;
+        cin>>m;
+        int sum=0;
+        while(m--)
+        {
+            int p,q;
+            cin>>p>>q;
+             sum+=q;
+            for(int i=p;i<=31;i++)
+             a[i]=sum;
+        }
+       int n;
+        cin>>n;
+        while(n--)
+        {
+            int c,d;
+            cin>>c;
+            cin>>d;
+            if(a[c]>=d)
+            cout<<"Go Camp\n";
+            else
+            cout<<"Go Sleep\n";
+        }     
+    }
+	return 0;
+}
