@@ -1,24 +1,30 @@
 #include<stdio.h>
-
-int main () {
-    int marks;
-    printf("enter your marks\n");
-    scanf("%d", &marks);
-    if(marks>89 && marks<=100)
+int main ()
+{
+    int a;
+    int b;
+    int c;
+    int d;
+    int greatest=0;
+    printf("ENTER 1ST NUMBER");
+    scanf("%d", &a);
+    printf("ENTER 2nd NUMBER");
+    scanf("%d", &b);
+    printf("ENTER 3rd NUMBER");
+    scanf("%d", &c);
+    printf("ENTER 4th NUMBER");
+    scanf("%d", &d);
+    if(a>>b) {
+        greatest=a;
+    }
+    else
     {
-        printf("Your grade is A");
+        greatest=b;
     }
-    else if(marks>79 && marks<=90) { 
-        printf("Your grade is B");
-    }
-    else if(marks>69 && marks<=80) {
-        printf("Your grade is C");
-    }
-    else if(marks>50 && marks<=70) {
-        printf("Your grade is D");
-    }
-    else {
-        printf("Your grade is F");
-    }
+    
+    
+    
+    printf("Greatest number is %d", greatest);
+
     return 0;
 }
