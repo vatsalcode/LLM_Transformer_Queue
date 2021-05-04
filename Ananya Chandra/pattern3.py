@@ -1,3 +1,9 @@
+# to print given pattern:
+#                         *
+#                         ##
+#                         *#*
+#                         #***
+
 def prime(t,i):
     if t==1:
         return 0
