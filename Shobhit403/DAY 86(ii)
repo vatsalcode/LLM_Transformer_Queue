@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+int * genSeq(int a[],int n)
+{
+    a[0]=-9999; 
+    a[1]=0;
+    a[2]=0;
+    for(int i=3;i<=n;i++)
+    {
+        int ele = a[i-1];
+        int index=-99999;
+        for(int j = i-2;j>0;j--)
+        {
+            if(a[j] == ele)
+            {
+                index=j;
+                break;
+            }
+        }
+        if(index>0)
+        {
+            a[i] = i-index-1;
+        }
+        else
+            a[i]=0;
+    }
+    return a;
+}
+int main()
+{
+	int t,n;
+	cin>>t;
+	while(t--)
+  {
+	    cin>>n;
+	    int a[n+1];
+	    int *p = genSeq(a,n);
+	    int ele = *(p+n);
+	    int countele=1;
+	    for(int i=1;i<n;i++)
+      {
+	        if(*(p+i) == ele)
+	            countele++;
+	    }
+	    cout<<countele<<endl;  
+	}
+	return 0;
+}
