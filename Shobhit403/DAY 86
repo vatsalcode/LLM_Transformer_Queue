@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+#define ll long long int
+using namespace std;
+int main() 
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+	ll t;
+	cin>>t;
+	while(t--)
+  {
+	 int n;
+	 cin>>n;
+	 string s;
+	 cin>>s;
+	 double count=0,count2=0;
+	 for(int i=0;i<n;i++)
+   {
+	     if(s[i]=='P')
+       {
+	         count++;
+	     }
+	 }
+	 if((count/n)>=0.75)
+   {
+	     cout<<"0"<<endl;
+	 }
+   else
+   {
+	     bool flag=false;
+	    for(int i=2;i<n-2;i++)
+      {
+	     if(s[i]=='A' && (s[i-1]=='P' || s[i-2]=='P' )&& (s[i+1]=='P' || s[i+2]=='P'))
+       {
+	         count2++;
+	     }
+	     if(((count+count2)/n)>=0.75){
+	         cout<<count2<<endl;
+	         flag=true;
+	         break;
+	     }
+	  }
+	  if(!flag)
+    {
+	      cout<<"-1"<<endl;
+	  }
+	 }	    
+	}
+	return 0;
+}
