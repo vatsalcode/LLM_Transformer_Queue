@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n,k,m;
+    cin>>n>>m>>k;
+    
+    int count;
+    while(n--){
+        int total_minutes=0;
+        
+        for(int i=0;i<k;i++){
+            int a;
+            cin>>a;
+            total_minutes=total_minutes+a;
+        }
+        int no_of_que;
+        cin>>no_of_que;
+        if(no_of_que<=10 && total_minutes>=m)
+        {
+            count++;
+        }
+    }
+    cout<<count<<endl;
+
+    return 0;
+}

@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+int main() 
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n,d;
+	    cin>>n>>d;
+	    int a[n];
+	    int r=0;
+	    for(int i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	        if(a[i]>=80 || a[i]<=9)
+	        {
+	            r++;
+	        }
+	    }
+	    int nr=n-r;
+	    int days=0;
+	    while(r>0)
+	    {
+	        days++;
+	        if(r-d>=0)
+	        r=r-d;
+	        else
+	        r=0;
+	    }
+	   while(nr>0)
+	   {
+	       days++;
+	        if(nr-d>=0)
+	        nr=nr-d;
+	        else
+	        nr=0;
+	   }
+	   cout<<days<<"\n";
+	}
+	return 0;
+}

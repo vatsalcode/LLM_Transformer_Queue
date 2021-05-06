@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+using namespace std;
+// #pragma GCC optimize ("-O3")
+// mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+// const long double PI = 3.14159265358979323846;  /* pi */
+vector<vector<int>> adj;
+int dfs(int v, int par = -1)
+{
+    vector<int> child_kill;
+    for (int x: adj[v])
+    {
+        if (x != par)
+        {
+            child_kill.push_back(dfs(x, v));
+        }
+    }
+    int mv = 0;
+    for (int x: child_kill)
+        mv = max(x, mv);
+    int ans = 0;
+    if (mv > 0)
+    {
+        for (int x: child_kill)
+            ans += max(x, 1);
+    }
+    else
+    {
+        ans = child_kill.size() - 1;
+    }
+    ans = max(ans, 0);
+    return ans;
+}
+int main() {
+    ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
+    int n;
+    cin >> n;
+    adj = vector<vector<int>> (n + 1);
+    for (int i = 0; i < n-1; i ++)
+    {
+        int a, b;
+        cin >> a >> b;
+        adj[a].push_back(b);
+        adj[b].push_back(a);
+    }
+    cout << max(dfs(1), 1);
+    return 0;
+}

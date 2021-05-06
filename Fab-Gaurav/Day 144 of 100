@@ -1,0 +1,11 @@
+#Program using Function to take a string as input and convert first letter of all the words present in the string to uppercase.
+
+def upper(s):
+    string = []
+    for i in s:
+        string.append(i.capitalize())
+    string = " ".join(string)
+    print("String after capitalized : ",string)
+
+s = input("Enter the string : ").split(" ")
+print(upper(s))

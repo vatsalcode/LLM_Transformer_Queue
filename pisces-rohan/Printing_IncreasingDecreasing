@@ -1,0 +1,43 @@
+//Printing Increasing & Decreasing simultaneously using recursion
+
+#include <stdio.h>
+
+void print_Incre(int n);
+void print_Decre(int p);
+
+int main()
+{
+    int num;
+    printf("Enter any number : ");
+    scanf("%d", &num);
+    print_Incre(num);
+    print_Decre(num);
+
+    return 0;
+}
+
+void print_Incre(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    else
+    {
+        printf("%d\n", n);
+        print_Incre(n - 1);
+    }
+}
+
+void print_Decre(int p)
+{
+    if (p == 0)
+    {
+        return;
+    }
+    else
+    {
+        print_Decre(p - 1);
+        printf("%d\n", p);
+    }
+}

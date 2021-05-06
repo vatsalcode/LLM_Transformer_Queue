@@ -1,0 +1,53 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int a[25][25],b[25][25],c[25][25],m,n,p,q;
+    cout<<"Enter number of rows of first array\n";
+    cin>>m;
+    cout<<"\nEnter number of columns of first array\n";
+    cin>>n;
+    cout<<"\nEnter number of rows of second array\n";
+    cin>>p;
+    cout<<"\nEnter number of columns of second array\n";
+    cin>>q;
+    if(m!=p && n!=q)
+    {
+        cout<<"Addition not possible\n";
+        return 0;
+        
+    }
+    for(int i=0;i<m;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            cout<<"\nEnter elements(Array 1)\n";
+            cin>>a[i][j];
+        }
+    }
+    for(int i=0;i<m;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            cout<<"\nEnter elements(Array 2)\n";
+            cin>>b[i][j];
+        }
+    }
+    for(int i=0;i<m;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            c[i][j]=a[i][j]+b[i][j];
+        }
+    }
+    cout<<endl;
+    for(int i=0;i<m;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            cout<<c[i][j]<<"  ";
+        }
+        cout<<endl;
+    }
+return 0;    
+}

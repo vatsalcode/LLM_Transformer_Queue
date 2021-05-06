@@ -1,0 +1,6 @@
+price = input('what is the price of one melon ?')
+print(price)
+number = input('how many melons do we have to buy ?')
+print (number)
+cost = int(price) * int(number)
+print('money needed =',cost,'rupees')

@@ -1,0 +1,52 @@
+public class reverse
+{
+	static node start;
+	static class node 
+	{
+		int val;
+        node next;
+        public node(int val) 
+		{
+			this.val = val;
+		}
+	}
+	static node reverse(node node)
+    {
+        node prev = null;
+        node current = node;
+        node next = null;
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        node = prev;
+        return node;
+    }
+	static void printList(node head) 
+	{
+		while (head != null) 
+		{
+			System.out.print(head.val + " ");
+			head = head.next;
+		}
+	}
+	public static void main(String[] args) 
+	{
+		node start = new node(1);
+		start.next = new node(2);
+		start.next.next = new node(3);
+		start.next.next.next = new node(4);
+		start.next.next.next.next = new node(5);
+		start.next.next.next.next.next = new node(6);
+		start.next.next.next.next.next.next = new node(7);
+		System.out.println("Before Reversing : ");
+	    printList(start);
+		System.out.println("");
+		node head = reverse(start);
+		System.out.println("Reversing the linked list : ");
+		printList(head);
+	}
+}
+

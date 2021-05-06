@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int t,n,a[1000],i,j,k;
+	cin>>t;
+	for(i=0;i<t;i++){
+	    cin>>n;
+	    bool t=true;
+	    for(j=0;j<n;j++)
+	        cin>>a[j];
+	    
+	    for(k=0;k<n;k++){
+	        if(a[k]%2==0){
+	            cout<<"NO"<<endl;
+	            t=false;
+	            break;
+	        }
+	    }
+	    if(t==true)
+	        cout<<"YES"<<endl;	        
+	}
+	return 0;
+}

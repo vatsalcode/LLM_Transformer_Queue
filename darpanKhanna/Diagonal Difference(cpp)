@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    int arr[n][n];
+    
+    long long int a1=0;
+    long long int a2=0;
+    
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            cin>>arr[i][j];
+            if(i==j)
+            a1+=arr[i][j];
+            if(i==n-j-1)
+            a2+=arr[i][j];
+        }
+    }
+    cout<<abs(a1-a2)<<endl;
+    return 0;
+}

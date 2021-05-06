@@ -1,0 +1,79 @@
+#include<iostream>
+using namespace std;
+struct complex 
+{
+    float R,I;
+}C1,C2,C3;
+
+void display(complex C3)
+{
+    cout<<"\nReal Part:"<<C3.R<<"  Imaginary Part:"<<C3.I;
+}
+
+void add(complex C1, complex C2)
+{
+    C3.R=C1.R+C2.R;
+    C3.I=C1.I+C2.I;
+    display(C3);
+}
+void sub(complex C1, complex C2)
+{
+    C3.R=C1.R-C2.R;
+    C3.I=C1.I-C2.I;
+    display(C3);
+    
+}
+void mul(complex C1, complex C2)
+{
+    C3.R=C1.R*C2.R;
+    C3.I=C1.I*C2.I;
+    display(C3);
+}
+void divide(complex C1, complex C2)
+{
+    if(C2.R==0)
+    {
+        exit;
+    }
+    C3.R=C1.R/C2.R;
+    if(C2.I==0)
+    {
+        exit;
+    }
+    C3.I=C3.I/C2.I;
+    display(C3);
+}
+
+int main()
+{
+    char ch;
+    cout<<"Enter real and imaginary parts of first complex number\n";
+    cin>>C1.R>>C1.I;
+    cout<<"\nEnter real and imaginary parts of second complex number\n";
+    cin>>C2.R>>C2.I;
+    int choice;
+    do{
+       cout<<"\n1.Add two numbers\n";
+       cout<<"2.Subtract two numbers\n";
+       cout<<"3.Multiply two numbers\n";
+       cout<<"4.Divide two numbers\n";
+       cout<<"Enter you choice\n";
+       cin>>choice;
+       switch(choice)
+       {
+           case 1: add(C1,C2);
+                   break;
+           case 2: sub(C1,C2);       
+                   break;
+           case 3: mul(C1,C2);
+                   break;
+           case 4: divide(C1,C2);
+                   break;
+           default: cout<<"\nWrong choice\n";
+       }
+       cout<<"\nDo you wish to continue(y/n) ?\n";
+       cin>>ch;
+      }while(ch=='y'||ch=='Y');
+       
+return 0;    
+}

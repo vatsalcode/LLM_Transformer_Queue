@@ -1,0 +1,28 @@
+//Power-liner using recursion
+
+#include <stdio.h>
+
+int power(int x, int n);
+
+int main()
+{
+    int base, raise;
+    printf("Enter the base number : ");
+    scanf("%d", &base);
+    printf("Enter the power : ");
+    scanf("%d", &raise);
+    int result = power(base, raise);
+    printf("%d", result);
+    return 0;
+}
+
+int power(int x, int n)
+{
+    if (n == 0)
+    {
+        return 1;
+    }
+    int store = power(x, n - 1);
+    int c = x * store;
+    return c;
+}

@@ -1,0 +1,33 @@
+/*package whatever //do not write package name here */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class firstandlastoccurence{
+	public static void main (String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt();
+		while(t-->0){
+		    int first =-1, last=-1;
+		    int n = sc.nextInt();
+		    int key = sc.nextInt();
+		    int a[] = new int[n];
+		    for(int i=0; i<n; i++){
+		        a[i]=sc.nextInt();
+		    }
+		   for(int i=0; i<n; i++){
+		   if(a[i]!=key)
+		    continue;
+		    if (first == -1)
+                first = i;
+            last = i;
+        }
+        if (first != -1) {
+            System.out.println(first+" "+last);
+        }
+        else
+            System.out.println("-1");
+		}
+	}
+}

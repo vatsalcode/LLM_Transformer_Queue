@@ -1,0 +1,7 @@
+given_list=[1,1,2,4,2]
+
+new_set1=set()
+for x in given_list:
+    new_set1.add(x)
+    
+    print(new_set1)

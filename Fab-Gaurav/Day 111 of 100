@@ -1,0 +1,26 @@
+#include <bits/stdc++.h> 
+using namespace std; 
+typedef long long ll;
+
+void solve(){
+    int a, b;
+    cin >> a >> b;
+    bool ans = true;
+    if(a%2!=0 && b%2!=0){
+        ans = false;
+    } 
+    ans ? cout<< "YES" : cout << "NO";
+}
+ 
+int main() 
+{ 
+    ios_base::sync_with_stdio(false); 
+    cin.tie(NULL); 
+    int t;
+    cin >> t;
+    while (t--) { 
+        solve(); 
+        cout << "\n"; 
+    } 
+    return 0; 
+} 

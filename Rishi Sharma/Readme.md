@@ -16,3 +16,5 @@
 ## Day 6 (16-10-2020)
    1. Continue ML
    2. Portfolio
+## Day 7 (28-01-2021)
+   1. Full Regression

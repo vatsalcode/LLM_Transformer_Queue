@@ -1,0 +1,118 @@
+#include <iostream>
+using namespace std;
+class team
+{
+    public:
+        string name;
+        int goalss,goalsr;
+        int score;
+        int goaldiff;
+};
+void bubblesort(team arr[],int size)
+{
+    for(int i=0;i<size;i++){
+        for(int k=i+1;k<size;k++){
+            if(arr[i].score<arr[k].score)
+            {
+                swap(arr[i],arr[k]);
+            }
+            else if(arr[i].score==arr[k].score)
+            {
+                if(arr[i].goaldiff<arr[k].goaldiff)
+                {
+                    swap(arr[i],arr[k]);
+                }
+            }
+        }
+    }
+}
+int main(){
+    int testcases;
+    cin >> testcases;
+    string answers[testcases][2];
+    for(int i=0;i<testcases;i++)
+    {
+        team tea[4];
+        int fill=0;
+        int teamnum=0;
+        for(int i=0;i<12;i++)
+        {
+            string hometeam;
+            int homescore;
+            string awayteam;
+            int awayscore;
+            string temp;
+            cin >> hometeam>>homescore>>temp>>awayscore>>awayteam;
+            int hp=-1;
+            int ap=-1;
+            int hr=0;
+            int ar=0;
+            if(homescore>awayscore)
+            {
+                hr=3;
+                ar=0;
+            }
+            else if(homescore<awayscore)
+            {
+                hr=0;
+                ar=3;
+            }
+            else{
+                hr=1;
+                ar=1;
+            }
+            for(int k=0;k<fill;k++)
+            {
+                if(hometeam==tea[k].name)
+                {
+                    hp=k;
+                    tea[k].goalss+=homescore;
+                    tea[k].goalsr+=awayscore;
+                    tea[k].score+=hr;
+                    break;
+                }
+            }
+            for(int k=0;k<fill;k++)
+            {
+                if(awayteam==tea[k].name)
+                {
+                    ap=k;
+                    tea[k].goalss+=awayscore;
+                    tea[k].goalsr+=homescore;
+                    tea[k].score+=ar;
+                    break;
+                }
+            }
+            if(hp==-1)
+            {
+                tea[teamnum].name=hometeam;
+                tea[teamnum].goalss=homescore;
+                tea[teamnum].goalsr=awayscore;
+                tea[teamnum].score=hr;
+                teamnum++;
+                fill++;
+            }
+            if(ap==-1)
+            {
+                tea[teamnum].name=awayteam;
+                tea[teamnum].goalss=awayscore;
+                tea[teamnum].goalsr=homescore;
+                tea[teamnum].score=ar;
+                teamnum++;
+                fill++;
+            }
+        }
+        for(int i=0;i<4;i++)
+        {
+            tea[i].goaldiff=tea[i].goalss-tea[i].goalsr;
+        }
+        bubblesort(tea,4);
+        answers[i][0]=tea[0].name;
+        answers[i][1]=tea[1].name;
+    }
+    for(int i=0;i<testcases;i++)
+    {
+        cout << answers[i][0]<<" "<<answers[i][1]<<"\n";
+    }
+    return 0;
+}

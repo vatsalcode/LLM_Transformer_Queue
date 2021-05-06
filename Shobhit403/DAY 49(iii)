@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define li long int
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    li n;
+	    cin>>n;
+	    int arr[n];
+	    for(li i=0;i<n;i++)
+	    cin>>arr[i];
+	    li s=0;
+	    unordered_map<li,li> ma;
+	    ma.insert({s,-1});
+	    li maxi=INT_MIN;
+	    for(li i=0;i<n;i++)
+	    {
+	        s=s^(1<<(30-arr[i]));
+	        li k=s;
+	        for(int j=0;j<30;j++)
+	        {
+	            k=k^(1<<j);
+	            auto itr=ma.find(k);
+    	        if(ma.find(k)!=ma.end())
+    	        {
+    	            //cout<<k<<endl;
+    	            //cout<<itr->first<<endl;
+        	        li pos=itr->second;
+        	        if((i-pos)>maxi)
+        	        maxi=i-pos;
+        	        //cout<<pos<<" "<<i<<endl;
+    	        }
+    	        k=s;
+	        }   
+	        if(ma.find(s)==ma.end())
+	        {ma.insert({s,i});
+	        //cout<<s<<endl;
+	        }
+	    }
+	    cout<<maxi/2<<endl;
+	}
+	return 0;
+}

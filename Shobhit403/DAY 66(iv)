@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+long long decodebele(long long bitele){
+    long long decodedele=bitele>>(1<<(1<<(1<<1)));
+    return decodedele;
+}
+long long encodeele(long long deele){
+    long long encodedele=deele<<(1<<(1<<(1<<1)));
+    return encodedele;
+}
+int main()
+{
+    int testcases;
+    cin >> testcases;
+    int te=testcases;
+    for(int i=1;i<=testcases;i++)
+    {
+        long long sizeofmodarr;
+        cin >> sizeofmodarr;
+        long long modarr[sizeofmodarr];
+        long long arra[sizeofmodarr];
+        long long arrb[sizeofmodarr];
+        for(int i=0;i<sizeofmodarr;i++)
+        {
+            cin >> modarr[i];
+        }
+        for(int i=0;i<sizeofmodarr;i++)
+        {
+            arrb[i]=decodebele(modarr[i]);
+            arra[i]=modarr[i]-encodeele(decodebele(modarr[i]));
+        }
+        cout <<"Case "<< i<<":"<<"\n";
+        for(int i=0;i<sizeofmodarr;i++)
+        {
+            cout << arra[i]<<" ";
+        }
+        cout << "\n";
+        for(int i=0;i<sizeofmodarr;i++)
+        {
+            cout << arrb[i]<<" ";
+        }
+        cout <<"\n";
+    }
+    return 0;
+}

@@ -1,0 +1,23 @@
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+int main()
+{
+    char str1[50];
+    int i;
+    cout<<"Enter a string\n";
+    gets(str1);
+    for(i=0;str1[i]!='\0';i++)
+    {
+        if(str1[i]>='A'&&str1[i]<='Z')
+        {
+            str1[i]+=32;
+        }
+        else if(str1[i]>='a'&&str1[i]<='z')
+        {
+            str1[i]-=32;
+        }
+        else;
+    }
+    cout<<"String in toggled case is "<<str1;
+}

@@ -1,0 +1,125 @@
+#include <iostream>
+
+using namespace std;
+
+class Node{
+public:
+    int data;
+    Node * next;
+Node(int data){
+    this->data=data;   //(*this).data=data;
+    this->next=NULL;
+}
+};
+
+void print(Node * head){
+    //Node * temp=head;
+    while(head!=NULL){
+    cout<<head->data<<"  ";
+    head=head->next;
+    }
+    /*temp=head;
+    while(temp!=NULL){
+    cout<<temp->data<<endl;
+    temp=temp->next;
+    }*/
+}
+
+Node * takeInput(){
+    int data;
+    cin>>data;
+    Node * head=NULL;
+    while(data!=-1){
+    //Node n(data);
+    Node * NewNode=new Node(data);
+    if(head==NULL){
+        head=NewNode;
+    }else{
+        //head->next=NewNode;
+        Node * temp =head;
+        while(temp->next!=NULL){
+            temp=temp->next;
+        }
+        temp->next=NewNode;
+    }
+    cin>>data;
+    }
+    return head;
+}
+
+
+
+Node * takeInput_optimal(){
+    int data;
+    cin>>data;
+    Node * head=NULL;
+    Node * tail=NULL;
+    while(data!=-1){
+    //Node n(data);
+    Node * NewNode=new Node(data);
+    if(head==NULL){
+        head=NewNode;
+        tail=NewNode;
+    }else{
+        //head->next=NewNode;
+        /*Node * temp =head;
+        while(temp->next!=NULL){
+            temp=temp->next;
+        }
+        temp->next=NewNode;*/
+        tail->next=NewNode;
+        tail=tail->next;
+
+        //tail=NewNode;
+    }
+    cin>>data;
+    }
+    return head;
+}
+
+int main()
+{
+    Node * head=takeInput_optimal();
+    print(head);
+    /*
+    Node n1(1);
+    Node * head=&n1;
+    Node n2(2);
+    Node n3(3);
+    Node n4(4);
+    Node n5(5);
+
+    n1.next=&n2;
+    n2.next=&n3;
+    n3.next=&n4;
+    n4.next=&n5;
+    print(head);
+    */
+    //static memory Allocation
+    /*
+    Node  n1(1);
+    Node * head=&n1;
+    Node  n2(2);
+    n1.next=&n2;
+    cout<<n1.data<<"   "<<n2.data<<endl;
+    cout<<n1.next<<"   "<<&n2<<endl;
+    cout<<head->data<<"     "<<(head->next)->data;
+
+
+
+    Node n1(10);
+    cout<<&(n1.data)<<endl;
+    cout<<&(n1.next)<<endl;
+    cout<<&n1;
+    //dynamically memory allocation
+    /*Node * n3=new Node(10);
+    Node * head=n3;
+    Node * n4=new Node(20);
+    n3->next=n4;
+    cout<<n3->next<<"  "<<n4<<endl;
+    cout<<n3->data<<"   "<<n4->data<<endl;
+    */
+
+
+    return 0;
+}

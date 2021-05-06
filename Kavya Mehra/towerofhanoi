@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+void TOH(int n, char x,char y, char z) 
+{ 
+	if (n == 1) 
+	{ 
+		cout << "Move disk "<<n<<" from " << x << " to " << y<<endl; 
+		return; 
+	} 
+	TOH(n - 1, x, z, y); 
+	cout << "Move disk " << n << " from " << x<<" to " << y<< endl; 
+	TOH(n - 1, z, y, x); 
+} 
+int main() 
+{ 
+	int n; 
+	cout<<"Enter n:";
+	cin>>n;
+	TOH(n, 'A', 'C', 'B'); 
+	return 0; 
+} 
+

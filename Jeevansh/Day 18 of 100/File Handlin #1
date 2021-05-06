@@ -1,0 +1,25 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+int main()
+{
+   fstream f1;
+   f1.open("abc.txt",ios::out);  
+   if(newfile.is_open())     
+   {
+      f1<<"CPP File Handling\n"; 
+      f1.close(); 
+   }
+   f1.open("abc.txt",ios::in); 
+   if (f1.is_open())
+   {   
+      string temp;
+      while(getline(f1, temp))
+      {  
+         cout << temp << "\n";   
+      }
+      f1.close();  
+   }
+   return 0;
+}

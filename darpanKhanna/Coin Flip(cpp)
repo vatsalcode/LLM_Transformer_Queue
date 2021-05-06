@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int p;
+        cin >> p;
+        while (p--)
+        {
+            int x, y, z;
+            cin >> x >> y >> z;
+            int a=y/2;
+            int b=(y+1)/2;
+            if(x==z)
+            {
+                cout<<a;
+            }
+            else{
+                cout<<b;
+            }
+            cout<<endl;
+        }
+        cout << endl;
+    }
+    return 0;
+}

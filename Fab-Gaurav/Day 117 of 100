@@ -1,0 +1,42 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        map<char, int> mp;
+        string s;
+        cin>>s;
+        int ones = 0;
+        int even = 0;
+        int x;
+        for(int i = 0 ; i < s.length(); i++)
+        {
+            mp[s[i]]++;
+        }
+        for(auto i : mp)
+        {
+            if(i.second == 1)
+                ones++;
+            else if((i.second)%2 == 0)
+            {
+                x = (i.second)/2;
+                even += x;
+            }
+            else if((i.second)>3)
+            {
+                x = (i.second)/2;
+                even = even + (x-1);
+            }
+        }
+        if(ones <= even)
+            cout<<"yes"<<endl;
+        else
+            cout<<"no"<<endl;
+        
+    }
+	return 0;
+}

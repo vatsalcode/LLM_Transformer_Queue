@@ -1,0 +1,25 @@
+chef and board games
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a;
+    cin>>a;
+    while(a--){
+        int b;
+        cin>>b;
+        int sum=0;
+        if(b%2 !=0){
+        for(int i=1;i<=b;i++){
+            if(i%2 != 0)
+            { sum=sum+i*i; } }}
+        else
+          {for(int i=1;i<=b;i++){
+            if(i%2 == 0)
+            { sum=sum+i*i; } }}
+        cout<<sum<<endl;
+    }
+	// your code goes here
+	return 0;
+}

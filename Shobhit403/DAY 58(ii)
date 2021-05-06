@@ -1,0 +1,86 @@
+#include <iostream>
+using namespace std;
+#define ll long long
+#define INFY 1000000000000000000
+#define FAST ios_base::sync_with_stdio(false);cin.tie(NULL);
+ll cal(ll A,ll B, ll C, ll a, ll b, ll c, ll n)
+{
+	ll ans1=0, ans2=0;	
+	if(C >= n)return n*c;
+	n = n-C;
+	ans1 = C*c;	
+	if(a < b)
+	{
+		if(A >= n)ans2 = n*a;
+		else ans2 = A*a + (n-A)*b;
+	}
+	else
+	{
+		if(B >= n)ans2 = n*b;
+		else ans2 = B*b + (n-B)*a;
+	}
+	return (ans1 + ans2);
+}
+int main() {
+	FAST;
+	ll t,ans,n,e,h,a,b,c, A,B,C,E,H,len,i;	
+	cin>>t;
+	while(t--)
+	{
+		ans = INFY;
+		cin>>n>>e>>h>>a>>b>>c;		
+		E = e%2;
+		H = h%3;
+		A = e/2;
+		B = h/3;
+		C = 0;	
+		if(A >= n)ans = n*a;
+		if(B >= n)ans = min(ans,n*b);
+		if(A+B >= n)
+		{
+			if(a < b)
+			{
+				if(A >= n)ans = min(ans, n*a);
+				else ans = min(ans, A*a + (n-A)*b);
+			}
+			else
+			{
+				if(B >= n)ans = min(ans, n*b);
+				else ans = min(ans, B*b + (n-B)*a);
+			}
+		}	
+		len = min(e,h);
+		for(i = 0;i <= len;i++)
+		{
+			if(C > n)break;
+			if(E == 0)
+			{
+				if(A > 0)
+				{
+					E += 2;
+					A--;
+				}
+			}
+			if(H == 0)
+			{
+				if(B > 0)
+				{
+					H += 3;
+					B--;
+				}
+			}
+			if(E > 0 && H > 0)
+			{
+				C++; E--;H--;
+			}
+			if(A+B+C >= n)
+			{
+				ans = min(ans, cal(A,B,C,a,b,c,n));
+			}
+			//printf("A %d B %d C %d e %d h %d ans %d\n",A,B,C,E,H,ans);
+		}
+		if(ans == INFY)ans = -1;
+		cout<<ans<<"\n";
+	}
+	return 0;
+}

@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+void swap(int* a,int* b)
+{
+	int temp=*a;
+	*a=*b;
+	*b=temp;
+}
+int main() 
+{
+    int a;
+    cin>>a;
+    while(a--)
+    {
+    string s;
+    cin>>s;
+    unordered_map<char,long int> map;
+    vector <int> v;
+    for(long int i=0;i<s.size();i++)
+    {
+        map[s[i]]++;
+    }
+    for(auto x: map)
+    {
+        v.push_back(x.second);
+    }
+    sort(v.begin(),v.end());
+    int vv=1;
+    if(v.size()<3)
+    {
+        vv=1;
+        goto end;
+    }
+    if(v[3]!=v[1]+v[2]) swap(v[0],v[1]);
+    
+    for(int i=2;i<v.size();i++)
+    {
+        if(v[i]!=(v[i-1]+v[i-2]))
+        {
+            vv=0;
+            break;
+        }
+    }
+    end:
+    if(vv==1)
+    cout<<"Dynamic"<<endl;
+    else cout<<"Not"<<endl;
+    }
+	return 0;
+}

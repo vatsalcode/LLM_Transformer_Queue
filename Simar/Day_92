@@ -1,0 +1,28 @@
+double myPow(double x, int n) {
+        if(x==1.0){
+            return x;
+        }
+        
+        if(n<0){
+            return 1/power(x,(long long)0l-n); // when we negate the value of n, then it crosses the range of 
+                                              // int, that is why we typecast it into long long and then negate it.
+        }
+        return power(x,(long long)n+0l);
+        
+    }
+    
+    double power(double x,long long n){
+        double ans=1.0;
+        
+        while(n>0){
+            if(n%2==1){
+                ans=ans*x;
+                n--;
+            }
+            x=x*x;    
+            n>>=1;    // bitwise right shift that divides the value by 2 i.e n = n/2
+        }
+        
+        cout<<ans;
+        return ans;
+    }

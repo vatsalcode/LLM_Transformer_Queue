@@ -1,0 +1,17 @@
+public Node rotate(Node head, int k) {
+        // add code here
+        Node curr = head;
+        int count=1;
+        while(count!=k){
+            curr=curr.next;
+            count++;
+        }
+        Node first = curr;
+        while(curr.next!=null)
+            curr=curr.next;
+        curr.next=head;
+        head=first.next;
+        first.next=null;
+        
+        return head;
+    }

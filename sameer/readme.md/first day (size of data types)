@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+
+ int a;
+ long int b;
+ long long int c;
+ short int d;
+ float e;
+ double f;
+ char g;
+ unsigned int h;
+ signed int i;
+
+cout<<"Size of int "<<sizeof(a)<<endl;
+cout<<"Size of long int "<<sizeof(b)<<endl;
+cout<<"Size of long long int "<<sizeof(c)<<endl;
+cout<<"Size of short int "<<sizeof(d)<<endl;
+cout<<"Size of float "<<sizeof(e)<<endl;
+cout<<"Size of double "<<sizeof(f)<<endl;
+cout<<"Size of char "<<sizeof(g)<<endl;
+cout<<"Size of unsigned int "<<sizeof(h)<<endl;
+cout<<"Size of signed int "<<sizeof(i)<<endl;
+
+    return 0;
+}
+
+

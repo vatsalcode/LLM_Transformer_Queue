@@ -1,0 +1,24 @@
+#include <iostream>
+#include<math.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long long int n;
+	long long int val;
+	long long int trailing_zero;
+	cin>>n;
+	while(n>0)
+	{
+	    trailing_zero =0;
+	    cin>>val;
+	    while(val>0)
+	    {
+	        val = floor(val/5);
+	        trailing_zero +=val;
+	    }
+	    cout<<trailing_zero<<endl;
+	    n--;
+	}
+	return 0;
+}

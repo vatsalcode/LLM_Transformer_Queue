@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+  
+int compute(vector<int> graph[], int N)
+{
+    int count = 0;
+    for (int i = 1; i <= N; i++)
+        if (graph[i].size() == 0)
+            count++;    
+    return count;
+}
+
+int main()
+{
+    int N = 5;
+    vector<int> graph[6];
+    graph[1].push_back(2);
+    graph[2].push_back(1);
+  
+    graph[2].push_back(3);
+    graph[3].push_back(2);
+  
+    graph[5].push_back(6);
+   cout << compute(graph, N);
+}

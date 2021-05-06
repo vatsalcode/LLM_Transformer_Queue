@@ -1,0 +1,84 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+vector <pair<int,int> > adj[100005];
+int  ans[100005];
+int  visit[100005];
+int  deg[100005];
+void dfs(int son)
+{
+   // cout<<" moving "<<son<<endl;
+     visit[son]=1;
+    for(int i=0;i<adj[son].size();++i)
+    {
+           if(visit[adj[son][i].first])
+            continue;
+        dfs(adj[son][i].first);
+        if(deg[adj[son][i].first])
+        {  //cout<<" na aao "<<endl;
+            ans[adj[son][i].second]=1;}
+        deg[son]^=deg[adj[son][i].first];
+    }
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,m;
+        cin>>n>>m;
+        //ans.resize(n+1,0);
+        //visit.resize(n+1,0);
+       // deg.resize(n+1,0);
+//        adj.resize(n+1);
+        int num1,num2;
+        for(int i=0;i<m;++i)
+        {
+         cin>>num1>>num2;
+         ans[i]=0;
+         //visit[num2]=0;
+         //visit[num1]=0;
+         adj[num2].push_back({num1,i});
+         adj[num1].push_back({num2,i});
+         deg[num2]^=1;
+         }
+        int tot=0;
+        for(int i=1;i<=n;++i)
+        {
+            tot^=deg[i];
+        }
+        if(tot)
+        {
+            cout<<-1<<endl;
+           for(int i=0;i<=n;++i)
+          {
+     //   cout<<ans[i]<<" ";
+           deg[i]=0;
+           adj[i].clear();
+           visit[i]=0;
+           ans[i]=0;
+           }
+         continue;
+        }
+    dfs(1);
+        for(int i=0;i<m;++i)
+     {
+        cout<<ans[i]<<" ";
+    }
+        for(int i=0;i<=n;++i)
+     {
+     //   cout<<ans[i]<<" ";
+       deg[i]=0;
+       adj[i].clear();
+       visit[i]=0;
+       ans[i]=0;
+    }
+        cout<<endl;
+         // ans.clear();
+        //visit.clear();
+        //deg.clear();
+      //  adj.clear();
+    }
+    return 0;
+}

@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int t,n,k,l,u,s,md,i,z;
+	cin>>t;
+	while(t--){
+		bool flag=true;
+		cin>>n>>s>>k>>l>>u;
+		int ans[n];
+		i=0;
+		while(i<n){
+			ans[i]=l;i++;
+		}
+		int x=u-l;s-=(n*l);
+		md=n/2;
+		if(l==u || s==0)flag=false;
+		else if(k<=md ){
+			i=md+1;
+			while(i<n)ans[i]++,i++,s--;
+			i=n-1;x--;
+			while(i>md && s>0){z=min(x,s);ans[i]+=z;s-=z;i--;}
+			if(n%2==0){z=min(x+1,s);ans[i]+=z;s-=z;i--;}
+			while(s>0 && i>=0){z=min(x,s);ans[i]+=z;s-=z;i--;}
+			if(s!=0)flag=false;
+		}
+		else if(k==md+1){
+			i=md;
+			while(i<n)ans[i]++,i++,s--;
+			i=n-1;x--;
+			while(i>=md && s>0){z=min(x,s);ans[i]+=z;s-=z;i--;}
+			while(s>0 && i>=0){z=min(x,s);ans[i]+=z;s-=z;i--;}
+			if(s!=0)flag=false;
+		}
+		else if(n%2==0 ){
+			i=md;
+			while(i<n)ans[i]++,i++,s--;
+			i=n-1;x--;
+			while(i>=md && s>0){z=min(x,s);ans[i]+=z;s-=z;i--;}
+			while(s>0 && i>=0){z=min(x,s);ans[i]+=z;s-=z;i--;}
+			if(s!=0)flag=false;
+		}
+		else flag=false;		
+		if(flag){
+			i=0;
+			while(i<n)cout<<ans[i]<<" ",i++;
+		}	
+		else cout<<-1;
+		cout<<endl;
+	}
+	return 0;
+}

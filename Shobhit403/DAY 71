@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	long long int T;
+	cin>>T;
+	while(T--)
+	{
+	long long int i,N;
+	string p;
+	cin>>N;
+	cin>>p;
+	long long int a[N];
+	for(i=0;i<N;++i)
+	cin>>a[i];
+		if(N==1&p=="Dee")
+		{
+			if(a[0]%2==0)
+		    cout<<"Dee"<<endl;
+		    else
+	        cout<<"Dum"<<endl;
+	    }
+	    else
+	    cout<<"Dum"<<endl;  
+}
+	return 0;
+}

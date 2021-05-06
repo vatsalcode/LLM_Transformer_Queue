@@ -1,0 +1,30 @@
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+int main()
+{
+    char s[100];
+    int i,j,k,n;
+    cout<<"Enter a string\n";
+    gets(s);
+    for(i=0;s[i]!='\0';i++);
+    {
+        n=i;
+    }
+    for(i=0;i<n;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(s[i]==s[j])
+            {
+                n--;
+                for(k=j;k<n;k++)
+                s[k]=s[k+1];
+                j--;
+            }
+        }
+    }
+    s[n]='\0';
+    cout<<"\nRevised string: "<<s;
+return 0;    
+}

@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int testcases;
+    cin >> testcases;
+    while(testcases>0)
+    {
+        long long numoflayers,minid,maxid,numofnonspammers=0,numofspammers=0;
+        cin >> numoflayers>>minid>>maxid;
+        long long wieght[numoflayers];
+        long long bias[numoflayers];
+        for(int i=0;i<numoflayers;i++)
+        {
+            cin >> wieght[i]>>bias[i];
+        }
+        int input=2,isevene=0,numofeven;
+        int oddinput=3,iseveno=0,numofodd;
+        for(int i=0;i<numoflayers;i++)
+        {
+            input*=wieght[i];
+            input+=bias[i];
+            oddinput*=wieght[i];
+            oddinput+=bias[i];
+        }
+        if(input%2==0)
+        {
+            isevene=1;
+        }
+        if(oddinput%2==0)
+        {
+            iseveno=1;
+        }
+        numofeven=((maxid-minid)+1)/2;
+        numofodd=((maxid-minid)+1)-numofeven;
+        if(isevene==1){
+            numofnonspammers+=numofeven;
+        }
+        else
+        {
+            numofspammers+=numofeven;
+        }
+        if(iseveno==1)
+        {
+            numofnonspammers+=numofodd;
+        }
+        else{
+            numofspammers+=numofodd;
+        }
+        cout << numofnonspammers<<" "<<numofspammers<<"\n";
+        testcases--;
+    }
+    return 0;
+}

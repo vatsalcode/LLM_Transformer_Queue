@@ -1,0 +1,27 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+int main(int argc, char* arg[])
+{
+     double PI = 4*atan(1.0);   
+    int count;
+    scanf("%d", &count);
+    for ( int i = 0; i < count; i++ ) {
+        double f = (i + 0.5) / 50;
+        double t = i%3 * 2*PI/3 + f * 0.5;
+        int x = sin(t) * 500 * f;
+        int y = cos(t) * 500 * f;
+        if (i%3 == 0) {
+            x += 500 / sqrt(2);
+            y += 500 / sqrt(2);
+        }
+        else if (i%3 == 1) {
+            y -= 500;
+        }
+        else {
+            x -= 500;
+        }
+        printf("%d %d\n", x, y);
+    }
+    return 0;
+}  

@@ -1,0 +1,48 @@
+//1.Python Program to Print all Prime Numbers between an Interval
+lower = int(input("Enter lower range: "))  
+upper = int(input("Enter upper range: "))  
+  
+for num in range(lower,upper + 1):  
+   if num > 1:  
+       for i in range(2,num):  
+           if (num % i) == 0:  
+               break  
+       else:  
+           print(num)  
+           
+           
+           
+//2.Python Program for n-th Fibonacci number
+def Fibonacci(n): 
+    if n<0: 
+        print("Incorrect input") 
+   
+    elif n==1: 
+        return 0
+    elif n==2: 
+        return 1
+    else: 
+        return Fibonacci(n-1)+Fibonacci(n-2) 
+  print(Fibonacci(9)) 
+  
+  
+
+//3.Finding sum of digits of a number until sum becomes single digit
+def digSum( n): 
+    sum = 0
+      
+    while(n > 0 or sum > 9): 
+      
+        if(n == 0): 
+            n = sum
+            sum = 0
+          
+        sum += n % 10
+        n /= 10
+      
+    return sum
+  
+# Driver method 
+n = 1234
+print (digSum(n)) 
+  

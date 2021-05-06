@@ -1,0 +1,117 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct DSU {
+    vector<int> p, sz;
+    DSU(int n) {
+        p = vector<int>(n + 1);
+        sz = vector<int>(n + 1, 1);
+        iota(p.begin(), p.end(), 0);
+    }
+    int find(int x) {
+        return (p[x] ^ x ? (p[x] = find(p[x])) : p[x]);
+    }
+    int uni(int x, int y) {
+        int px = find(x);
+        int py = find(y);
+        if (px ^ py) {
+            p[px] = py;
+            sz[py] += sz[px];
+        }
+        return px ^ py;
+    }       
+};
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int n, m, qq;
+    cin >> n >> m >> qq;
+    DSU d = DSU(n * m);
+    vector<vector<bool>> vis(n + 1, vector<bool>(m + 1, true));
+    vector<int> t(qq), x1(qq), x2(qq), y1(qq), y2(qq);
+
+    vector<int> dir{-1, 0, 1, 0, -1};
+    auto get = [&](int x, int y) {
+        return (x - 1) * m + y;
+    };
+    auto add = [&](int x, int y) {
+        vis[x][y] = true;
+        for (int i = 0; i < 4; ++i) {
+            // cerr << i << ' ';
+            int nx = x + dir[i];
+            int ny = y + dir[i + 1];
+            if (nx >= 1 && ny >= 1 && nx <= n && ny <= m && vis[nx][ny]) {
+                d.uni(get(x, y), get(nx, ny));
+            }
+        }   
+        // cerr << '\n';
+    };
+
+    for (int i = 0; i < qq; ++i) {
+        // cerr << i << ' ';
+        cin >> t[i] >> x1[i] >> y1[i] >> x2[i] >> y2[i];
+        if (t[i] == 1) {
+            for (int j = x1[i]; j <= x2[i]; ++j) {
+                vis[j][y1[i]] = false;
+                vis[j][y2[i]] = false;
+            }
+            for (int j = y1[i]; j <= y2[i]; ++j) {
+                vis[x1[i]][j] = false;
+                vis[x2[i]][j] = false;
+            }
+        } 
+    }
+    // for (int i = 1; i <= n; ++i) {
+    //     for (int j = 1; j <= m; ++j) {
+    //         cerr << vis[i][j];
+    //     }
+    //     cerr << '\n';
+    // }
+    // cerr << '\n';
+    // cerr << '\n';
+    for (int i = 1; i <= n; ++i) {
+         
+        for (int j = 1; j <= m; ++j) {
+            // cerr << i << ' ' << j << '\n';
+            if (vis[i][j]) {
+                add(i, j);
+            }
+            // cerr << i << ' ' << j << '\n';
+        }
+    }
+    // for (auto a : vis) {
+    //     for (auto b : a) {
+    //         cerr << b;
+    //     }
+    //     cerr << '\n';
+    // }
+    // cerr << '\n';
+    // cerr << '\n';
+    vector<bool> ans(qq);
+    for (int i = qq - 1; i >= 0; --i) {
+        if (t[i] == 1) {
+            for (int j = x1[i]; j <= x2[i]; ++j) {
+                add(j, y1[i]);
+                add(j, y2[i]);
+            }
+            for (int j = y1[i]; j <= y2[i]; ++j) {
+                add(x1[i], j);
+                add(x2[i], j);
+            }
+        } else {
+            // for (int ii = 1; ii <= n; ++ii) {
+            //     for (int jj = 1; jj <= m; ++jj) {
+            //         cerr << vis[ii][jj];
+            //     }
+            //     cerr << '\n';
+            // }
+            // cerr << '\n';
+            ans[i] = (d.find(get(x1[i], y1[i])) == d.find(get(x2[i], y2[i])));
+        }
+    }
+    for (int i = 0; i < qq; ++i) {
+        if (t[i] == 2) {
+            cout << (ans[i] ? "YES\n" : "NO\n");
+        }
+    }
+    return 0; 
+}

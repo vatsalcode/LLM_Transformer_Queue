@@ -1,0 +1,14 @@
+void removeDuplicatesFromLL(ListNode head)
+{
+    if(head==NULL or head.next==NULL)
+       return
+    if(head.data == head.next.data)
+    {
+        ListNode NextNode = head.next.next
+        delete head.next
+        head.next = NextNode
+        removeDuplicatesFromLL(head)
+   }
+    else
+        removeDuplicatesFromLL(head.next)
+}

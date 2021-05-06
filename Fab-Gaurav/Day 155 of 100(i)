@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int p[7];
+	    int r[7];
+	    for(int i=0;i<7;i++)
+	    cin>>p[i];
+	    int prev_price=INT_MAX;
+	    int prev_rate=INT_MIN;
+	    for(int i=0;i<7;i++)
+	    cin>>r[i];
+	    int count=0;
+	    for(int i=0;i<7;i++)
+	    {
+	        if((i+1)%2!=0)
+	        {
+	            if(p[i]%2!=0 && r[i]%2!=0)
+	            {
+	                if(p[i]<prev_price && r[i]>prev_rate){
+	                prev_price=p[i]; 
+	                prev_rate=r[i];
+	                count++;
+	                }
+	            }
+	        }
+	        else 
+	        {
+	            if(p[i]%2==0 && r[i]%2==0){
+	            if(p[i]<prev_price && r[i]>prev_rate){
+	                prev_price=p[i]; 
+	                prev_rate=r[i];
+	                count++;
+	                }
+	            }
+	        }
+	    }
+	    cout<<count<<"\n";
+	}
+	return 0;
+}

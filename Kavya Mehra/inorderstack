@@ -1,0 +1,8 @@
+assign root to curr
+push curr to stack
+while curr is not null or stack is not empty
+push curr to stack
+move curr to curr->left
+if step 3 fails pop from the stack
+assign curr to the right of poped element
+repeat from step 2

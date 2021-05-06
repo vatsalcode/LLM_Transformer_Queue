@@ -1,0 +1,10 @@
+assign curr to root
+push curr to the stack
+while curr is not null or th stack is not empty
+print the curr element
+move curr to the left
+push curr in the stack
+if curr becomes null or stack becomes empty 
+pop the element from the stack
+assign curr to the right of popped element
+repeat from step 3

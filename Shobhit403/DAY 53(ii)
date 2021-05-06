@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+#define ll long long int
+#define wi(i) while(i)
+#define llp(i,x,n) for(i=x;i<n;i++)
+#define M 1000000007
+#define io cin.tie(NULL)
+#define fast ios_base::sync_with_stdio(false)
+using namespace std;
+int main() {
+	// your code goes here
+	fast;io;
+	ll t;
+	cin>>t;
+	wi(t--)
+	{
+	    ll n,i,e=0,o=0;
+	    cin>>n;
+	    ll a[n];
+	    llp(i,0,n)
+	        cin>>a[i];
+	    llp(i,0,n)
+	        a[i]=__builtin_popcount(a[i]);
+	    llp(i,0,n)
+	    {
+	        if(a[i]%2==0)
+	            e++;
+	        else 
+	            o++;
+	    }
+	    ll x=(o*(o-1)*(o-2))/6;
+	    ll y=(o*(e*(e-1)))/2;
+	    cout<<(x+y)%M<<"\n";
+	}
+	return 0;
+}

@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main()
+{
+    int rows, i = 1, j = 1, space = 1, k = 1;
+    printf("Enter the number : ");
+    scanf("%d", &rows);
+    int num_star = rows + 1;
+    while (i <= rows)
+    {
+        while (j <= num_star)
+        {
+            printf("*   ");
+            if (j == num_star / 2)
+            {
+                while (space <= k)
+                {
+                    printf("        ");
+                    space++;
+                }
+                space = 1;
+                k += 1;
+            }
+            j++;
+        }
+        printf("\n");
+        i++;
+        j = 1;
+        num_star -= 2;
+
+    }
+    return 0;
+}

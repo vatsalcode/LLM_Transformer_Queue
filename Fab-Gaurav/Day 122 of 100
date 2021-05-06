@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int t;
+    std::cin>>t;
+    while(t--) {
+        int n;
+        std::cin>>n;
+        int s_root = 0;
+        while(n--) {
+            int m, k;
+            std::cin>>m>>k;
+            s_root += m - k;
+        }
+        std::cout<<s_root<<std::endl;
+    }
+	return 0;
+}

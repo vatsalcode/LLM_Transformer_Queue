@@ -1,0 +1,115 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int maxn=5e5+100;
+int down[maxn],up[maxn],v[maxn],t[maxn<<2];
+multiset<int> f[maxn];
+vector<int> g[maxn];
+void dfs(int s,int p)
+{
+    down[s]=1;
+    for(auto it:g[s])
+    if(it!=p)
+    {
+        if(::v[it]>=::v[s])
+        up[it]=up[s]+1;
+        else
+        up[it]=1;
+        dfs(it,s);
+        if(::v[s]<=::v[it])
+        down[s]=max(down[it]+1,down[s]);
+    }
+}
+void update(int v,int tl,int tr,int pos,int val,int tp)
+{
+    if(tl==tr)
+    {
+        if(tp==1)
+        {
+            t[v]=max(t[v],val);
+            f[pos].insert(val);
+        }
+        else
+        {
+            f[pos].erase(f[pos].find(val));
+            if(f[pos].empty())
+            t[v]=-1e9;
+            else
+            t[v]=*(--f[pos].end());
+        }
+        return;
+    }
+    int md=(tl+tr)>>1;
+    if(pos<=md)
+    update(2*v,tl,md,pos,val,tp);
+    else
+    update(2*v+1,md+1,tr,pos,val,tp);
+    t[v]=max(t[2*v],t[2*v+1]);
+}
+int query(int v,int tl,int tr,int l,int r)
+{
+    if(tl==l and tr==r)
+    return t[v];
+    int md=(tl+tr)>>1;
+    if(r<=md)
+    return query(2*v,tl,md,l,r);
+    else if(l>md)
+    return query(2*v+1,md+1,tr,l,r);
+    else
+    return max(query(2*v,tl,md,l,md),query(2*v+1,md+1,tr,md+1,r));
+}
+int nn,best=0;
+void dfs1(int s,int p)
+{
+    best=max(best,query(1,1,nn,1,::v[s])+down[s]);
+    update(1,1,nn,::v[s],up[s],1);
+    for(auto it:g[s])
+    if(it!=p)
+    dfs1(it,s);
+    update(1,1,nn,::v[s],up[s],-1);
+}
+void solve()
+{
+    int n;
+    cin>>n;
+    for(int i=1;i<=n;i++)
+    {
+        g[i].clear();
+        f[i].clear();
+    }
+    vector<int> cord;
+    for(int i=1;i<=n;i++)
+    {
+        cin>>v[i];
+        cord.push_back(v[i]);
+    }
+    sort(cord.begin(),cord.end());
+    cord.erase(unique(cord.begin(),cord.end()),cord.end());
+    for(int i=1;i<=n;i++)
+    v[i]=lower_bound(cord.begin(),cord.end(),v[i])-cord.begin()+1;
+    nn=cord.size();
+    for(int i=1;i<n;i++)
+    {
+        int x,y;
+        cin>>x>>y;
+        g[x].push_back(y);
+        g[y].push_back(x);
+    }
+    up[1]=1;
+    dfs(1,-1);
+    for(int i=1;i<=4*nn;i++)
+    t[i]=-1e9;
+    best=0;
+    for(int i=1;i<=n;i++)
+    if(up[i]>=2)
+    best=max(best,up[i]);
+    dfs1(1,-1);
+    cout<<best<<'\n';
+}
+int main()
+{
+    int tt;
+    cin>>tt;
+    while(tt--)
+    solve();
+    return 0;
+}

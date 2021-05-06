@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int test;
+	cin>>test;
+	
+	for(int i=0;i<test;i++)
+	{
+	        int num;
+	        cin>>num;
+        	long long a[num];
+		for(int j=0;j<num;j++)
+		    
+		{
+			cin>>a[j];
+		}
+		sort(a,a+num);
+		long long min=(long long)abs(a[1]-a[0]);
+		for(int k=0;k<num-1;k++)
+		{
+			if(min>(long long)abs(a[k+1]-a[k]))
+			{
+			min=(long long)abs(a[k+1]-a[k]);
+			
+			}
+		}
+		cout<<min<<endl;
+	}	
+	return 0;
+}

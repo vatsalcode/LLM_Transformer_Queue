@@ -1,0 +1,28 @@
+//using recursion
+#include <stdio.h>
+
+void print_Decreasing(int n);
+
+int main()
+{
+    int num;
+    printf("Enter any number : ");
+    scanf("%d", &num);
+    print_Decreasing(num);
+    
+    return 0;
+}
+
+void print_Decreasing(int n)
+{
+    int store;
+    if (n == 0)
+    {
+        return;
+    }
+    else
+    {
+        printf("%d\n", n);
+        print_Decreasing(n - 1);
+    }
+}
