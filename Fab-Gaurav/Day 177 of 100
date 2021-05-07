@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main (){
+    int t;
+    std::cin >> t;
+    while(t-->0)
+    {
+        int N;
+        std::cin>>N;
+        int arr[N];
+        for (int i=0;i<N;i++){
+        cin>>arr[i];
+        }
+        sort(arr,arr+N);
+        int count=0;
+        int f=0;
+        for(int i=0; i<N; i++){
+            if(i+1-arr[i]<0){
+                f=1;
+                break;
+            }
+            count=count+(i+1-arr[i]);
+        }
+        if(f==1)
+        {
+          cout <<"Second"<<endl;
+        }
+        else
+        {
+            if(count%2==1) {
+                cout<<"First"<<endl;
+            }
+            else{
+                cout<<"Second"<<endl;
+            }
+        }
+    }
+return 0;
+}
