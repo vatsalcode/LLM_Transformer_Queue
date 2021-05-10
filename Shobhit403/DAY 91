@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() 
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+     string s;
+     cin>>s;
+     int l=s.length();
+     int count=0;
+     int flag=0;
+     for(int i=0;i<=l-4;i++)
+     {
+         int cc=0,ch=0,ce=0,cf=0;
+         for(int j=i;j<i+4;j++)
+         {
+             if(s[j]=='c')
+             cc++;
+             if(s[j]=='h')
+             ch++;
+             if(s[j]=='e')
+             ce++;
+             if(s[j]=='f')
+             cf++;
+         }
+         if(cc==1&&ce==1&&ch==1&&cf==1)
+         {
+             flag=1;
+             count++;
+         }
+     }
+     if(flag)
+     cout<<"lovely"<<" "<<count<<endl;
+     else
+     cout<<"normal"<<endl;
+    }
+	return 0;
+}
