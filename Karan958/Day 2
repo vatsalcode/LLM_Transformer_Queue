@@ -1,0 +1,23 @@
+Program to input user's age and tell him/her if they can vote or not.
+
+#include<stdio.h>
+
+int main()
+{
+    /* code */
+    int age;
+    printf("Enter your age:\n");
+    scanf("%d", &age);
+    printf("You have entered %d as your age\n",age);
+    if(age>=18)
+    {
+        printf("You can vote!");
+    
+    }
+    else
+    {
+        printf("AAP NAABALIK HAAAAA!");
+    }
+    
+return 0;
+}

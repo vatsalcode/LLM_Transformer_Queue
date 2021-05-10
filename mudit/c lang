@@ -1,0 +1,13 @@
+
+learnt
+C language:
+#include<stdio.h>
+int main(void)
+{
+      prtintf("hello world");
+      return 0;
+}      
+      
+
+input output:    scanf(),%d,printf() etc
+operators and expressions:  +,-.%,/,AND,OR,NOT,.....etc

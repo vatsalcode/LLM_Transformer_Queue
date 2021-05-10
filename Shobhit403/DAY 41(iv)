@@ -1,0 +1,57 @@
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+#include <cassert>
+#include <numeric>
+#include <functional>
+const int inf = 1 << 30;
+// Dynamic Programming with Memoization
+int main() {
+  std::cin.tie(nullptr);
+  std::ios::sync_with_stdio(false);
+  int t;
+  std::cin >> t;
+  while (t-->0) {
+    int r, c, n, sx, sy;
+    std::cin >> r >> c >> n;
+    std::cin >> sx >> sy;
+    std::vector<int> pw(n);
+    int m = 1;
+    for (int i = 0; i < n; ++i) {
+      pw[i] = m;
+      m *= 5;
+    }
+    std::vector<int> dx(n);
+    std::vector<int> dy(n);
+    for (auto& dxi : dx)
+      std::cin >> dxi;
+    for (auto& dyi : dy)
+      std::cin >> dyi;
+    std::vector<int> a(r*c);
+    for (auto& ai : a)
+      std::cin >> ai;
+    const int sgnx[5] = {0, 1, 1, -1, -1};
+    const int sgny[5] = {0, 1, -1, 1, -1};
+    std::vector<int> dp(m, 0);
+    dp[0] = a[sx*c+sy];
+    int ans = dp[0];
+    for (int p = 0; p < m; ++p) {
+      int x = sx;
+      int y = sy;
+      int opt = 0;
+      for (int i = 0, q = p; i < n; ++i, q /= 5) {
+        if (q % 5) {
+          x += sgnx[q % 5] * dx[i];
+          y += sgny[q % 5] * dy[i];
+          opt = std::max(opt, dp[p - q % 5 * pw[i]]);
+        }
+      }
+      if (opt != 0 && x >= 0 && y >= 0 && x < r && y < c) {
+        dp[p] = std::max(dp[p], opt + a[x*c+y]);
+        ans = std::max(ans, dp[p]);
+      }
+    }
+    std::cout << ans << "\n";
+  }
+  return EXIT_SUCCESS;
+}

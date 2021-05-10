@@ -1,0 +1,18 @@
+Learned about Format Specifier, constant and escape sequence
+
+#include <stdio.h>
+#define PI 3.14
+int main()
+
+{
+    /* code */
+int a=8;
+const float b=7.333;
+// PI = b; cannot do this sinbce pi is constant
+printf("My backslash is // ",PI);
+
+// b=7.22 connot do this since b is a constant
+//printf("Hello World\n");    
+//printf("The value of a is %d and the value of b is %.4f\n",a,b);
+    return 0;
+}

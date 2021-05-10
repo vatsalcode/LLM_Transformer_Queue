@@ -1,0 +1,63 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+void area(float a,float b,float c)
+{
+    float s,ar;
+    s=(a+b+c)/2;
+    ar=sqrt(s*(s-a)*(s-b)*(s-c));
+    cout<<"\nArea of triangle="<<ar<<"\n";
+}
+void area(float a,float b)
+{
+    float ar;
+    ar=a*b;
+    cout<<"\nArea of Rectangle="<<ar<<"\n";
+}
+void area(float a)
+{
+    float ar=a*a;
+    cout<<"\nArea of square="<<ar<<"\n";
+}
+void area()
+{
+    float r,ar;
+    cout<<"\nEnter radius\n";
+    cin>>r;
+    ar=3.14*r*r;
+    cout<<"\nArea of circle="<<ar<<"\n";
+}
+int main()
+{
+    char ch;
+    float a,b,c;
+    int choice;
+    do{
+        cout<<"Area Menu:\n";
+        cout<<"1.Area of Triangle\n";
+        cout<<"2.Area of rectangle\n";
+        cout<<"3.Area of square\n";
+        cout<<"4.Area of circle\n";
+        cin>>choice;
+        switch(choice)
+        {
+            case 1: cout<<"\nEnter three sides of triangle\n";
+                    cin>>a>>b>>c;
+                    area(a,b,c);
+                    break;
+            case 2: cout<<"\nEnter sides of rectangle\n";
+                    cin>>a>>b;
+                    area(a,b);
+                    break;
+            case 3: cout<<"\nEnter side of square\n";
+                    cin>>a;
+                    area(a);
+                    break;
+            case 4: area();
+                    break;
+            default:cout<<"\nWrong choice\n";
+        }cout<<"Do you wish to continue?(Y/N)\n";
+        cin>>ch;
+      }while(ch=='y'||ch=='Y');
+return 0;    
+}

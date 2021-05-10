@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int count, num, c = 0;
+    cin >> count;
+    while (count--)
+    {
+        c = 0, num = 0;
+        cin >> num;
+        while (num != 0)
+        {
+            int rem = 0;
+            rem = num % 10;
+            if (rem == 4)
+            {
+                c = c + 1;
+            }
+            num = num / 10;
+        }
+        cout << c << endl;
+    }
+    return 0;
+}

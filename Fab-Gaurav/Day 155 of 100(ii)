@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    long long int t,n,k,i,sum=0;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n>>k;
+        long long int ar[n];
+        for(i=0; i<n; ++i)
+        {
+            cin>>ar[i];
+        }
+        for(i=0; i<n; ++i)
+            sum=sum+ar[i];
+        if(sum%k==0)
+            cout<<"0"<<endl;
+        else if(sum%k!=0)
+            cout<<"1"<<endl;
+        sum=0;
+    }
+    return 0;
+}

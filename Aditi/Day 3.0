@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        int arr[5]={2010, 2015, 2016, 2017, 2019};
+        int i;
+        for(i=0;i<5;i++)
+        {
+            if(arr[i]==n)
+            {
+                cout<<"HOSTED"<<endl;
+                break;
+            }
+        }
+        if(i==5)
+        {
+            cout<<"NOT HOSTED"<<endl;
+        }
+    }
+    return 0;
+}

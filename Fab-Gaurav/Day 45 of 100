@@ -1,0 +1,58 @@
+#include <stdio.h>
+void result(int a[],int b[],int n);
+int main()
+{
+  int t, i, j, arr1[30], arr2[30], x, temp;
+  scanf("%d",&t);
+  while(t--)
+  {
+    scanf("%d",&x);
+    for(i=0;i<x;i++)
+    {
+      scanf("%d",&arr1[i]);
+    }
+   
+    for(i=0;i<x;++i)
+    {
+     for (j=i+1;j<x;++j)
+      {
+       if (arr1[i] > arr1[j])
+        {
+         temp = arr1[i];
+         arr1[i] = arr1[j];
+         arr1[j] = temp;
+        }
+      }
+    }
+   
+    for(i=0;i<x;i++)
+    {
+      scanf("%d",&arr2[i]);
+    }
+    for(i=0;i<x;++i)
+    {
+     for (j=i+1;j<x;++j)
+      {
+       if (arr2[i] < arr2[j])
+        {
+         temp = arr2[i];
+         arr2[i] = arr2[j];
+         arr2[j] = temp;
+        }
+      }
+    }
+    result(arr1, arr2, x);
+  }
+  return 0;
+}
+
+void result(int a[],int b[],int n)
+{
+  int i, fin=0, sum;
+  for(i=0;i<n;i++)
+  {
+      fin+=a[i]*b[i];
+      sum=fin;
+  }
+  printf("%d\n",sum);
+}

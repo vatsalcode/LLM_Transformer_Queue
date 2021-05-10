@@ -1,0 +1,25 @@
+import java.util.*;
+class VowelsInaString
+{
+	public static void main(String[ ] arg)
+	{
+	String s;
+	char ch;
+	int i=0;
+	Scanner sc=new Scanner(System.in);
+	System.out.print("Enter a string : ");
+	s=sc.nextLine();	
+	System.out.println("Vowels in a string are"); 
+	for(int j=0;j<s.length();j++)
+	{
+	ch=s.charAt(j);	
+	if(ch=='a' ||ch=='e' ||ch=='i' ||ch=='o' ||ch=='u' ||ch=='A' ||ch=='E' ||ch=='I' ||ch=='O' ||ch=='U' )
+		System.out.println(ch); 			 
+	i=1;
+       	
+	}
+	if(i==0)
+		System.out.println("There are no vowels in a string"); 
+	
+	}
+}

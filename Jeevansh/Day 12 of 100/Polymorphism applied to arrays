@@ -1,0 +1,36 @@
+//Function definition
+//1st version: function sum() takes 2 arguements,an integer array and its sixe,returning sum of all elements
+//2nd version: function sum() takes 3 arguements, an integer array,its size and a character.if character is'E' sum of even elements is returned. If character id 'O', sum of odd elements of array is returned. 
+#include<iostream>
+using namespace std;
+int sum(int a[], int p)
+{
+    int sum=0;
+    for(int i=0;i<p;i++)
+    {
+        sum+=a[i];
+        return sum;
+    }
+}
+int sum(int a[], int p, char ch)
+{
+    int sum=0;
+    if(ch=='E')
+    {
+        for(int i=0;i<p;i++)
+        {
+            if(a[i]%2==0)
+            {sum+=a[i];}
+        }
+    }    
+    else if(ch=='O')
+        {
+         for(int i=0;i<p;i++)
+            {
+             if(a[i]%2!=0)
+             {sum+=a[i];}
+            }
+        }
+    else return 0;    
+return sum;  
+}

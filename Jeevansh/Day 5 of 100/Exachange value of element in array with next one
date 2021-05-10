@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+int a[100],n,i;
+cout<<"Enter size of an array\n";
+cin>>n;
+for(i=0;i<n;i++)
+   {
+    cout<<"\nEnter element\n";
+    cin>>a[i];
+   }
+for(i=0;i<n;i+=2)
+{
+    a[i]=a[i]+a[i+1];
+    a[i+1]=a[i]-a[i+1];
+    a[i]=a[i]-a[i+1];
+}
+
+cout<<"\nRevised array:";
+for(i=0;i<n;i++)
+{
+    cout<<a[i]<<" ";
+}
+return 0;
+}

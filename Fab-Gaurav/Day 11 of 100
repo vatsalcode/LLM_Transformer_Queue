@@ -1,0 +1,28 @@
+#include <stdio.h>
+int main() {
+int MAX =50;
+int array[MAX], i, largest1, largest2;
+int n,j,temp;
+float mean,sum;
+scanf("%d",&n);
+for(i=0;i<n;i++)
+scanf("%d",&array[i]);
+for(i=0;i<n;i++)
+{
+for(j=i+1;j<n;j++)
+{
+if(array[i]<array[j])
+{
+temp=array[i];
+array[i]=array[j];
+array[j]=temp;
+}
+}
+}
+largest1=array[0];
+largest2=array[1];
+sum=largest1+largest2;
+mean=(sum)/2;
+printf("%.1f",mean);
+return 0;
+}

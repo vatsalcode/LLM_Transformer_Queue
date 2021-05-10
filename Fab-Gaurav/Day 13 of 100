@@ -1,0 +1,66 @@
+#include<bits/stdc++.h>
+
+#define fo(i,a,b) for(int i=a;i<=b;i++)
+#define fd(i,a,b) for(int i=a;i>=b;i--)
+
+using namespace std;
+
+typedef long long LL;
+typedef long double db;
+
+int get(){
+	char ch;
+	while(ch=getchar(),(ch<'0'||ch>'9')&&ch!='-');
+	if (ch=='-'){
+		int s=0;
+		while(ch=getchar(),ch>='0'&&ch<='9')s=s*10+ch-'0';
+		return -s;
+	}
+	int s=ch-'0';
+	while(ch=getchar(),ch>='0'&&ch<='9')s=s*10+ch-'0';
+	return s;
+}
+
+const int N = 1e5+5;
+
+int n,k;
+int val[N];
+db v[N],p[N],s[N];
+
+db quickmi(db x,int tim){
+	db ret=1;
+	for(;tim;tim/=2,x=x*x)
+		if (tim&1)ret=ret*x;
+	return ret;
+}
+
+void solve(){
+	n=get();k=get();
+	fo(i,1,n)val[i]=get();
+	sort(val+1,val+1+n);
+	if (k==1){
+		printf("%d\n",val[n]);
+		return;
+	}
+	db all=0;
+	db ans=0,sum0=0,sum1=0;
+	int m=0;
+	fd(i,n,1){
+		v[i]=exp(log(val[i])/(k-1));
+		s[i]=db(1)/v[i];
+		all=all+s[i];
+		m++;
+		if (s[i]*(m-1)/all>1)break;
+		p[i]=db(1)-s[i]*(m-1)/all;
+		db pdt=quickmi(db(m-1)/all,k);
+		sum0+=val[i];
+		sum1+=s[i];
+		ans=max(ans,sum0-sum1*pdt);
+	}
+	printf("%.9lf\n",(double)ans/k);
+}
+
+int main(){
+	for(int T=get();T;T--)solve();
+	return 0;
+}

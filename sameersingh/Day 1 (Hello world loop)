@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+
+ int n;
+ cout<<"Please input a number"<<endl;
+ cin>>n;
+
+ for (int i = 1; i <=n; i++)
+ {
+     cout<<"Hello world\n";
+ }
+ 
+    return 0;
+}

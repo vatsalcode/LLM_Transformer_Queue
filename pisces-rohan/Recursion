@@ -1,0 +1,27 @@
+//Printing from 1 to n using recursion
+
+#include <stdio.h>
+
+void print_Increasing(int n);
+
+int main()
+{
+    int num;
+    printf("Enter any number : ");
+    scanf("%d", &num);
+    print_Increasing(num);
+    return 0;
+}
+
+void print_Increasing(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    else
+    {
+        print_Increasing(n - 1);
+        printf("%d\n", n);
+    }
+}

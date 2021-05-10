@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t,i,x,y,cnt,q,k,j;
+    cin>>t;
+    for(i=0;i<t;i++)
+    {
+        x=0,y=0,k=0;
+        cin>>x>>y;
+        for(j=1;j<10000;j++)
+        {
+            cnt=0;
+            k=x+y+j;
+            for(q=2;q<=k/2;q++)
+            {
+                if(k%q==0)
+                {
+                    cnt++;
+                }
+            }
+                if(cnt==0)
+                {
+                    cout<<j<<endl;
+                   break;
+                }                         
+        }
+    }
+	return 0;
+}

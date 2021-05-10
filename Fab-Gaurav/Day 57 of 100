@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+void swap(int &a, int &b);
+void swap(int *a,int *b)
+{
+  int temp=*a;
+  *a=*b;
+  *b=temp;
+}
+
+struct node
+{
+  int data;
+  struct node *next;
+}*head,*newnode,*temp;
+
+int main()
+{
+  int n,count=0;
+  cin>>n;
+  while(n--)
+  {
+  newnode=new node;
+  cin>>newnode->data;
+  if(head==0)
+  {
+    head=newnode;
+    temp=newnode;
+  }
+  else
+  {
+    temp->next=newnode;
+    temp=newnode;
+  }
+  }
+  temp=head;
+  while(temp!=NULL && temp->next!=NULL)
+  {
+    swap(&temp->data,&temp->next->data);
+    temp=temp->next->next;
+  }
+  temp=head;
+  cout<<"List : ";
+   while(temp!=NULL)
+   {
+     cout<<"->"<<temp->data;
+     temp=temp->next;
+   }
+  return 0;
+ }

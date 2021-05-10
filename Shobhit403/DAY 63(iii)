@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+int main() 
+{
+	int t;
+	cin>>t;
+	while(t--)
+  {
+	    string s;
+	    cin>>s;
+	    string s1="pawri";
+	    size_t found = s.find("party");
+	    while(found != string::npos)
+	    {
+	        s.replace(found,5,s1);  
+	         found = s.find("party", found+1);        
+	    }
+	    cout<<s<<endl;
+	}
+	return 0;
+}

@@ -1,0 +1,18 @@
+#include<stdio.h>
+int main()
+{
+int min, max ,a,b,c;
+printf("Enter three numbers\n");
+scanf("%d %d %d",&a,&b,&c);
+if (a < b)
+    min = a;
+if (c < min)
+    min = c;
+printf("%d is the largest number\n", min);
+int modulo = min % 2;
+if (modulo == 0)
+    printf("%d is even", min);
+else
+    printf("%d is odd", min);
+    return 0;
+}

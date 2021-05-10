@@ -1,0 +1,23 @@
+#include<iostream.h>
+#include<conio.h>
+ 
+void main()
+{
+    int n,f,f1=-1,f2=1;
+    clrscr();
+     
+    cout<<"  Enter The Number Of Terms:";
+    cin>>n;
+     
+    cout<<"  The Fibonacci Series is:";
+     
+    while(n>0)
+    {
+        f=f1+f2;
+        f1=f2;
+        f2=f;
+        cout<<"  \n"<<f;
+        n--;
+    }
+    getch();
+}

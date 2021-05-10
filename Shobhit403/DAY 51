@@ -1,0 +1,40 @@
+#include<iostream>
+#include<cmath>
+#include<iomanip>
+using namespace std;
+struct coordinates{
+	double x;
+	double y;
+};
+int main(){
+	ios_base::sync_with_stdio(false);
+	int N,tan_theta;
+	cin>>N>>tan_theta;
+	double theta = atan(tan_theta);
+	double sin_theta = sin(theta);
+	double cos_theta = cos(theta);
+	coordinates axis[N];
+	double x_dash,y_dash;
+	for(int i=0;i<N;i++){
+		cin>>axis[i].x>>axis[i].y;
+		x_dash = (axis[i].x)*cos_theta + (axis[i].y)*sin_theta;
+		y_dash = -(axis[i].x)*sin_theta + (axis[i].y)*cos_theta;
+		axis[i].x = x_dash;
+		axis[i].y = y_dash;
+	}
+	double x_max , x_min;
+	x_max = x_min = axis[0].x;
+	double y_max , y_min;
+	y_max = y_min = axis[0].y;
+	for(int i=1;i<N;i++){
+		if(axis[i].x > x_max) x_max = axis[i].x;
+		if(axis[i].x < x_min) x_min = axis[i].x;
+		if(axis[i].y > y_max) y_max = axis[i].y;
+		if(axis[i].y < y_min) y_min = axis[i].y;
+	}
+	double result = abs(x_max - x_min) + abs(y_max - y_min);
+	result *= 2;
+	cout<<fixed;
+	cout<<setprecision(15)<<result<<endl;
+	return 0;
+}

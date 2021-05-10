@@ -1,0 +1,10 @@
+let nums = [110, 15, 25];
+
+let sum = nums[1]+nums.sort( )[1];
+
+console.log(sum);
+
+
+
+
+Output:- 30  ( 15 + 15 )

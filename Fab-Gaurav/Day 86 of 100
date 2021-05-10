@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+  int X;float Y;
+  cin>>X;cin>>Y;
+  if(X%5==0 && Y >= X + 0.5)
+  {
+    float y=Y-(0.5);
+    float x=X;
+    cout<<y-x;
+  }
+  else
+  cout << Y;
+  return 0;
+}

@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include<iostream>
+#include <string.h>
+using namespace std;
+struct node
+{};
+int main(){
+    char string1[20];
+    int i, length;
+    int flag = 0;
+    scanf("%s", string1);
+    length = strlen(string1);
+    for(i=0;i < length ;i++)
+    {
+        if(string1[i] != string1[length-i-1]){
+            flag = 1;
+            break;
+   }
+     
+    /*for(i=0;i < length ;i++)
+    {
+     cout<<string1[i]<<" ";
+        }*/
+}
+   if (flag)
+    {
+    for(i=0;i < length ;i++)
+    {
+     cout<<string1[i]<<" ";
+      }
+     
+      printf("\nNot Palindrome");
+    }   
+    else {
+     
+      for(i=0;i < length ;i++)
+    {
+     cout<<string1[i]<<" ";
+      }
+      printf("\nIs Palindrome");
+    }
+    return 0;
+}

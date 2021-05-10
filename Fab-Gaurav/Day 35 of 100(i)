@@ -1,0 +1,151 @@
+//Single Linked List
+#include<stdio.h>
+#include<stdlib.h>
+#include<malloc.h>
+#include<conio.h>
+
+struct NODE
+{
+	int data;
+	struct NODE *next;
+};
+
+struct NODE *start= NULL;
+struct NODE *create_ll(struct NODE *);
+struct NODE *display(struct NODE *);
+struct NODE *insert_beg(struct NODE *);
+struct NODE *insert_end(struct NODE *);
+struct NODE *delete_beg(struct NODE *);
+struct NODE *delete_end(struct NODE *);
+
+
+int main ()
+{	int option;
+	do
+	{			
+        printf("\n**MAIN MENU**");
+        printf("\n1.Create Linked List");
+        printf("\n2.Display");
+        printf("\n3.Add at Beginning");
+        printf("\n4.Add at End");
+        printf("\n5.Delete from Beginning");
+        printf("\n6.Delete from End");
+		printf("\n7.EXIT");
+        printf("\nEnter your choice:");
+		scanf("%d",&option);
+		switch (option)
+		{
+			case 1: start= create_ll(start);
+					printf("\nLINKED LIST CREATED" );
+					break;
+			case 2: start=display(start);
+					break;
+			case 3: start=insert_beg(start);
+					break;
+			case 4: start=insert_end(start);
+					break;
+			case 5: start=delete_beg(start);
+					break;
+			case 6: start=delete_end(start);
+                    break;
+        }
+    }while (option != 7);
+	getch();
+	return 0;
+}
+
+struct NODE *create_ll(struct NODE *start)
+{
+	struct NODE *new_node, *ptr;
+	int val;
+    printf("\nEnter -1 when you enter the data to end");
+	printf("\nEner the data:");
+	scanf("%d",&val);
+	while (val != -1)
+	{
+				new_node=(struct NODE*)malloc(sizeof(struct NODE));
+				new_node->data = val;
+					if(start==NULL)
+					{
+						new_node->next =NULL;
+						start= new_node;
+					}
+					else
+					{
+						ptr=start;
+						while (ptr->next != NULL)
+						ptr=ptr->next;
+
+						ptr->next = new_node;
+						new_node->next = NULL;
+					}
+					printf("\nEnter the data:");
+					scanf("%d",&val);
+	}
+	return start;
+}
+
+struct NODE *display(struct NODE *start)
+{
+	struct NODE *ptr;
+	ptr = start;
+	while (ptr != NULL)
+	{
+		printf("%d\n",ptr->data );
+		ptr=ptr->next;
+	}
+	return start;
+}
+
+struct NODE *insert_beg(struct NODE *start)
+{
+	struct NODE *new_node;
+	int val;
+	printf("Enter the data:\n");
+	scanf("%d",&val);
+	new_node=(struct NODE*)malloc(sizeof(struct NODE));
+	new_node->data =val;
+	new_node->next =start;
+	start=new_node;
+	return start;
+}
+
+struct NODE *insert_end(struct NODE *start)
+{
+	struct NODE *new_node,*ptr;
+	int val;
+	printf("Enter the Data\n");
+	scanf("%d\n",&val );
+	new_node=(struct NODE*)malloc(sizeof(struct NODE));
+	new_node->data= val;
+	new_node->next=NULL;
+	ptr=start;
+	while (ptr->next != NULL)
+	 	ptr=ptr->next;
+	ptr->next=new_node;
+	return start;
+}
+
+struct NODE *delete_beg(struct NODE *start)
+{
+	struct NODE *ptr;
+	ptr = start;
+	start = start->next;
+	free(ptr);
+	return start;
+}
+
+struct NODE *delete_end(struct NODE *start)
+{
+	struct NODE *ptr,*preptr;
+	ptr=start;
+	while (ptr->next != NULL)
+	{
+		/* code */
+		preptr=ptr;
+		ptr=ptr->next;
+	}
+	free(ptr);
+	preptr->next=NULL;
+	return start;
+}

@@ -1,0 +1,90 @@
+ #include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+unsigned long * distinct(unsigned long a[],int N);
+unsigned char search(unsigned long *b,int l,int r,unsigned long a);
+unsigned char occur(unsigned long *a,int l,int r,unsigned long n);
+int last;
+int main()
+{
+    long int N,i;
+    unsigned long *a,*b;
+    unsigned long long count=0;
+    scanf("%ld",&N);
+    if(N<1 || N>2*pow(10,5))
+    return 0;
+    a=malloc(N*sizeof(unsigned long));
+    for(i=0;i<N;i++)
+    {
+        scanf("%ld",&a[i]);
+        if(a[i]<1 || a[i]>pow(10,9))
+        return 0;
+    }
+    b=calloc(N,sizeof(unsigned long));
+    b=distinct(a,N);
+    if(last!=0)
+    count=N-last;
+    else
+    {
+        count=(N*(N+1))/2;
+        printf("%llu",count);
+        return 0;
+    }
+    i=1;
+    while(i<N)
+    {
+        if(search(a,i,last,a[i-1])=='y')
+        {
+            count+=N-last;
+            i++;
+            continue;
+        }
+        else if(occur(a,last+1,N-1,a[i-1])=='n')
+        break;
+        count+=N-last;
+        i++;
+    }
+    printf("%llu",count);
+    return 0;
+   
+}
+unsigned long * distinct(unsigned long a[],int N)
+{
+    unsigned long *b;
+    b=calloc(N,sizeof(unsigned long));
+    int i,j=1;
+    b[0]=a[0];
+    for(i=1;i<N;i++)
+    {
+        if(search(b,0,j,a[i])=='n')
+        {
+            b[j]=a[i];
+            j++;
+            last=i;
+        }
+    }
+    return b;
+}
+unsigned char search(unsigned long *b,int l,int r,unsigned long a)
+{
+    int i;
+    for(i=l;i<=r;i++)
+    {
+        if(b[i]==a)
+        return 'y';
+    }
+    return 'n';
+}
+unsigned char occur(unsigned long *a,int l,int r,unsigned long n)
+{
+    int i;
+    for(i=l;i<=r;i++)
+    {
+        if(a[i]==n)
+        {
+            last=i;
+            return 'y';
+        }
+    }
+    return 'n';
+}

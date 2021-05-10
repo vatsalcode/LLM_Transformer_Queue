@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+
+
+	int n,i,num1,note=0;
+	cin>>n;
+	for(i=0;i<n;i++)
+    {
+        cin>>num1;
+
+     int f=num1/100;
+    int num=num1-(f*100);
+    if(num>0){
+            note=num/10;
+            int t=num-note*10;
+
+            if(num<50)
+            {
+            if(t==3||t==4||t==6||t==7)
+                note=note+2+f;
+            if(t==1||t==2||t==5)
+                note=note+1+f;
+            if(t==8||t==9)
+                note=note+3+f;
+            }
+             if(num>=50)
+           {
+            if(t==3||t==4||t==6||t==7)
+                note=note-2+f;
+            if(t==1||t==2||t==5)
+                note=note-3+f;
+            if(t==8||t==9)
+                note=note+f-1;
+                if(t==0)
+                    note=note-4+f;
+            }}
+    else
+      note=num1/100;
+      cout<<note<<endl;
+    }
+	return 0;
+  }

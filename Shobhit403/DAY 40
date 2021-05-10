@@ -1,0 +1,23 @@
+#include <iostream> 
+using namespace std;
+int main()
+{
+    int t;
+    int k;
+    int count=0;
+    cin>>t>>k;
+    int num[t];
+    for(int i=0;i<t;i++)
+    {
+        cin>>num[i];
+    }
+    for(int i=0;i<t;i++)
+    {
+        if(num[i]%k==0)
+        {
+            count++;
+        }
+    }
+    cout<<count;
+    return 0;
+}

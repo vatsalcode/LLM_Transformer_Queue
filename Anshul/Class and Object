@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+
+class test
+{
+    public:
+        int x , y;
+        
+        test()
+        {
+            x = 7;
+            y = 13;
+        }
+};
+int main()
+{
+    test a;
+    
+    cout<<"The sum is:"<<a.x+a.y;
+    return 0;
+}

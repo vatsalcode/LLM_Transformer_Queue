@@ -1,0 +1,9 @@
+#include<stdio.h>
+int main(){
+	int number;
+	char p[]="?";
+	printf("Enter a number -\n");
+	scanf("%d" ,&number);
+	printf("You entered : %d %s",number,p);
+	return 0;
+}

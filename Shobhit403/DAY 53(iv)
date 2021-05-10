@@ -1,0 +1,55 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+const int N = 1000 + 5;
+const double comp = (double)(1.00 * (1e18));
+int tt;
+int n;
+int m;
+int u;
+int v;
+ll d;
+pair < double ,double > deal[N][N];
+double dp[N][N];
+double dp2[N][N];
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+        cin >> n >> m >> d;
+        for(int i = 1;i<=n;i++){
+            for(int j = 1;j<=m;j++){
+                cin >> u >> v;
+               deal[i][j] = make_pair(1.00*u,1.00*v);
+            }
+        }
+        for(int i = 1; i<=m; i++){
+            for(int j = 1; j<=n; j++){
+            dp[i][j] = (double) 1.00 * d;
+            dp2[i][j] = (double) d/(double)(deal[j][i].first);
+            }
+        }
+        bool ok = true;
+        for(int i = 1; i<=m&&ok; i++){
+            for(int j = 1; j<=n&&ok; j++){
+                dp2[i][j] = max(dp2[i][j],max(dp2[i-1][j],max(dp2[i-1][j-1],dp2[i-1][j+1])));
+                double value = 1.00 * (dp[i-1][j]/deal[j][i].first);
+                dp2[i][j] = max(dp2[i][j],value);
+                dp[i][j] = max(dp[i][j],max(dp[i-1][j],max(dp[i-1][j-1],dp[i-1][j+1])));
+                value = dp2[i-1][j]*deal[j][i].second;
+                dp[i][j] = max(dp[i][j],value);
+                if(dp[i][j] > comp || dp2[i][j] > comp){
+                    ok = false;
+                    break;
+                }
+            }
+        }
+        if(!ok){
+            cout <<  "Quintillionnaire" << endl;
+            return 0;
+        }
+        double ans = 0;
+        for(int i = 1; i<=n; i++)
+            ans = max(ans, dp[m][i]);
+         printf("%.9lf\n",ans);
+return 0;
+}

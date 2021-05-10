@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() 
+{
+	int t;
+	cin>>t;
+	while(t--)
+  {
+	   long long n,m;
+	    cin>>n>>m;
+	    long long arr[n];
+	    for(int i=0; i<n; i++)
+      {
+	        cin>>arr[i];
+	    }
+	    long long count=0;
+	    for(int i=0; i<n; i++)
+      {
+	        if(arr[i]%m==0)
+	        count++;
+	    }
+	   cout<<(1<<count)-1<<endl; 
+	}
+	return 0;
+}

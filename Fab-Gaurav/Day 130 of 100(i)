@@ -1,0 +1,20 @@
+#Program to find the strong number
+
+sum=0
+num=int(input("Enter a number:"))
+temp=num
+
+while (num):
+    i=1
+    fac=1
+    rem=num%10
+    while(i<=rem):
+        fac=fac*i
+        i=i+1
+    sum=sum+fac
+    num=num//10
+
+if (sum==temp):
+    print("%d is a strong number" %temp)
+else:
+    print("%d is not a strong number" %temp)

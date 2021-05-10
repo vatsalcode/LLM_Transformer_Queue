@@ -1,0 +1,32 @@
+/* covid run question
+codechef october challenge*/
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long l1;
+int main() {
+   l1 t;
+   cin>>t;
+   while(t--)
+   { l1 n,k;
+   cin>>n>>k;
+   l1 arr[n];
+   for(l1 i=0;i<n;i++)
+   cin>>arr[i];
+   l1 c=0,a=0;
+   for(l1 i=0;i<n;i++)
+   { if(arr[i]<k)
+   { a=i+1;
+   c=1;
+   break;}
+   arr[i+1]+=(arr[i]-k);}
+   if(c==1)
+   cout<<a<<"\n";
+   else
+   {
+       a=n+(arr[n-1]/k);
+       cout<<a<<"\n";
+   }
+   }
+return 0;
+}

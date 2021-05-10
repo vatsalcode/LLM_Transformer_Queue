@@ -1,0 +1,32 @@
+#include <iostream>
+
+using namespace std;
+
+class BinaryTreeNode{
+public:
+    int data;
+    BinaryTreeNode * left;
+    BinaryTreeNode * right;
+    BinaryTreeNode(int data){
+        this->data=data;
+              left =NULL;
+        right=NULL;
+    }
+    ~BinaryTreeNode(){
+        delete left;
+        delete right;
+    }
+};
+        
+        
+
+int main()
+{
+    BinaryTreeNode * root =new BinaryTreeNode(1);
+    BinaryTreeNode * left =new BinaryTreeNode(2);
+    BinaryTreeNode * right =new BinaryTreeNode(3);
+    root->left=left;
+    root->right=right;
+
+    return 0;
+}

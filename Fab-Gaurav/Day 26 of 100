@@ -1,0 +1,15 @@
+#1 
+console.log( {} > []);
+->    True
+
+
+
+#2  
+console.log(+[4] + '3');
+->     43
+
+
+
+#3  
+console.log(!(+'02'));
+->     False

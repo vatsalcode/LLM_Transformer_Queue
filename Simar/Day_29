@@ -1,0 +1,50 @@
+#include <iostream>
+#include<stdio.h>
+#include<string.h>
+using namespace std;
+
+int main()
+{
+    string s;
+    int occured,count,total=0,len=0,maxlength =0,maxindex=0;
+    cout<<"enter string";
+    getline(cin,s);
+    len = s.length();
+    for(int i=0;i<len;i++)
+    {
+        count =1;
+        occured =0;
+        for(int j=i-1;j>=0;j--)
+        {
+            if(s[i] == s[j])
+            {
+            occured =1;
+            break;
+            }
+        }
+        if(!occured)
+        {
+            total++;
+            for(int j =i+1;j<len;j++)
+            {
+                if(s[i] == s[j])
+                {
+                total++;
+                count++;
+               
+                }
+            }
+            if(maxlength<count)
+            {
+                maxlength = count;
+                maxindex = i;
+            }
+            cout<<"\nwords are"<<" "<<s[i]<<"\nlength is"<<count;
+        }
+        if(total==len)
+        break;
+    }
+    cout<<"\nmaxlength is"<<" "<<maxlength<<"\nmaxindexis"<<" "<<s[maxindex];
+
+    return 0;
+}

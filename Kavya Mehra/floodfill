@@ -1,0 +1,38 @@
+package mathematics;
+
+public class FloodFill {
+	
+	static void fill(int a[][], int r, int c, int tofill, int prevfill) {
+		int rows = a.length;
+		int cols = a[0].length;
+		if(r<0 || r>=rows || c<0 || c>=cols)
+			return;
+		
+		if(a[r][c] != prevfill) 
+			return;
+		
+		a[r][c] = tofill;
+		
+		fill(a, r-1, c, tofill, prevfill);
+		fill(a, r, c-1, tofill, prevfill);
+		fill(a, r+1, c, tofill, prevfill);
+		fill(a, r, c+1, tofill, prevfill);
+		
+	}
+	static void printfill(int a[][]){
+	for(int i=0; i<a.length; i++) {
+		for(int j=0; j<a.length; j++) {
+			System.out.print(a[i][j]+" ");
+		}
+		System.out.println();
+	}
+	}
+	public static void main(String[] args) {
+		int a[][]= {{2,1,1,1},
+				 	{2,2,1,1},
+				 	{1,2,2,1},
+				 	{1,1,2,2}};
+		fill(a, 2, 2, 0, 2);
+		printfill(a);
+	}
+}

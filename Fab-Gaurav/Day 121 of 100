@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		int arr[101]={0};
+		int m,x,y;
+		cin >> m >> x >> y;
+		int pos[m];
+		for(int i=0;i<m;i++)
+		{
+			cin >> pos[i];
+		}
+		for(int i=0;i<m;i++)
+		{
+			for(int j=pos[i]-(x*y);j<=pos[i]+(x*y);j++)
+			{
+				if((j>=1)&&(j<=100))
+				{	arr[j]++;}
+				
+			}
+		}	
+		int count=0;
+		for(int i=1;i<=100;i++)
+		{
+				if(arr[i]==0)
+				{//	cout << i << " " ; 
+				count++;}
+		}
+		cout << count << endl;
+	}
+	return 0;
+}

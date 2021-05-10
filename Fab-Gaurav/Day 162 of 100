@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+   int n,r;
+   cin>>n>>r;
+   int R[1501];
+   for(int i=0;i<n;i++)
+   {
+     cin>>R[i];
+     if(R[i]<r)
+     {
+       cout<<"Bad boi"<<endl;
+     }
+     else if(R[i]>=r)
+     {
+         cout<<"Good boi"<<endl;
+     }
+   }   
+return 0;
+}

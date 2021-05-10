@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define _HEART_  ios_base::sync_with_stdio(0) ; cin.tie(0) ; cout.tie(0);
+#define ll long long
+#define mod 1000000007
+int  main()
+{
+    _HEART_
+    ll t,n,i,j,k,ans,m,c1,c2;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n>>m;
+        string s[n];
+        for(i=0;i<n;i++)
+            cin>>s[i];
+        c1=0;c2=0;
+        for(i=0;i<n;i++)
+            for(j=0;j<m;j++)
+            {
+                if((i+j)%2==0 && s[i][j]!='R')
+                    c1+=3;
+                if((i+j)%2!=0 && s[i][j]!='G')
+                    c1+=5;
+            }
+        for(i=0;i<n;i++)
+            for(j=0;j<m;j++)
+            {
+                if((i+j)%2==0 && s[i][j]!='G')
+                    c2+=5;
+                if((i+j)%2!=0 && s[i][j]!='R')
+                    c2+=3;
+            }
+        cout<<min(c1,c2)<<endl;
+    }
+    return 0;
+}

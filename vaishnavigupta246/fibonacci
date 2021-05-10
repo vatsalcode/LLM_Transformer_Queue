@@ -1,0 +1,20 @@
+import java.util.*;
+class fibbonacci
+{
+    
+    public static void main()
+    {
+          int c,a,b,n,i;
+          Scanner sc=new Scanner(System.in);
+          System.out.println("enter n no.");
+        n=sc.nextInt();
+        a=0;
+        b=1;
+        System.out.print(a+","+b);
+        for(i=2;i<n;++i)   
+ {    
+  c=a+b;    
+  System.out.print(" "+c);    
+  a=b;    
+  b=c;  }}}  
+        

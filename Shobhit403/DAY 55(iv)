@@ -1,0 +1,80 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define endl '\n'
+#define sz(v) (int)v.size() 
+#define all(v) v.begin(), v.end()
+void dbg_out() { cerr << "\b\b]\n"; }
+template<typename Head, typename... Tail> void dbg_out(Head H, Tail... T){ cerr << H << ", "; dbg_out(T...);}
+#define watch(...) cerr << "[" << #__VA_ARGS__ << "]: [", dbg_out(__VA_ARGS__)
+const int mod = 1e9 + 7;
+ll power(ll a, ll b) {
+    ll res = 1;
+    while (b) {
+        if (b & 1) res = res * a % mod;
+        a = a * a % mod;
+        b >>= 1;
+    }
+    return res;
+}
+//read editorial
+void solve() {
+    int n, m, l; cin >> n >> m >> l;
+    string s, nodes; cin >> s >> nodes;
+    vector <array <int, 2>> edges(m);
+    for (int i = 0; i < 2; ++i)
+        for (int j = 0; j < m; ++j)
+            cin >> edges[j][i];
+    vector <vector <int>> graph(n);
+    map <pair<int, int>, int> cnts;
+    for (int i = 0; i < m; ++i) {
+        int a = edges[i][0] - 1 , b = edges[i][1] - 1;
+        graph[a].push_back(b);
+        graph[b].push_back(a);
+        if (a > b)
+            swap(a, b);
+        cnts[{a, b}]++;
+    }
+    vector <vector <ll>> dp(n, vector <ll> (l, 0));
+    for (int i = 0; i < n; ++i)
+        if (nodes[i] == s[0])
+            dp[i][0] = 1;
+    for (int len = 1; len < l; ++len) {
+        for (int i = 0; i < n; ++i) {
+            if (nodes[i] != s[len]) continue;
+            for (auto v: graph[i]) {
+                dp[i][len] += dp[v][len-1];
+                dp[i][len] %= mod;
+            }
+        }
+    }
+    ll ans = 0;
+    for (int i = 0; i < n; ++i) {
+        ans += dp[i][l-1];
+        ans %= mod;
+    }
+    bool isSame = true;
+    for (int i = 0; i + 1 < l; ++i)
+        if (s[i] != s[i+1])
+            isSame = false;
+    if (isSame) {
+        for (auto i: cnts) {
+            ll extra = 0;
+            int a = i.first.first, b = i.first.second;
+            if (nodes[a] == nodes[b] and s[0] == nodes[b]) {
+                extra += power(i.second, l - 1);
+                extra %= mod;
+            }
+            ans = (ans - extra + mod) % mod;
+        }
+    }
+    cout << ans << endl;
+}
+int main(){
+    ios_base::sync_with_stdio(false); cin.tie(nullptr);
+
+    int t; cin >> t;
+    while (t--) 
+        solve();
+    return 0;
+}

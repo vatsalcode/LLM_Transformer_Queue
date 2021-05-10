@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+class AccBalance
+{
+  public:
+  string val;
+  
+  AccBalance()
+  {
+    val = "Zero Balance";
+    cout<<val<<endl;
+  }
+  
+  AccBalance(float bal){
+    if(bal<0){
+      cout<<"Negative";
+    }
+    else if(bal>0){
+      cout<<"Positive";
+    }
+    else{
+      cout<<"Zero";
+    }
+  }
+};
+
+int main() {
+  AccBalance defltBal;
+  float x;
+  cin>>x;
+  AccBalance currBal(x);
+	
+	return 0;
+}

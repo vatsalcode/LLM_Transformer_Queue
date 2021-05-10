@@ -1,0 +1,50 @@
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+struct node {
+    int data;
+    node *next;
+} *head = NULL;
+
+void insert(struct node** head_ref, int data) {
+    struct node* newnode = (node*)malloc(1*sizeof(struct node));
+    newnode->data = data;
+    newnode->next = NULL;
+    if (*head_ref == NULL) {
+        //*head = &newnode;
+        *head_ref = newnode;
+        return;
+    }
+    struct node* ptr = *head_ref;
+    while(ptr->next != NULL) {
+        ptr = ptr->next;
+    }
+    ptr->next = newnode;
+}
+
+void display() {
+  ;
+}
+
+void display(struct node** head_ref) {
+    cout << "Linked List : ";
+    struct node* ptr = *head_ref;
+    while(ptr!=NULL) {
+        cout << "->" << ptr->data;
+        ptr = ptr->next;
+    }
+}
+
+int main() {
+    int n;
+    cin >> n;
+    int data;
+    while(n--) {
+        cin >> data;
+        insert(&head, data);
+    }
+    display(&head);
+    return 0;
+}

@@ -1,0 +1,30 @@
+import java.util.*;
+class coprime
+{
+    public static void main()
+    {
+       int a,b,c=0,h=0,i;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter two prime no.");
+        a=sc.nextInt();
+        b=sc.nextInt();
+        for(i=1;i<a*b;i++)
+        {
+            if(a%i==0)
+            {
+                c=c+1;
+            }
+            if(b%i==0)
+            {
+                h=h+1;
+            }
+        }
+        if(c==2 && h==2 )
+        {
+            System.out.println("COPRIME");
+        }
+        else
+        {System.out.println("NOT COPRIME");
+        }
+    }}
+            

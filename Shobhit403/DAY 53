@@ -1,0 +1,47 @@
+#include<cstdio>
+#include<iostream>
+#include<cmath>
+using namespace std;
+long long k;
+long long check(long long x)
+{
+	long long a,b,c,ans=0;
+	while(x)
+	{
+		for(a=1;a<=x;a*=10);
+		a/=10;
+		b=x/a,c=x%a;
+		if(a==1)
+		{
+			ans++;
+			break;
+		}
+		ans+=c/b+1,x-=(c/b+1)*b;
+	}
+	return ans;
+}
+int main()
+{
+	int t;
+	long long l,r,mid,ans;
+	scanf("%d",&t);
+	while(t--)
+	{
+		scanf("%lld",&k);
+		k--;
+		l=1,r=1e14;
+		while(l<=r)
+		{
+			mid=l+r>>1;
+			if(k>=check(mid))
+			{
+				ans=mid;
+				l=mid+1;
+			}
+			else
+				r=mid-1;
+		}
+		printf("%lld\n",ans);
+	}
+	return 0;
+}

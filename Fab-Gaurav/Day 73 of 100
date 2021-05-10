@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,sum=0;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        int a=0,b=0,c=0,d=0,e=0;
+        for(int i=0;i<n;i++)
+        {
+            string str;
+            cin>>str;
+            if(str == "cakewalk"  && a == 0)
+            {
+                a++;
+            }
+            else if(str == "simple" && b == 0)
+            {
+                b++;
+            }
+            else if(str == "easy" && c == 0)
+            {
+                c++;
+            }
+            else if((str == "easy-medium" || str == "medium") && d == 0)
+            {
+                d++;
+            }
+            else if((str == "medium-hard" || str == "hard") && e == 0)
+            {
+                e++;
+            }
+            //cout<<a<<" "<<b<<" "<<c<<" "<<d<<" "<<e<<endl;
+        }
+        sum = a+b+c+d+e;
+        if(sum == 5)
+        {
+            cout<<"Yes"<<endl;
+        }
+        else
+        {
+            cout<<"No"<<endl;
+        }  
+    }
+    return 0;
+}

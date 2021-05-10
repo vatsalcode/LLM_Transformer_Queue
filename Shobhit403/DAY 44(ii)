@@ -1,0 +1,37 @@
+#include <cstdio>
+#include <cstring>
+#define MOD 1000000007
+long long count[10100];
+int main()
+{
+    int t;
+    scanf("%d", &t);
+    while (t--)
+    {
+        memset(count, 0, sizeof(count));
+        count[0] = 1;
+        int n, k, m;
+        scanf("%d %d %d", &n, &k, &m);
+        while (n--)
+        {
+            int a;
+            scanf("%d", &a);
+            if (m == 1)
+            {
+                for (int i = k - 1; i >= 0; i--)
+                {
+                    count[i + 1] += count[i];
+                    count[i + 1] %= MOD;
+                }
+                continue;
+            }
+            for (int i = (a + m - 1) % m; i < k && count[i]; i += m)
+            {
+                count[i + 1] += count[i];
+                count[i + 1] %= MOD;
+            }
+        }
+        printf("%lld\n", count[k]);
+    }
+    return 0;
+}

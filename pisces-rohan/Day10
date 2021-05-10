@@ -1,0 +1,35 @@
+//To count the frequency of a particular digit from the number taken as input.
+
+#include <stdio.h>
+int count_digits(int a, int b);
+int main()
+{
+    int num, freq = 0, dig;
+    printf("Enter any number : ");
+    scanf("%d", &num);
+    printf("Enter the digit whose frequency you want to know : ");
+    scanf(" %d", &dig);
+    freq = count_digits(num, dig);
+    printf("The frequency of %d is : %d", dig, freq);
+
+    return 0;
+}  
+int count_digits(int a, int b)
+{
+    int count = 0, i = 1, check = 0;
+    while (a > 0)
+    {
+        check = a % 10;
+        a = a / 10;
+        if (check == b)
+        {
+            count++;
+        }
+        i++;
+        if (a < 0)
+        {
+            break;
+        }
+    }
+    return count;
+}

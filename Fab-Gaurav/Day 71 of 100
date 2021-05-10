@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+int main() 
+{ 
+  int n, *a, *b;
+  cin >> n;
+ 
+  a = new int [n];
+  b = new int [n];
+ 
+  for(int i=0; i<n; i++)
+  {
+    cin >> a[i];
+  }
+ 
+  for(int i=0; i<n; i++)
+  {
+    cin >> b[i];
+  }
+   int max = 0, m;
+  for(int i=0; i<n; i++)
+  {
+    for(int j=i; j<n; j++)
+    {
+      if(b[j]>=a[i])
+      {
+        m = j-i;
+        max = (max<m?m:max);
+      }
+    }
+  }
+   cout << max;
+  return 0;
+}

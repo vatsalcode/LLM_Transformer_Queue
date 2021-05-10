@@ -1,0 +1,37 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+class CustomStack {
+   stack<int> stk;
+   int stack_max;
+   public:
+   void getMax() {
+      if (stk.empty())
+         cout << "Stack is empty"<<endl;
+      else
+         cout << "Maximum Element in the stack is: "<< stack_max <<endl;
+   }
+   void push(int element) {
+      if (stk.empty()) {
+         stack_max = element;
+         stk.push(element);
+         cout << "Element Inserted: " << element <<endl;
+         return;
+      }
+      if (element > stack_max) {
+         stk.push(2 * element - stack_max);
+         stack_max = element;
+      } else
+      stk.push(element);
+      cout << "Element Inserted: " << element <<endl;
+   }
+};
+int main() {
+   CustomStack stk;
+   stk.push(4);
+   stk.push(6);
+   stk.push(8);
+   stk.push(20);
+   stk.getMax();
+   
+}

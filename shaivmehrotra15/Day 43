@@ -1,0 +1,66 @@
+// This is my first JavaScript code.
+/*let firstName="shaiv";
+let lastName="mehrotra"
+console.log(firstName+lastName);
+const interestRate=0.2;
+interestRate=1;
+console.log(interestRate);*/
+
+
+
+
+
+/*let name="shaiv mehrotra";
+let age=19;
+let isApproved= true;
+let a = undefined;
+console.log(age);
+age=null;
+console.log(age);
+console.log(a);*/
+
+
+
+
+
+/*let person = {
+    name: "Shaiv mehrotra" ,
+    age: 19
+};
+console.log(person);
+console.log(person.name);*/
+
+
+
+
+/*let colors= ['red', 'blue','green','remove this and check'];
+console.log(colors[1]);
+console.log(colors);
+console.log(colors.length);
+colors[4]="yellow";
+console.log(colors);
+colors[5]=10;
+console.log(colors);*/
+
+
+
+
+/*function greet(name, lastName)
+{
+    console.log("hello "+name+" "+ lastName);
+}
+
+greet("shaiv", "mehrotra");
+greet("vasu","mehrotra");*/
+
+
+
+
+/*function calSquare(number)
+{
+    return number*number
+}
+
+let num = calSquare(2.5);
+console.log(num);
+console.log(calSquare(2));*/
