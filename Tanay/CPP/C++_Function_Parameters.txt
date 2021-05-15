@@ -1,3 +1,4 @@
+
 C++ Function Parameters
 Parameters and Arguments
 Information can be passed to functions as a parameter. Parameters act as variables inside the function.
