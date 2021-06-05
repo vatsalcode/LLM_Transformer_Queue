@@ -2,6 +2,7 @@
 # Codeshow-100days_of_code
 100DaysOfCode is a challenge/community, where you publicly commit to code for 1 hour for the next 100 days.
 
+
 # Rules
 -In our version, of 100DaysOfCode, you need to do anything that helps you enhance your tech stack i.e. competitive coding, try learning a new language, read technical articles/ books, make open source contributions, add features to a personal project, etc.
 
