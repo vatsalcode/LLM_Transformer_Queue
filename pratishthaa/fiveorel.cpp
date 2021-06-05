@@ -9,11 +9,11 @@ int main(){
 	}
 	else if(n%5 ==0 || n%11==0)
 	{
-		cout<<"BOTH"<<endl;
+		cout<<"ONLY ONE"<<endl;
 	}
 	else
 	{
-		cout<<"BOTH"<<endl;
+		cout<<"NONE"<<endl;
 	}
 	return 0;
 }
