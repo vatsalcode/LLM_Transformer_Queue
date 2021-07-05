@@ -1,8 +1,4 @@
 from array import *
-array_num = array('i', [1,3,5,7,9])
-for i in array_num:
-    print(i)
-print("Access first three items individually")
-print(array_num[0])
-print(array_num[1])
-print(array_num[2])
+array_n = array('i', [1, 3, 5, 7, 9])
+print("Array: "+str(array_n))
+print("Length in bytes of an array element: "+str(array_n.itemsize))
