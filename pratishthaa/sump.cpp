@@ -1,7 +1,5 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int N=1e6;
-int brr[N];
 int main()
 {
 	int a,b;
