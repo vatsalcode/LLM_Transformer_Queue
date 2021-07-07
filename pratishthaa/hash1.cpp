@@ -6,32 +6,28 @@ int main()
 	cin>>t;
 	while(t--)
 	{
+		int flag=0;
 		string s;
 		cin>>s;
-		int dou[26];
+		int dou[26]={0};
 		for(int i=0;i<=s.length();i++)
 		{
 			dou[s[i]-'a']++;
 		}
-		int flag;
-		for( int i=0;i<=26;i++)
+		for( int i=0;i<26;i++)
 		{
 			if(dou[i]>=2)
-			{
-				flag=0;
-			}
-			else
 			{
 				flag=1;
 			}
 		}
-		if(flag!=0)
+		if(flag==1)
 		{
-			cout<<"No"<<endl;
+			cout<<"Yes"<<endl;
 		}
 		else
 		{
-			cout<<"Yes"<<endl;
+			cout<<"No"<<endl;
 		}
 	}
 }
