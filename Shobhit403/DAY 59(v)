@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+#define ull unsigned long long
+#define endl '\n'
+#define ff first
+#define ss second
+#define pb push_back
+#define mp make_pair
+#define all(v) v.begin(),v.end()
+signed main() 
+{
+  cin.tie(0); cout.tie(0);
+  int t;
+  cin>>t;
+  while(t--)
+  {
+    int s;
+    cin>>s;
+    vector<int> q(s+1);
+    for(int i=1; i<=s; i++)
+      cin>>q[i];
+    int watch_minutes=0;
+    for(int i=1; i<=s; i++)
+    {
+      int epi;
+      cin>>epi;
+      vector<int> e(epi);
+      for(int j=0; j<epi; j++)
+        cin>>e[j];
+      watch_minutes +=e[0];
+      for(int j=1; j<epi; j++)
+        watch_minutes += e[j] - q[i];
+    }      
+    cout<<watch_minutes<<endl;
+  }
+  return 0; 
+}

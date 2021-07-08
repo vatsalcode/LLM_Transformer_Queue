@@ -1,0 +1,105 @@
+#include<bits/stdc++.h>
+using namespace std;
+    #define debug(x) cout<<#x<<": "<<x<<endl;   
+    #define prints(x) cout<<x<<endl;
+    #define mem(a) memset(a,0,sizeof(a))
+/*    #define int long long int*/
+    #define pb  push_back
+    #define mp make_pair
+    #define  F first
+    #define  S second
+    const int N = 200043;
+    int mod=998244353;
+    int32_t main()
+    {
+       #ifndef ONLINE_JUDGE
+       freopen("input.txt", "r", stdin);
+       #endif
+       int t;
+       cin>>t;
+       while(t--)
+       {
+        int n,m;
+        cin>>n>>m;
+        int c[n][m];
+        for (int i = 0; i < n; ++i)
+        {
+          for (int j = 0; j < m; ++j)
+          {
+            scanf("%1d",&c[i][j]);
+          }
+        }
+        int ans[n+m-1];
+        int d[n][n+m-1];
+        int u[n][n+m-1];
+        int h[n][n+m-1];
+        int v[n][n+m-1];
+        mem(h);
+        mem(ans);
+        mem(u);
+        mem(d);
+        mem(v);
+        for(int j=m-1;j>=0;j--)
+        {
+          for(int i=n-1;i>=0;i--)
+          {   
+            for(int k=n+m-3;k>=0;k--) u[i][k+1]=u[i][k];
+            for(int k=n+m-3;k>=0;k--) d[i][k+1]=d[i][k];
+            for(int k=n+m-3;k>=0;k--) h[i][k+1]=h[i][k];
+            for(int k=n+m-2;k>=0;k--) v[i][k]=0;
+            if(c[i][j]==1)
+            {
+              u[i][0]=1;
+              d[i][0]=1;
+              h[i][0]=1;
+              v[i][0]=1;
+            } 
+            else
+            {
+              u[i][0]=0;
+              d[i][0]=0;
+              h[i][0]=0;
+              v[i][0]=0;
+            }
+            for(int k=i-1;k>=0;k--)
+            {
+              if(c[k][j]==1) u[i][i-k]++;
+            }
+            for (int k = i+1; k <n;  ++k)
+            {
+              if(c[k][j]==1) d[i][k-i]++;
+            }
+            for (int k = i-1; k >=0 ; k--)
+            {
+              if(c[k][j]==1) v[i][i-k]++;
+            }
+            if(c[i][j]==1)
+            {
+              for (int k = 0; k < n+m-1; ++k)
+              {
+                ans[k]+=u[i][k];
+              }
+               for (int k = 0; k < n+m-1; ++k)
+              {
+                ans[k]+=d[i][k];
+              }
+              for (int k = 0; k < n+m-1; ++k)
+              {
+                ans[k]-=h[i][k];
+              }
+              for (int k = 1; k < n+m-1; ++k)
+              {
+                ans[k]-=v[i][k];
+              }
+            }
+
+          }
+        }
+        for (int k = 1; k < n+m-1 ; ++k)
+        {
+          cout<<ans[k]<<" ";
+        }
+        cout<<endl;
+       }
+      return 0;
+    }

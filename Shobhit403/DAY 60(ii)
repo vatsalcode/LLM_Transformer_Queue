@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int T,n,m;
+    scanf("%d",&T);
+    while(T--)
+    {
+    scanf("%d %d",&n,&m);
+    int a[n+1];
+    int d[m+1]={0};
+    for(int i=1;i<n+1;i++)
+    {
+        scanf("%d",&a[i]);
+        if(d[a[i]]==0)
+        {
+            d[a[i]]++;
+        }
+    }
+    int sum=0;
+    for(int i=1;i<m+1;i++)
+    {
+        sum+=d[i];
+    }
+    if(sum==m)
+    {
+        cout<<"NO"<<endl;
+    }
+    else
+    {
+        cout<<"YES"<<endl;
+    }
+    }
+    return 0;
+}

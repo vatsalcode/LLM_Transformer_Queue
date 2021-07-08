@@ -1,0 +1,11 @@
+testcase=input()
+for i in range(int(testcase)):
+    x=int(input())
+    count=0
+    if x%10==0:
+       print(count)
+    elif x%5==0:
+        count+=1
+        print(count)
+    else :
+        print('-1')

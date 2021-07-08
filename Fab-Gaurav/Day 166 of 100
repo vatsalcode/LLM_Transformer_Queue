@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+#include<cstring>
+using namespace std;
+
+int main(){
+  string s;
+  char c;
+  int t,i;
+  cin>>t;
+  while(t--)
+  {
+    cin>>i;
+    cin>>s;
+    if((i%2)!=0)
+    {
+      s[s.length()-1]=97+(122-s[s.length()-1]);
+    }		
+    for(i=0;i<s.length()-1;i=i+2)
+    {
+      c=97+(122-s[i]);
+      s[i]=(97+(122-s[i+1]));
+      s[i+1]=c;			
+    }		
+    cout<<s<<endl;
+  }	
+  return 0;
+}

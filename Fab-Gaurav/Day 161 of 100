@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() 
+{
+    int t;
+    cin>> t;
+    for(int i=0;i<t;i++){
+        int h,x,y,c;
+        cin>> h>> x>> y>> c;
+        int f=h*(x+(int)(y/2));
+        if(f<=c)cout<< "YES"<<endl;
+        else cout<< "NO"<<endl;
+    }
+
+	return 0;
+}

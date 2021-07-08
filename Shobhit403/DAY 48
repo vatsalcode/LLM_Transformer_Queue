@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define IO ios_base::sync_with_stdio(false)
+#define ll long long
+double a[200], b[200], c[200], v[200];
+double f(double n, double m)
+{
+    double l=0, k; int i;
+    for(i=1; i<=n; i++){
+        k = (b[i]+v[i]*m-c[i]);
+        l+= k*k;
+    }
+    l = sqrt(l); l/=m;
+    return l;
+}
+int main()
+{
+    IO;
+    double  j, n, m, k, m1, m2, l, t, cnt=0, mn, h=0, mod=1e9+7, ans=0; int tc=0, i;
+    cin>>t;
+    while(t--)
+    {
+        tc++;
+        cin>>n; h  = 10000; l = 0; mn=1;
+        //cout<<"Case "<<tc<<":"<<endl;
+        for(i=1; i<=n; i++) cin>>a[i];
+        for(i=1; i<=n; i++) cin>>b[i];
+        for(i=1; i<=n; i++) cin>>v[i];
+        for(i=1; i<=n; i++) cin>>c[i];
+        for(i=1; i<=n; i++){
+            if(v[i]<0) h = min(h,b[i]/abs(v[i]));
+            else if(v[i]>0) h =min(h,(a[i]-b[i])/v[i]);
+            if(b[i]!=c[i]) mn = 0;
+        }
+        if(mn) cout<<0<<endl;
+        else{
+        while(h-l>0.0000000000001){
+            m1 = l+(h-l)/3; m2 = h-(h-l)/3;
+            j = f(n,m1); k = f(n,m2);
+            if(j<k)
+                h = m2;
+            else l = m1;
+        } j = f(n,(l+h)/2);
+        cout<<fixed<<setprecision(10)<<j<<endl;
+        }
+    }
+    return 0;
+}

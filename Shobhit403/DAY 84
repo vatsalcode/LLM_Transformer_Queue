@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+int main() 
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    int arr[n];
+	    for (int i=0;i<n;i++)
+	    {
+	        cin>>arr[i];
+	    }
+	    int odd=0;
+	    if (arr[n-1]%2!=0)  odd++;
+	    int ans=0;
+	    for (int i=n-2;i>=0;i--)
+	    {
+	        if ((arr[i]%2) ==0)
+	        {
+	            ans+=odd;          
+	        }
+	        else
+	        {
+	            odd++;
+	        }	        
+	    }
+	    cout<<ans<<'\n';
+	}
+	return 0;
+}

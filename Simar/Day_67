@@ -1,0 +1,68 @@
+include<bits/stdc++.h>
+using namespace std;
+ 
+bool isPossible(vector<long long int>& arr,long long int d,int c){
+    //placing the first cow on the first stall.
+    int count=1;
+    // current position the cow just placed.
+    long long int cur=arr[0];
+ 
+    for(int i=1;i<arr.size();i++){
+        //checking for the next position that is suitable for placing the next cow.
+        if(arr[i] >= cur+d){
+            cur=arr[i];
+            count++;
+        }
+        // if count(i.e number of cow placed get greater than equal to c) we could return true;
+        if(count >= c){
+            return true;
+        }
+    }
+    return false;
+}
+ 
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+	// Number of test Cases
+    int t;
+    cin>>t;
+    
+    while(t--){
+      int n,c;
+        cin>>n>>c;
+ 
+        vector<long long int> arr;
+        // taking the input for the position of different stalls.
+        for(int i=0;i<n;i++){
+            long long int item;
+            cin>>item;
+            arr.push_back(item);
+        }
+ 
+        //sorting the stalls position
+        sort(arr.begin(),arr.end());
+ 
+        // l= 0, h= 1000,000,001
+        long long int l=0,h=(long long int)pow(10,9)+1;
+        // storing the ans (i.e the largest possible minimum distance for placing all the c cows.)
+        long long int ans=-1;
+ 
+        while(l<= h){
+            long long int mid=l+(h-l)/2;
+ 
+            // we are checking if it is possible to have at least minimum distance mid between the cow. and according to that, we are reducing our search space.
+            if(isPossible(arr,mid,c)){
+                ans=mid;
+                l=mid+1;
+            }else{
+                h=mid-1;
+            }
+        }
+ 
+        cout<<ans<<"\n";
+    }
+ 
+    return 0;
+}
+

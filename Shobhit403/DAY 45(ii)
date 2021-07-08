@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+#define pb push_back
+#define X first
+#define Y second
+#define all(v) (v).begin(),(v).end()
+using namespace std;
+typedef long long ll;
+typedef long double ld;
+typedef pair<int, int> pii;
+const ll mod = 1000000007;
+void solve()
+{
+    int n,m,q,l,r,x; cin >> n >> m >> q;
+    vector<int> chalenIn[n+1], chalenOut[n+1]; int skill[m+1];
+    vector<int> compo[m+1];
+    for(int i=1;i<=m;i++) {
+        cin >> l >> r >> skill[i];
+        chalenIn[l].pb(i);
+        chalenOut[r].pb(i);
+    }
+    for(int i=1;i<=q;i++) {
+        cin >> l >> r;
+        for(int j=l;j<=r;j++)
+            compo[j].pb(i);
+    }
+    ll val[q+1]{}, ans = 0, to_change;
+    for(int i=1;i<=n;i++) {
+        for(int &j : chalenIn[i]) {
+            for(int &k : compo[j]) {
+                to_change = 0;
+                if(val[k] > 0) to_change -= val[k]; 
+                val[k] += skill[j];
+                if(val[k] > 0) to_change += val[k];
+                ans += to_change;
+            }
+        }
+        cout << ans << " ";
+        for(int &j : chalenOut[i]) {
+            for(int &k : compo[j]) {
+                to_change = 0;
+                if(val[k] > 0) to_change -= val[k]; 
+                val[k] -= skill[j];
+                if(val[k] > 0) to_change += val[k];
+                ans += to_change;
+            }
+        }
+    }
+    cout << "\n";
+}
+signed main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL); cout.tie(NULL);
+    int t = 1; cin >> t;
+    while(t--) {
+        solve();
+    }
+}

@@ -1,0 +1,54 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    long long int n , k , s;
+    cin>>n>>k>>s;
+    vector<long long int> arr[n+1];
+    long long int prefix[n+1] = {0};
+    for(int j=0;j<n;j++){
+        long long int r;
+        cin>>r;
+        prefix[j] = r;
+        for(long long int i=2;i*i<=r;i++){
+            if(r%i==0){
+                arr[j].push_back(i);
+                while(r%i==0) r/=i;
+            }
+        }
+        if(r!=1) arr[j].push_back(r);
+    }
+    long long int ans = -1e18;
+    for(int j=0;j<n;j++){
+        ans= max(ans , prefix[j]*(k -(long long int)arr[j].size()*s));
+    }
+    for(long long int p=1;p<=k/s+1;p++){
+        long long int st = 0 , en = -1;
+        unordered_map<long long int, long long int> mp;
+        long long int sum =0;
+        while(en<n){
+                if(mp.size() < p){
+                    en++;
+                    if(en<n){
+                         for(int i=0;i<arr[en].size();i++) mp[arr[en][i]]++;
+                          sum+=prefix[en];
+                    }
+                }else{
+                    if(mp.size() > p){
+                        for(int i=0;i<arr[st].size();i++) {mp[arr[st][i]]--;if(mp[arr[st][i]]==0) mp.erase(arr[st][i]);}
+                        sum-=prefix[st];
+                        st++;
+                    }else{
+                        long long int val = sum*(k-p*s);
+                        ans = max(ans , val);
+                         en++;
+                        if(en<n){
+                            for(int i=0;i<arr[en].size();i++) mp[arr[en][i]]++;
+                            sum+=prefix[en];
+                        }
+                    }
+                }
+        }
+    }
+    cout<<ans<<endl;
+    return 0;
+}

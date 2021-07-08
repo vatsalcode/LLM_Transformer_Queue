@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	 ios_base::sync_with_stdio(false);
+      cin.tie(NULL);
+      cout.tie(NULL);
+      int t;
+      cin>>t;
+      while(t--)
+      {
+          int r,c;
+          cin>>r>>c;
+          int a[r][c];
+          for(int i=0;i<r;i++)
+          {
+              for(int j=0;j<c;j++)
+              {
+                  cin>>a[i][j];
+              }
+          }
+          bool ans=true;
+         for(int i=0;i<r;i++)
+         {
+              for(int j=0;j<c;j++)
+              {
+                  int x = 0;
+                if(i)
+                    x++;
+                if(j)
+                    x++;
+                if(i < (r - 1))
+                    x++;
+                if(j < (c - 1))
+                    x++;
+                if(x <= a[i][j]){
+                    ans = false;
+                    break;
+                }
+              }
+              if(!ans)
+              {
+                  break;
+              }
+          }
+          if(ans)
+          {
+              cout<<"Stable"<<endl;
+          }
+          else
+          {
+              cout<<"Unstable"<<endl;
+          }
+      }
+	return 0;
+}

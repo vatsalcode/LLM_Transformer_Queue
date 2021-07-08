@@ -1,0 +1,57 @@
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+ll setbits_count(ll n){
+	ll ans = 0;
+	while(n){
+		++ans;
+		n &= (n-1);
+	}
+	return ans;
+}
+bool case_2(ll n, ll m){
+	ll n1 = setbits_count(m);
+	ll n2 = m%2;
+	m /= 2;
+	while(m){
+		if(m%2 == 1){
+			n2 += 1;
+			m = (m-1)/2;
+		}else{
+			n2 += 2;
+			m =(m-2)/2;
+		}
+	}
+	return n>=n1 && n<=n2;
+}
+bool solver(ll n, ll m, ll k){
+	if(k==1){
+		return n==m;
+	}
+	if(k==2){
+		return case_2(n, m);
+	}
+	if(m%k > 1){
+		return false;
+	}
+	ll count = m%k;
+	m /= k;
+	while(m){
+		if(m%k > 2){
+			return false;
+		}
+		count += m%k;
+		m /= k;
+	}
+	return count == n;
+}
+int main(){	
+	int t;
+	ll n, k, m, x0;
+	cin >> t;
+	while(t--){
+		cin >> n >> k >> m >> x0;
+		cout << (solver(n, m, k)? "yes": "no") << "\n";
+	}
+	return 0;
+}

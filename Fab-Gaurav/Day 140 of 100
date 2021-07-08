@@ -1,0 +1,13 @@
+# Program to swap two numbers using function
+
+def swap(a,b):
+    a,b=b,a
+    print("Swapped values are :    x =",a,"   y =",b)
+    
+x,y=input("Enter the two numbers : ").split()
+print("")
+
+print("Before swapping :    x =",x,"   y =",y)
+print("")
+
+swap(int(x),int(y))

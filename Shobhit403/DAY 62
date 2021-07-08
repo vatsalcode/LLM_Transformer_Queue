@@ -1,0 +1,43 @@
+#include <iostream>
+#include <algorithm>
+#define T() int t;cin>>t;while(t--)
+#define c1 cout<<"YES\n";
+#define c2 cout<<"NO\n";
+#define boost ios::sync_with_stdio(0); cin.tie(0);
+using namespace std;
+int main() 
+{
+    boost;
+  T(){
+      int d,c;
+      cin>>d>>c;
+      int a1,a2,a3;
+      cin>>a1>>a2>>a3;
+      int b1,b2,b3;
+      cin>>b1>>b2>>b3;      
+      int sum_a=a1+a2+a3;
+      int sum_b=b1+b2+b3;
+      /*int coupn=sum_a+sum_b+c;
+      int nocupn=sum_a+sum_b+d+d;
+      int mini= min(coupn,nocupn);
+      */
+      if(sum_a>=150 && sum_b>=150 )
+      {
+          if(sum_a+sum_b+c<sum_a+sum_b+d+d)
+          {
+          cout<<"YES"<<endl;}
+          else
+          cout<<"NO"<<endl;
+      }
+      else if(sum_a>=150 || sum_b>=150 )
+      {
+           if(sum_a+sum_b+c+d<sum_a+sum_b+d+d)
+          cout<<"YES"<<endl;
+          else
+          cout<<"NO"<<endl;
+         }
+         else
+         cout<<"NO"<<endl; 
+  } 
+	return 0;
+}

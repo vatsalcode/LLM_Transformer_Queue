@@ -1,0 +1,124 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int MX=(1<<20) , MXL=20;
+vector < int > v[MX];
+int n , QN , depth[MX] , par[MXL][MX];
+pair < int , int > dp[MX][3];
+pair < int , int > inc(pair < int , int > p){
+    return {p.first + 1 , p.second};
+}
+void Pdfs(int x , int p){
+    int nxt , C , sz=v[x].size();
+ 
+    dp[x][0] = dp[x][1] = dp[x][2] = {-1 , -1};
+ 
+    if(sz == 1 && p != -1){
+        dp[x][0] = {0 , x};
+        return;
+    }
+    for(int j=0;j<sz;j++){
+        nxt=v[x][j];
+        if(nxt == p) continue;
+        depth[nxt]=depth[x]+1;
+        par[0][nxt]=x;
+        Pdfs(nxt , x);
+        dp[x][2] = max(dp[x][2] , inc(dp[nxt][0]));
+        if(dp[x][2] > dp[x][1]) swap(dp[x][2] , dp[x][1]);
+        if(dp[x][1] > dp[x][0]) swap(dp[x][1] , dp[x][0]);
+    }
+}
+void process(){
+    for(int j=1;j<MXL;j++)
+        for(int i=1;i<=n;i++)
+            par[j][i]=par[j-1][par[j-1][i]];
+}
+int jump(int x , int K){
+    int node=x;
+    for(int j=0;j<MXL;j++)
+        if((K&(1<<j)))
+            node=par[j][node];
+    return node;
+}
+int LCA(int x , int y){
+    if(depth[x] < depth[y]) swap(x , y);
+    x = jump(x , depth[x] - depth[y]);
+    if(x == y) return x;
+    for(int j = MXL - 1 ; j >= 0 ; j--)
+        if(par[j][x] != par[j][y])
+            x = par[j][x] , y = par[j][y];
+    return par[0][x];
+}
+int Kth(int x , int y , int K){
+    int lca = LCA(x , y);
+    int a = depth[x] - depth[lca] + 1;
+    if(a >= K)
+        return jump(x , K - 1);
+    K -= a;
+    return jump(y , depth[y] - depth[lca] - K);
+}
+int DIS(int x , int y){
+    return depth[x] + depth[y] - 2 * depth[LCA(x , y)];
+}
+void dfs(int x , int p , pair < int , int > toPar){
+    for(auto nxt : v[x]){
+        if(nxt == p) continue;
+        if(dp[nxt][0].second == dp[x][0].second) dfs(nxt , x , inc(max(dp[x][1] , toPar)));
+        else dfs(nxt , x , inc(max(dp[x][0] , toPar)));
+    }
+    dp[x][2] = max(dp[x][2] , toPar);
+    if(dp[x][2] > dp[x][1]) swap(dp[x][2] , dp[x][1]);
+    if(dp[x][1] > dp[x][0]) swap(dp[x][1] , dp[x][0]);
+}
+int main(){
+    int T;
+    cin>>T;
+    int ln = 0;
+    while(T--){
+        scanf("%d %d",&n,&QN);
+        for(int j = 1 ; j <= n ; j++){
+            v[j].clear();
+            for(int i = 0 ; i < MXL ; i++)
+                par[i][j] = 0;
+        }
+        for(int j=1;j<n;j++){
+            int a , b;
+            scanf("%d %d",&a,&b);
+            v[a].push_back(b);
+            v[b].push_back(a);
+        }
+        depth[1] = 1;
+        Pdfs(1 , -1);
+        dfs(1 , -1 , {0 , 1});
+        process();
+        for(int qidx = 1 ; qidx <= QN ; qidx++){
+            int x , dx , y , dy , qq , ww;
+            scanf("%d %d %d %d",&x,&dx,&y,&dy); qq = dx , ww = dy;
+            int lca = LCA(x , y);
+            int dis = DIS(x , y);
+            if(dis % 2 != (dx + dy)%2 ){
+                puts("-1");
+                continue;
+            }
+            int center = Kth(x , y , (dis + dx - dy)/2 + 1);
+            int dcx = DIS(x , center) , dcy = DIS(y , center);
+            dx -= dcx , dy -= dcy;
+            //cout<<dx<<' '<<dy<<endl;
+            if(dx != dy || dx < 0){
+                puts("-1");
+                continue;
+            }
+            int ans = -1;
+            if(dx == 0){
+                ans = center;
+            }
+            for(int k = 0 ; k < 3 && ans == -1; k++){
+                int other = dp[center][k].second , len = dp[center][k].first;
+                if(other == -1 || len < dx) continue;
+                int tmp = Kth(other , center , len - dx + 1);
+                if(DIS(tmp,x) == qq && DIS(tmp , y) == ww)
+                    ans = tmp;
+            }
+            printf("%d\n",ans);
+        }
+    }
+}

@@ -1,0 +1,104 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct node
+{
+	int info;
+	node *left, *right;
+	int val;
+};
+int a = 0;
+node* GetNode(int num, int val)
+{
+	node* tam = new node;
+	tam->info = num;
+	tam->left = tam->right = NULL;
+	tam->val = val;
+	return tam;
+}
+node* insertion(node *root, int n, int *num)
+{
+	if(root == NULL){
+		return GetNode(n, *num);
+	}
+	else if(root->info > n){
+		*num = (*num) * 2;
+		root->left = insertion(root->left, n, num);
+	}
+	else 
+  {
+		*num = (*num) * 2 + 1;
+		root->right = insertion(root->right, n, num);
+	}
+	return root;
+}
+node* deletion(node *root, int n)
+{
+	if(root->info < n)
+  {
+		root->right = deletion(root->right, n);
+		return root;
+	}
+	else if(root->info > n)
+  {
+		root->left = deletion(root->left, n);
+		return root;
+	}
+	cout << root->val << endl;
+	if(root->left == NULL)
+  {
+		node *tam;
+		tam = root->right;
+		delete root;
+		return tam;
+	}
+	else if(root->right == NULL)
+  {
+		node *tam;
+		tam = root->left;
+		delete root;
+		return tam;
+	}
+	node *succ, *parentSucc;
+	parentSucc = root;
+	succ = root->right;
+	while(succ->left){
+		parentSucc = succ;
+		succ = succ->left;
+	}
+	node *tam;
+	tam = succ;
+	if(root != parentSucc)
+  {
+		parentSucc->left = succ->right;
+	}
+	else
+  {
+		root->right = succ->right;
+	}
+	root->info = succ->info;
+	delete succ;
+	return root;
+}
+int main()
+{
+	int t;
+	cin >> t;
+	node *root = NULL;
+	while(t--)
+  {
+		int n;
+		int ans = 1;
+		a = 0;
+		char c;
+		cin >> c >> n;
+		if(c == 'd'){
+			root = deletion(root, n);
+		}
+		else 
+    {
+			root = insertion(root, n, &ans);
+			cout << ans << endl;
+		}
+	}
+	return 0;
+}

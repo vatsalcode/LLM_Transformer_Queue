@@ -1,0 +1,69 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int N = 100005;
+const int LN = 19;
+#define MIN -1000000000000000
+vector<pair<int,int>>adj[N];
+vector<long long int>in(N),out(N),dist(N),depth(N);
+int pa[LN][N];
+void dfs(int V,int pV){
+  depth[V] = depth[pV] + 1;  
+  pa[0][V] = pV;
+  in[V] = MIN;
+  bool leaf = true;
+    for(auto child:adj[V]){
+         int v = child.first ;
+         long long int w = child.second;
+         if(v == pV) continue;
+         leaf = false;
+         dist[v] = dist[V] + w;
+         out[v] = max(w,out[V] + w);
+         dfs(v,V);
+         in[V] = max(in[V],max(w,w+in[v])); 
+    }
+  if(leaf) in[V] = 0;  
+}
+int LCA(int u,int v){
+ if(depth[u] < depth[v]) swap(u,v);
+ int diff = depth[u] - depth[v];   
+ for(int i=0;i<LN;i++)
+      if(diff & (1<<i))
+          u = pa[i][u];
+ if(u == v) return u;
+ for(int i=LN-1;i>=0;i--)
+       if(pa[i][u] != pa[i][v])
+          u = pa[i][u],v = pa[i][v];
+ return pa[0][u];
+}
+int main(){
+ int n,q;
+ scanf("%d%d", &n, &q);   
+ for(int i=0;i<LN;i++)
+     for(int j=1;j<=N;j++)
+            pa[i][j] = -1;
+ int u,v,w;
+ for(int i=1;i<n;i++){
+       scanf("%d%d%d", &u, &v, &w);
+       adj[u].push_back({v,w});
+       adj[v].push_back({u,w});
+ }   
+ dfs(1,0); 
+ for(int i=1;i<LN;i++)
+     for(int j=1;j<+N;j++)
+         if(pa[i-1][j] != 0)
+             pa[i][j] = pa[i-1][pa[i-1][j]];
+ /*for(int i=1;i<=n;i++)
+       cout<<out[i]<<" ";
+  */  
+ while(q--){
+     int u,v;
+     scanf("%d%d", &u, &v);
+     int lca = LCA(u,v);
+     long long int distance = dist[u] + dist[v] - 2*dist[lca],res;  
+     if(lca == u ) res = max(distance,distance + 2*max(out[u],in[v]));
+     else if(lca == v) res = max(distance,distance + 2*max(out[v],in[u]));
+     else res = max(distance,distance+2*out[lca]);
+     cout<<res<<endl;    
+ } 
+ return 0;
+}

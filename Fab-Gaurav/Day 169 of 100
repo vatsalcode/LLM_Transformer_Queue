@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+   int t;
+   cin>>t;
+   while(t--)
+   {
+       int n,i,j;
+       cin>>n;
+       char s[100];
+       cin>>s;
+       long int sum=0,max=0;
+       int a[8],dob,tri;
+       for(i=0;i<8;i++)
+            cin>>a[i];
+       for(i=0;i<=n-8;i++)
+       {   sum=0;
+            dob=0,tri=0;
+           for(j=0;j<8;j++)
+            {
+                switch(s[i+j])
+                {
+                case '.': sum=sum+a[j];
+                    break;
+                case 'd':   sum=sum+2*a[j];
+                    break;
+                case 't':sum=sum+3*a[j];
+                    break;
+                case 'D':sum=sum+a[j];
+                        dob++;
+                    break;
+                case 'T':sum=sum+a[j];
+                    tri++;
+                    break;
+                }
+            }
+            sum=sum*(pow(2,dob));
+            sum=sum*(pow(3,tri));
+            if(max<=sum)
+                max=sum;
+       }
+        cout<<max<<"\n";
+   }
+}

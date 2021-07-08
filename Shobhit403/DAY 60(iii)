@@ -1,0 +1,44 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main() 
+{
+	short test;
+	cin>>test;
+	float num_of_questions,time_limit;
+	while(test)
+	{
+	    float solved=0,time_taken=0;
+	    bool is_bot=true,is_slow=false;
+	    cin>>num_of_questions>>time_limit;
+	    short time;
+	    for(short i=0 ; i<num_of_questions ; i++ )
+	    {
+	        cin>>time;
+	        if( -1!=time )
+	        {
+	            solved++;
+	            if( time_limit<time )
+	                is_slow = true;
+	            if( time>1 )
+	                is_bot=false;
+	        }
+	        else
+	            is_bot = false;
+	    }
+	    if( solved<(ceil(num_of_questions/2.0)) )
+	        cout<<"Rejected\n";
+	    else
+	    {
+	        if( is_slow )
+	            cout<<"Too Slow\n";
+	        else
+	            if( is_bot )
+	                cout<<"Bot\n";
+	            else
+	                cout<<"Accepted\n";
+	    }
+	    test--;
+	}
+	return 0;
+}

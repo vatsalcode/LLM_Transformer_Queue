@@ -1,0 +1,104 @@
+
+/*function greet(name, lastName)
+{
+    console.log("hello "+name+" "+ lastName);
+}
+
+greet("shaiv", "mehrotra");
+greet("vasu","mehrotra");*/
+
+
+
+
+/*function calSquare(number)
+{
+    return number*number
+}
+
+let num = calSquare(2.5);
+console.log(num);
+console.log(calSquare(2));*/
+
+
+
+/*console APIs in JavaScript
+document.write("my name is shaiv")
+console.warn("this is a warning");
+console.error("this is an error")
+console.log("hello")
+console.assert(4==5)
+console.assert(4==4)
+console.log("hello")
+console.assert(5==5)
+console.assert(2==4)*/
+
+
+
+/*how to print in js
+alert("hello")
+console.log("hello") this prints on console
+document.write("hello") this is used to print on page*/
+
+
+/*let num1= 20
+let num2=30
+if(num1>num2)
+{
+    console.log("num1 is greater")
+}
+else if (num1<num2) 
+{
+    console.log("num2 is greater")
+} 
+else 
+{
+    console.log("both are equal")
+}*/
+
+
+
+
+/*let arr=[1,2,3,4,5,6,7,8]
+for(let i=0; i < arr.length;i++)
+{
+    console.log(arr[i])
+}
+
+
+arr.forEach(function(element)
+{
+    console.log(element)
+}
+)
+//both do the same work 
+
+
+let j=0
+while(j<=arr.length)
+{
+    console.log(j)
+    j++
+}*/
+
+
+
+/*let myDate= new Date();
+console.log(myDate.getMonth())
+console.log(myDate.getFullYear())
+console.log(myDate.getSeconds())
+console.log(myDate.getTime())
+console.log(myDate.getDay())*/
+
+
+
+//Dom manipulation
+let elem=document.getElementById('click');
+console.log(elem)
+
+let elemClass=document.getElementsByClassName("container")
+console.log(elemClass)
+elemClass[0].style.background = "blue";
+elemClass[1].style.background = "pink";
+elemClass[1].classList.add("bg-primary");
+console.log(elemClass[0].innerHTML)
+console.log(elemClass[0].innerText)

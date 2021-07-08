@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+#include<string>
+#include<cmath>
+#include<iterator>
+#include<map>
+using namespace std;
+#define _HEART_  ios_base::sync_with_stdio(0) ; cin.tie(0) ; cout.tie(0);
+#define ll long long
+#define mod 1000000007
+int  main()
+{
+    _HEART_
+    ll t,n,a,k,angle,den,num,ans,g;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n>>a>>k;
+        angle=180*(n-2);
+        num=2*(angle-a*n);
+        den=n*(n-1);
+        ans=a*den+(k-1)*num;
+        g=__gcd(ans,den);
+        ans/=g;
+        den/=g;
+        cout<<ans<<" "<<den<<endl;
+    }
+    return 0;
+}
