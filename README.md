@@ -9,7 +9,6 @@
 -Keep defining your short term goals (measurable) and strive hard to achieve them. (Eg. Getting better at competitive coding is not a measurable goal but achiving 2000 rating in Codechef is measurable.
 
 -Update everyday progress and submit a pull request.
-
 -(Optional) Follow 100DaysOfCode Twitter Bot that retweets the tweets that contain the #100DaysOfCode hashtag and timely tweet your progress with #100DaysOfCode hashtag.
 
 -Try to add detailed description of what you did, add corresponding links, if you solve questions, you can add your codes in the same folder and provid a link in the README (not for active contests).
