@@ -1,6 +1,5 @@
 # Codeshow-100days_of_code
 100DaysOfCode is a challenge/community, where you publicly commit to code for 1 hour for the next 100 days.
-
 # Rules
 -In our version, of 100DaysOfCode, you need to do anything that helps you enhance your tech stack i.e. competitive coding, try learning a new language, read technical articles/ books, make open source contributions, add features to a personal project, etc.
 
@@ -9,7 +8,6 @@
 -Keep defining your short term goals (measurable) and strive hard to achieve them. (Eg. Getting better at competitive coding is not a measurable goal but achiving 2000 rating in Codechef is measurable.
 
 -Update everyday progress and submit a pull request.
-
 -(Optional) Follow 100DaysOfCode Twitter Bot that retweets the tweets that contain the #100DaysOfCode hashtag and timely tweet your progress with #100DaysOfCode hashtag.
 
 -Try to add detailed description of what you did, add corresponding links, if you solve questions, you can add your codes in the same folder and provid a link in the README (not for active contests).
@@ -61,3 +59,4 @@ Basic git:
 -Update the progress in your README according to date and submit a pull request.
 
 -If you need more clarification, feel free to reach us at Whatsapp.
+
